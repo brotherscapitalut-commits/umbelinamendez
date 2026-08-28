@@ -263,7 +263,7 @@ export function BeautyTechDaySection() {
                 "Porque cuidar de você também merece entrar na sua agenda. ♡"
               </div>
               <div className="text-[11px] text-[#6E5A56] mt-1">
-                📍 Clínica Asa Norte | SQN 513 Bloco A, Edifício Bittar 1, Sala 110
+                📍 Clínica Asa Norte | SEPN 513, Edifício Bittar I, Sala 110
               </div>
             </div>
 

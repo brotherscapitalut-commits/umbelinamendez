@@ -33,7 +33,7 @@ export const Route = createFileRoute("/tratamentos")({
       {
         property: "og:description",
         content:
-          "Todos os tratamentos disponíveis com atendimento personalizado no consultório na Asa Norte (SQN 513) e em domicílio no Distrito Federal.",
+          "Todos os tratamentos disponíveis com atendimento personalizado no consultório na Asa Norte (SEPN 513) e em domicílio no Distrito Federal.",
       },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:type", content: "website" },
@@ -84,7 +84,7 @@ function TreatmentsPage() {
           Cuidados com <em className="text-[#A86558] italic font-normal">base científica</em> em Brasília — DF.
         </h1>
         <p data-speakable className="mt-5 text-sm md:text-base text-[#6E5A56] max-w-2xl leading-relaxed">
-          Protocolos personalizados combinando biologia tecidual, manobras precisas e tecnologia de ponta no consultório na Asa Norte (SQN 513) ou no conforto da sua residência no Distrito Federal.
+          Protocolos personalizados combinando biologia tecidual, manobras precisas e tecnologia de ponta no consultório na Asa Norte (SEPN 513) ou no conforto da sua residência no Distrito Federal.
         </p>
 
         <div className="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-6">

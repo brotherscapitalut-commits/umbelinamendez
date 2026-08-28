@@ -8,8 +8,8 @@ export const SITE = {
   city: "Brasília",
   region: "DF",
   country: "BR",
-  address: "SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte, Brasília - DF, 70763-510",
-  addressStreet: "SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte",
+  address: "SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília - DF, 70768-900",
+  addressStreet: "SEPN 513, Edifício Bittar I, Sala 110 – Asa Norte",
   email: "contato@umbelinamendez.com.br",
   whatsapp: "5561981567985",
   whatsappDisplay: "(61) 98156-7985",
@@ -19,7 +19,7 @@ export const SITE = {
   hours: "Segunda a Sexta • 08:00 às 18:00 | Sábado • 08:00 às 13:00",
   sessionDuration: "60 minutos (+ 20min de higienização e intervalo)",
   url: "https://umbelinamendez.com.br",
-  mapsQuery: "SQN 513 Bloco A Edifício Bittar 1 Asa Norte Brasília DF",
+  mapsQuery: "SEPN 513 Edifício Bittar I Asa Norte Brasília DF",
   mapsEmbed:
     "https://www.google.com/maps?q=SQN+513+Bloco+A+Edificio+Bittar+1+Brasilia+DF&output=embed",
 };
@@ -441,7 +441,7 @@ export type ServiceSlug = (typeof SERVICES)[number]["slug"];
 export const GENERAL_FAQS: ServiceFAQ[] = [
   {
     q: "Onde fica localizada a clínica em Brasília?",
-    a: "Nosso consultório fica na SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte, Brasília - DF. Também realizamos atendimentos domiciliares e hospitalares com estrutura completa em todo o Distrito Federal.",
+    a: "Nosso consultório fica na SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília - DF, 70768-900. Também realizamos atendimentos domiciliares e hospitalares com estrutura completa em todo o Distrito Federal.",
   },
   {
     q: "Como funciona a avaliação com a Dra. Umbelina?",
