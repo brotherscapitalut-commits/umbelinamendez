@@ -1,0 +1,188 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Rose Gold & Nude Premium Tokens */
+  --color-rosegold: var(--rosegold);
+  --color-rosegold-light: var(--rosegold-light);
+  --color-rosegold-dark: var(--rosegold-dark);
+  --color-nude: var(--nude);
+  --color-nude-soft: var(--nude-soft);
+  --color-nude-card: var(--nude-card);
+  --color-champagne: var(--champagne);
+
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+  --shadow-soft: 0 20px 50px -15px rgba(168, 101, 88, 0.12);
+  --shadow-petal: 0 10px 30px rgba(168, 101, 88, 0.07);
+  --shadow-lux: 0 24px 60px -12px rgba(45, 35, 34, 0.08);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Background Nude Rosé acetinado */
+  --background: #F9F4F0;
+  /* Tipografia: Títulos e corpo principal escuros e nobres */
+  --foreground: #2D2322;
+
+  /* Superfícies de Cards e Modais */
+  --card: #FFFFFF;
+  --card-foreground: #2D2322;
+  --popover: #FFFFFF;
+  --popover-foreground: #2D2322;
+
+  /* Primária: Rose Gold Terracota Nobre */
+  --primary: #A86558;
+  --primary-foreground: #FFFFFF;
+
+  /* Secundária: Nude suave com toque quente */
+  --secondary: #F4EAE4;
+  --secondary-foreground: #6E5A56;
+
+  /* Muted */
+  --muted: #F2E7E1;
+  --muted-foreground: #6E5A56;
+
+  /* Accent: Rose Gold Metalizado Suave */
+  --accent: #B76E79;
+  --accent-foreground: #FFFFFF;
+
+  /* Destructive */
+  --destructive: #B93838;
+  --destructive-foreground: #FFFFFF;
+
+  /* Bordas elegantes sutis */
+  --border: #E8D8D0;
+  --input: #E8D8D0;
+  --ring: #A86558;
+
+  /* Cores da Nova Identidade */
+  --rosegold: #A86558;
+  --rosegold-light: #B76E79;
+  --rosegold-dark: #8C4E43;
+  --nude: #F9F4F0;
+  --nude-soft: #F7EFE9;
+  --nude-card: #FDFBF9;
+  --champagne: #F5EDE6;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: #2D2322;
+  }
+}
+
+.input-admin {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #E8D8D0;
+  background-color: #FDFBF9;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.8125rem;
+  color: #2D2322;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-admin:focus {
+  background-color: #FFFFFF;
+  border-color: #A86558;
+  box-shadow: 0 0 0 2px rgba(168, 101, 88, 0.2);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(15px, -20px) scale(1.03); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s cubic-bezier(0.16, 1, 0.3, 1), transform .7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Utilitários de Gradiente Rose Gold */
+.bg-gradient-rosegold {
+  background: linear-gradient(135deg, #A86558 0%, #B76E79 100%);
+}
+
+.bg-gradient-nude {
+  background: linear-gradient(180deg, #F9F4F0 0%, #F4EAE4 100%);
+}
+
+.bg-gradient-champagne {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FDFBF9 50%, #F7EFE9 100%);
+}
+
+.text-gradient-rosegold {
+  background: linear-gradient(135deg, #A86558 0%, #B76E79 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

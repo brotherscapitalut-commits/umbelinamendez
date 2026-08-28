@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Metallic Rose Gold Gradients -->
+    <linearGradient id="roseGoldGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9B564A"/>
+      <stop offset="25%" stop-color="#C58577"/>
+      <stop offset="50%" stop-color="#F2C4B8"/>
+      <stop offset="75%" stop-color="#A86558"/>
+      <stop offset="100%" stop-color="#763529"/>
+    </linearGradient>
+    <linearGradient id="roseGoldGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8C4A3E"/>
+      <stop offset="30%" stop-color="#D99B8D"/>
+      <stop offset="60%" stop-color="#F7D0C6"/>
+      <stop offset="85%" stop-color="#B76E79"/>
+      <stop offset="100%" stop-color="#6E2F24"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8C4A3E"/>
+      <stop offset="20%" stop-color="#C58577"/>
+      <stop offset="45%" stop-color="#E2A698"/>
+      <stop offset="70%" stop-color="#A86558"/>
+      <stop offset="100%" stop-color="#763529"/>
+    </linearGradient>
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#A86558" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Interlaced Monogram UM -->
+  <g filter="url(#subtleGlow)" transform="translate(0, -10)">
+    <!-- U Section -->
+    <path d="M195 185 H228 V275 C228 322 250 348 290 348 C330 348 350 322 350 275 V185 H378 V275 C378 338 344 372 290 372 C235 372 195 338 195 275 Z" fill="url(#roseGoldGrad1)"/>
+    
+    <!-- M Left & Center Section intertwined -->
+    <path d="M195 185 H228 L289 315 L350 185 H383 V355 H355 V225 L297 348 H281 L223 225 V355 H195 Z" fill="url(#roseGoldGrad2)"/>
+    
+    <!-- Top Serifs & Highlights -->
+    <path d="M190 185 H233 V191 H190 Z M345 185 H388 V191 H345 Z" fill="url(#roseGoldGrad1)"/>
+    <path d="M347 350 H388 V356 H347 Z" fill="url(#roseGoldGrad1)"/>
+  </g>
+
+  <!-- Typography: UMBELINA MENDEZ -->
+  <text x="250" y="415" text-anchor="middle" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="34" font-weight="600" letter-spacing="0.22em" fill="url(#textGrad)">
+    UMBELINA MENDEZ
+  </text>
+
+  <!-- Subtitle: BIÓLOGA ESTETA -->
+  <text x="250" y="445" text-anchor="middle" font-family="'Montserrat', 'Plus Jakarta Sans', sans-serif" font-size="14.5" font-weight="500" letter-spacing="0.38em" fill="#6E5A56">
+    BIÓLOGA ESTETA
+  </text>
+</svg>

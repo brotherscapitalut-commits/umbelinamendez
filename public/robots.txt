@@ -1,0 +1,53 @@
+# ==============================================================================
+# ROBOTS.TXT — DRA. UMBELINA MENDEZ | BIÓLOGA ESTETA (BRASÍLIA - DF)
+# Otimizado para Motores de Busca Tradicionais (Google, Bing) e
+# Motores de Busca por IA (ChatGPT Search, Perplexity, Claude, Apple Intelligence, Gemini)
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+# ---- MOTORES DE BUSCA POR IA & ASSISTENTES GENERATIVOS (GEO / AEO) ----
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemap Oficial
+Sitemap: https://umbelinamendez.com.br/sitemap.xml

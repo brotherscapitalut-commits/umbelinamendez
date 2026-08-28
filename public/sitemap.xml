@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página Principal (Home) -->
+  <url>
+    <loc>https://umbelinamendez.com.br/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://umbelinamendez.com.br/logo.svg</image:loc>
+      <image:title>Umbelina Mendez — Bióloga Esteta em Brasília</image:title>
+    </image:image>
+  </url>
+
+  <!-- Catálogo Geral de Tratamentos -->
+  <url>
+    <loc>https://umbelinamendez.com.br/tratamentos</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Agendamento Inteligente -->
+  <url>
+    <loc>https://umbelinamendez.com.br/agendamento</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Serviços & Métodos Oficiais -->
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/metodo-reviva</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/reviva-face</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/conexao-materna</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/beauty-tech-day</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/pos-operatorio</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/laserterapia-ilib</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/drenagem-linfatica</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/servicos/flacidez</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Central de Perguntas Frequentes (FAQ) -->
+  <url>
+    <loc>https://umbelinamendez.com.br/faq</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog & Artigos Científicos -->
+  <url>
+    <loc>https://umbelinamendez.com.br/blog</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/blog/pos-operatorio-brasilia-guia-completo</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/blog/drenagem-linfatica-brasilia-como-funciona</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/blog/pos-parto-cuidados-puerperio-brasilia</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://umbelinamendez.com.br/blog/drenagem-pos-operatorio-diferencas</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
