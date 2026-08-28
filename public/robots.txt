@@ -50,4 +50,4 @@ User-agent: DuckDuckBot
 Allow: /
 
 # Sitemap Oficial
-Sitemap: https://umbelinamendez.com.br/sitemap.xml
+Sitemap: https://www.umbelinamendez.com.br/sitemap.xml

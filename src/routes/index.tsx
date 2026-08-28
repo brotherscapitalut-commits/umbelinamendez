@@ -76,26 +76,7 @@ const authorityBadges = [
   { n: "DF Completo", l: "Atendimento Clínico, Domiciliar e Hospitalar" },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "O Método Reviva transformou o contorno do meu abdômen e a textura da pele. A Dra. Umbelina une uma sensibilidade ímpar a uma base biológica que você não encontra em clínicas comuns.",
-    name: "Camila F.",
-    role: "Paciente Método Reviva™ Corporal",
-  },
-  {
-    quote:
-      "O programa Conexão Materna foi essencial no meu puerpério. Ter a Dra. Umbelina cuidando da cicatriz da minha cesárea com laserterapia e ILIB me trouxe um alívio e uma recuperação rápida e indolor.",
-    name: "Mariana S.",
-    role: "Puérpera — Parto Cesárea",
-  },
-  {
-    quote:
-      "Fiz o programa Reviva Face de 60 dias após o diagnóstico com Dermoscan. Minhas manchas suavizaram, o colágeno voltou e minha pele ganhou um viço que eu não via há anos.",
-    name: "Patrícia V.",
-    role: "Paciente Reviva Face™ 60 Dias",
-  },
-];
+
 
 const beforeAfter = [
   { title: "Método Reviva™ — 8 semanas de remodelamento corporal", img: posopImg },
@@ -118,7 +99,7 @@ const HOME_FAQS = [
   },
   {
     q: "Onde fica o consultório da Dra. Umbelina Mendez em Brasília?",
-    a: "Nosso consultório está localizado na SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte, Brasília - DF. Dispomos também de atendimento domiciliar e hospitalar em todo o Distrito Federal.",
+    a: "Nosso consultório está localizado na SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília - DF, 70768-900. Dispomos também de atendimento domiciliar e hospitalar em todo o Distrito Federal.",
   },
 ];
 
@@ -135,10 +116,10 @@ const LOCAL_BUSINESS_JSONLD = {
   priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "SQN 513 Bloco A, Edifício Bittar 1, Sala 110",
+    streetAddress: "SEPN 513, Edifício Bittar I, Sala 110",
     addressLocality: "Brasília",
     addressRegion: "DF",
-    postalCode: "70763-510",
+    postalCode: "70768-900",
     addressCountry: "BR",
   },
   geo: { "@type": "GeoCoordinates", latitude: -15.7594, longitude: -47.8864 },
@@ -294,7 +275,7 @@ function Hero() {
               </a>
             </div>
             <div className="mt-3 flex items-center justify-between text-xs text-[#6E5A56]">
-              <span>Asa Norte (SQN 513) ou Domiciliar</span>
+              <span>Asa Norte (SEPN 513) ou Domiciliar</span>
               <Link
                 to="/agendamento"
                 onClick={trackClick("hero_agendar")}
@@ -549,39 +530,12 @@ function BeforeAfterSection() {
   );
 }
 
+import { Depoimentos } from "@/components/depoimentos";
+
 function TestimonialsSection() {
   return (
-    <section id="depoimentos" className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="max-w-2xl">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#A86558] font-semibold">
-            Depoimentos
-          </span>
-          <h2 className="mt-4 font-serif text-3xl md:text-5xl text-[#2D2322] font-semibold">
-            Histórias de <em className="text-[#A86558] italic font-normal">acolhimento e transformação</em>.
-          </h2>
-        </div>
-
-        <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <figure
-              key={t.name}
-              className="bg-white border border-[#E8D8D0] rounded-3xl p-8 shadow-sm flex flex-col justify-between"
-            >
-              <div>
-                <div className="font-serif text-4xl text-[#A86558] leading-none">“</div>
-                <blockquote className="mt-3 text-xs md:text-sm text-[#2D2322] leading-relaxed">
-                  {t.quote}
-                </blockquote>
-              </div>
-              <figcaption className="mt-6 pt-4 border-t border-[#F2E7E1]">
-                <div className="font-serif text-base font-semibold text-[#2D2322]">{t.name}</div>
-                <div className="text-[11px] text-[#A86558] font-medium">{t.role}</div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
+    <section id="depoimentos">
+      <Depoimentos limit={6} />
     </section>
   );
 }
@@ -710,7 +664,7 @@ function Footer() {
 
         <div className="text-center md:text-right">
           <div>© {new Date().getFullYear()} {SITE.brand}.</div>
-          <div className="text-[10px] text-[#6E5A56]/70 mt-1">SQN 513 Bloco A, Sala 110 – Asa Norte, Brasília - DF</div>
+          <div className="text-[10px] text-[#6E5A56]/70 mt-1">SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília - DF</div>
         </div>
       </div>
     </footer>

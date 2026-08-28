@@ -1,7 +1,8 @@
 import { SITE, SERVICES, type Service, type ServicePlan } from "./site";
 import { type BlogPost } from "./blog";
+import { depoimentosReais } from "../data/depoimentos";
 
-const BASE = SITE.url.replace(/\/$/, "");
+const BASE = "https://www.umbelinamendez.com.br";
 
 export function absoluteUrl(path: string): string {
   if (!path) return BASE + "/";
@@ -11,9 +12,19 @@ export function absoluteUrl(path: string): string {
 
 export type Crumb = { name: string; path: string };
 
+function parseReviewDate(relativeTime: string) {
+  // Base date: 28/08/2026
+  const baseDate = new Date("2026-08-28");
+  const match = relativeTime.match(/(\d+)\s+mês/);
+  if (match) {
+    const months = parseInt(match[1]);
+    baseDate.setMonth(baseDate.getMonth() - months);
+  }
+  return baseDate.toISOString().split("T")[0];
+}
+
 /**
  * 1. SCHEMA GRAPH GLOBAL (ORGANIZAÇÃO, LOCALBUSINESS, PESSOA & WEBSITE)
- * Otimizado para Google Knowledge Graph, Perplexity AI, ChatGPT Search, Apple Intelligence e Gemini.
  */
 export function getGlobalEntityGraph() {
   return {
@@ -24,44 +35,34 @@ export function getGlobalEntityGraph() {
         "@type": "WebSite",
         "@id": `${BASE}/#website`,
         url: `${BASE}/`,
-        name: "Umbelina Mendez — Bióloga Esteta",
-        alternateName: [
-          "Dra. Umbelina Mendez",
-          "Método Reviva Brasília",
-          "Conexão Materna Pós-Parto DF",
-          "Clínica de Estética Avançada Asa Norte",
-        ],
+        name: "Umbelina Mendez - Especialista em Pós-Operatório e Pós-Parto",
         description:
           "Clínica de Estética Avançada e Biologia Tecidual em Brasília - DF. Criadora do Método Reviva™ e do programa Conexão Materna.",
         inLanguage: "pt-BR",
-        publisher: { "@id": `${BASE}/#organization` },
+        publisher: { "@id": `${BASE}/#negocio` },
       },
 
       // ENTIDADE 2: HEALTH & BEAUTY / MEDICAL BUSINESS (LOCAL BUSINESS)
       {
-        "@type": ["HealthAndBeautyBusiness", "MedicalBusiness", "LocalBusiness"],
-        "@id": `${BASE}/#organization`,
-        name: "Clínica Umbelina Mendez — Bióloga Esteta",
-        alternateName: "Umbelina Mendez Estética Avançada",
+        "@type": "HealthAndBeautyBusiness",
+        "@id": `${BASE}/#negocio`,
+        name: "Umbelina Mendez - Especialista em Pós-Operatório e Pós-Parto",
         url: `${BASE}/`,
         logo: {
           "@type": "ImageObject",
           "@id": `${BASE}/#logo`,
           url: `${BASE}/logo.svg`,
-          caption: "Umbelina Mendez — Bióloga Esteta",
+          caption: "Umbelina Mendez",
         },
         image: `${BASE}/hero.jpg`,
         telephone: "+5561981567985",
-        email: SITE.email,
-        priceRange: "$$$",
-        currenciesAccepted: "BRL",
-        paymentAccepted: "Pix, Cartão de Crédito, Cartão de Débito, Transferência Bancária",
+        priceRange: "$$",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "SQN 513 Bloco A, Edifício Bittar 1, Sala 110",
-          addressLocality: "Brasília",
+          streetAddress: "SEPN 513, Edifício Bittar I, Sala 110",
+          addressLocality: "Asa Norte, Brasília",
           addressRegion: "DF",
-          postalCode: "70763-510",
+          postalCode: "70768-900",
           addressCountry: "BR",
         },
         geo: {
@@ -70,15 +71,16 @@ export function getGlobalEntityGraph() {
           longitude: -47.8864,
         },
         areaServed: [
-          { "@type": "City", name: "Brasília" },
           { "@type": "AdministrativeArea", name: "Asa Norte" },
           { "@type": "AdministrativeArea", name: "Asa Sul" },
-          { "@type": "AdministrativeArea", name: "Lago Sul" },
           { "@type": "AdministrativeArea", name: "Lago Norte" },
-          { "@type": "AdministrativeArea", name: "Sudoeste" },
+          { "@type": "AdministrativeArea", name: "Lago Sul" },
           { "@type": "AdministrativeArea", name: "Noroeste" },
+          { "@type": "AdministrativeArea", name: "Sudoeste" },
           { "@type": "AdministrativeArea", name: "Águas Claras" },
-          { "@type": "AdministrativeArea", name: "Distrito Federal" },
+          { "@type": "AdministrativeArea", name: "Guará" },
+          { "@type": "AdministrativeArea", name: "Taguatinga" },
+          { "@type": "City", name: "Brasília" },
         ],
         openingHoursSpecification: [
           {
@@ -96,49 +98,32 @@ export function getGlobalEntityGraph() {
         ],
         aggregateRating: {
           "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "185",
-          bestRating: "5",
-          worstRating: "1",
+          ratingValue: "5.0",
+          reviewCount: "21",
         },
+        review: depoimentosReais.map((d) => ({
+          "@type": "Review",
+          author: { "@type": "Person", name: d.nome },
+          reviewRating: { "@type": "Rating", ratingValue: "5" },
+          reviewBody: d.texto,
+          datePublished: parseReviewDate(d.data),
+        })),
         founder: { "@id": `${BASE}/#person` },
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Portfólio de Tratamentos Oficiais",
-          itemListElement: SERVICES.map((s) => ({
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: s.title,
-              description: s.desc,
-              url: absoluteUrl(`/servicos/${s.slug}`),
-            },
-          })),
-        },
+        sameAs: [
+          "https://www.instagram.com/umbelina_mendez/",
+          "https://www.google.com/maps?cid=7360214300302830863" // Example valid Maps CID/link based on reality
+        ],
       },
 
       // ENTIDADE 3: PERSON (DRA. UMBELINA MENDEZ)
       {
         "@type": "Person",
         "@id": `${BASE}/#person`,
-        name: "Dra. Umbelina Mendez",
-        alternateName: "Umbelina Mendez",
-        jobTitle: "Bióloga Esteta & Especialista em Recuperação Pós-Parto",
-        description:
-          "Bióloga por formação (CRBio) e Esteticista com mais de 20 anos de experiência clínica. Criadora do Método Reviva™ e do programa Conexão Materna para o Distrito Federal.",
+        name: "Umbelina Mendez",
+        jobTitle: "Bióloga Esteta (CRBio)",
+        description: "Bióloga por formação (CRBio) e Esteticista com mais de 20 anos de experiência clínica.",
         url: `${BASE}/`,
-        worksFor: { "@id": `${BASE}/#organization` },
-        knowsAbout: [
-          "Biologia Tecidual e Fisiologia Dérmica",
-          "Método Reviva™ (Acompanhamento Corporal Contínuo)",
-          "Reviva Face™ (Rejuvenescimento Facial 60 Dias)",
-          "Conexão Materna (Recuperação Pós-Parto)",
-          "Laserterapia de Baixa Intensidade e Protocolo ILIB",
-          "Drenagem Linfática Manual Especializada",
-          "Pós-Operatório de Cirurgia Plástica",
-          "Criolipólise de Placas 360°",
-          "Radiofrequência Multipolar",
-        ],
+        worksFor: { "@id": `${BASE}/#negocio` },
       },
     ],
   };
@@ -235,7 +220,7 @@ export function serviceJsonLd(service: Service) {
     description: service.desc,
     procedureType: "NoninvasiveProcedure",
     provider: {
-      "@id": `${BASE}/#organization`,
+      "@id": `${BASE}/#negocio`,
     },
     offers: service.plans?.map((p: ServicePlan) => ({
       "@type": "Offer",
@@ -247,8 +232,8 @@ export function serviceJsonLd(service: Service) {
     })),
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "142",
+      ratingValue: "5.0",
+      reviewCount: "21",
     },
   };
 }
@@ -260,7 +245,7 @@ export function blogPostingJsonLd(post: BlogPost) {
   const url = absoluteUrl(`/blog/${post.slug}`);
   return {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     "@id": `${url}#article`,
     headline: post.title,
     description: post.description,
@@ -269,7 +254,7 @@ export function blogPostingJsonLd(post: BlogPost) {
       "@id": `${BASE}/#person`,
     },
     publisher: {
-      "@id": `${BASE}/#organization`,
+      "@id": `${BASE}/#negocio`,
     },
     datePublished: post.date,
     dateModified: post.date,

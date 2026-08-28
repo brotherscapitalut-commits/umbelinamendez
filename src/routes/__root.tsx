@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackingScripts } from "../lib/tracking";
+import { useSeo } from "../hooks/useSeo";
 
 function NotFoundComponent() {
   return (
@@ -79,6 +80,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  
+  // Chama o hook de SEO para aplicar tags dinamicamente ao mudar de rota
+  useSeo();
 
   // Load tracking scripts on the client once mounted
   useEffect(() => {
@@ -101,3 +105,4 @@ function RootComponent() {
     </>
   );
 }
+

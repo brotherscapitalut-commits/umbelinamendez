@@ -20,7 +20,7 @@ export const Route = createFileRoute("/agendamento")({
       {
         name: "description",
         content:
-          "Agende sua avaliação ou sessão para Método Reviva™, Conexão Materna (Pós-Parto), Pós-Operatório Cirúrgico ou Beauty Tech Day na Asa Norte (SQN 513) ou em domicílio em Brasília — DF.",
+          "Agende sua avaliação ou sessão para Método Reviva™, Conexão Materna (Pós-Parto), Pós-Operatório Cirúrgico ou Beauty Tech Day na Asa Norte (SEPN 513) ou em domicílio em Brasília — DF.",
       },
       { property: "og:title", content: "Agendar Atendimento — Dra. Umbelina Mendez" },
       {
@@ -256,7 +256,7 @@ function AgendamentoPage() {
                         : "border-[#E8D8D0] bg-[#FDFBF9] text-[#6E5A56] hover:bg-white"
                     }`}
                   >
-                    🏢 Consultório na Asa Norte (SQN 513)
+                    🏢 Consultório na Asa Norte (SEPN 513)
                   </button>
                   <button
                     type="button"
