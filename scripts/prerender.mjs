@@ -1,6 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
 
@@ -69,7 +70,18 @@ async function prerender() {
     serverProcess = server;
     console.log(`Server started on port ${port}`);
 
-    const browser = await puppeteer.launch({ headless: 'new' });
+    const isVercelBuild = !!process.env.VERCEL;
+
+    const browser = isVercelBuild
+      ? await puppeteer.launch({
+          args: chromium.args,
+          executablePath: await chromium.executablePath(),
+          headless: chromium.headless,
+        })
+      : await puppeteer.launch({
+          headless: true,
+          channel: 'chrome',
+        });
     const page = await browser.newPage();
     
     // Set viewport to a desktop size
