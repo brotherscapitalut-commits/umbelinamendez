@@ -1,71 +1,82 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { BLOG_POSTS, formatDatePtBr } from "@/lib/blog";
+import { formatDatePtBr } from "@/lib/blog";
+import { getPublishedPosts } from "@/lib/blog-store";
 import { SITE } from "@/lib/site";
 import { pageSchemaScripts } from "@/lib/schema";
 import { Logo } from "@/components/logo";
 
-const blogListJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  name: `Blog — ${SITE.name}`,
-  url: `${SITE.url}/blog`,
-  description:
-    "Artigos sobre Método Reviva, pós-parto, pós-operatório e estética avançada em Brasília.",
-  blogPost: BLOG_POSTS.map((p) => ({
-    "@type": "BlogPosting",
-    headline: p.title,
-    description: p.description,
-    datePublished: p.date,
-    url: `${SITE.url}/blog/${p.slug}`,
-    author: { "@type": "Person", name: SITE.name },
-  })),
-};
-
 export const Route = createFileRoute("/blog/")({
-  head: () => ({
-    meta: [
-      { title: "Blog & Artigos Científicos — Dra. Umbelina Mendez | Bióloga Esteta Brasília" },
-      {
-        name: "description",
-        content:
-          "Artigos com base biológica sobre Método Reviva, pós-operatório cirúrgico, recuperação pós-parto e estética avançada em Brasília. Escritos por Umbelina Mendez.",
-      },
-      {
-        name: "keywords",
-        content:
-          "blog estética Brasília, Método Reviva Brasília, pós-operatório DF, drenagem linfática Brasília, pós-parto DF, cuidados puerpério, Dra Umbelina Mendez",
-      },
-      { property: "og:title", content: "Blog & Artigos — Dra. Umbelina Mendez" },
-      { property: "og:description", content: "Conteúdo com embasamento biológico sobre recuperação pós-operatória, pós-parto e estética no DF." },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: `${SITE.url}/blog` },
-      { property: "og:locale", content: "pt_BR" },
-      { name: "geo.region", content: "BR-DF" },
-      { name: "geo.placename", content: "Brasília" },
-      { name: "geo.position", content: "-15.7594;-47.8864" },
-      { name: "ICBM", content: "-15.7594, -47.8864" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: `${SITE.url}/blog` }],
-    scripts: [
-      { type: "application/ld+json", children: JSON.stringify(blogListJsonLd) },
-      ...pageSchemaScripts({
-        path: "/blog",
-        name: "Blog & Artigos Científicos — Dra. Umbelina Mendez",
-        description:
-          "Artigos sobre pós-operatório, pós-parto, drenagem linfática e estética avançada em Brasília.",
-        type: "CollectionPage",
-        breadcrumbs: [
-          { name: "Início", path: "/" },
-          { name: "Blog", path: "/blog" },
-        ],
-      }),
-    ],
-  }),
+  loader: async () => {
+    const posts = await getPublishedPosts();
+    return { posts };
+  },
+  head: ({ loaderData }) => {
+    const posts = loaderData?.posts || [];
+    
+    const blogListJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: `Blog — ${SITE.name}`,
+      url: `${SITE.url}/blog`,
+      description:
+        "Artigos sobre Método Reviva, pós-parto, pós-operatório e estética avançada em Brasília.",
+      blogPost: posts.map((p) => ({
+        "@type": "BlogPosting",
+        headline: p.title,
+        description: p.meta_description,
+        datePublished: p.published_at,
+        url: `${SITE.url}/blog/${p.slug}`,
+        author: { "@type": "Person", name: SITE.name },
+      })),
+    };
+
+    return {
+      meta: [
+        { title: "Blog & Artigos Científicos — Dra. Umbelina Mendez | Bióloga Esteta Brasília" },
+        {
+          name: "description",
+          content:
+            "Artigos com base biológica sobre Método Reviva, pós-operatório cirúrgico, recuperação pós-parto e estética avançada em Brasília. Escritos por Umbelina Mendez.",
+        },
+        {
+          name: "keywords",
+          content:
+            "blog estética Brasília, Método Reviva Brasília, pós-operatório DF, drenagem linfática Brasília, pós-parto DF, cuidados puerpério, Dra Umbelina Mendez",
+        },
+        { property: "og:title", content: "Blog & Artigos — Dra. Umbelina Mendez" },
+        { property: "og:description", content: "Conteúdo com embasamento biológico sobre recuperação pós-operatória, pós-parto e estética no DF." },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: `${SITE.url}/blog` },
+        { property: "og:locale", content: "pt_BR" },
+        { name: "geo.region", content: "BR-DF" },
+        { name: "geo.placename", content: "Brasília" },
+        { name: "geo.position", content: "-15.7594;-47.8864" },
+        { name: "ICBM", content: "-15.7594, -47.8864" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: `${SITE.url}/blog` }],
+      scripts: [
+        { type: "application/ld+json", children: JSON.stringify(blogListJsonLd) },
+        ...pageSchemaScripts({
+          path: "/blog",
+          name: "Blog & Artigos Científicos — Dra. Umbelina Mendez",
+          description:
+            "Artigos sobre pós-operatório, pós-parto, drenagem linfática e estética avançada em Brasília.",
+          type: "CollectionPage",
+          breadcrumbs: [
+            { name: "Início", path: "/" },
+            { name: "Blog", path: "/blog" },
+          ],
+        }),
+      ],
+    };
+  },
   component: BlogIndex,
 });
 
 function BlogIndex() {
+  const { posts } = Route.useLoaderData();
+
   return (
     <div className="min-h-screen bg-[#F9F4F0] text-[#2D2322]">
       <header className="border-b border-[#E8D8D0] bg-[#F9F4F0]/90 backdrop-blur sticky top-0 z-30">
@@ -90,12 +101,10 @@ function BlogIndex() {
 
       <section className="mx-auto max-w-3xl px-6 pb-24">
         <ul className="space-y-8">
-          {BLOG_POSTS.slice()
-            .sort((a, b) => (a.date < b.date ? 1 : -1))
-            .map((p) => (
+          {posts.map((p) => (
               <li key={p.slug} className="border-b border-[#E8D8D0] pb-8">
                 <div className="text-[11px] uppercase tracking-wider text-[#A86558] font-semibold">
-                  {p.category} · {formatDatePtBr(p.date)} · {p.readingMinutes} min de leitura
+                  {p.category} · {formatDatePtBr(p.published_at)} · {p.readingMinutes} min de leitura
                 </div>
                 <h2 className="mt-2 font-serif text-2xl md:text-3xl text-[#2D2322] font-semibold">
                   <Link

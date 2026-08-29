@@ -31,11 +31,7 @@ async function getRoutes() {
     '/servicos/pos-operatorio', '/servicos/drenagem-linfatica',
     '/servicos/conexao-materna', '/servicos/laserterapia-ilib',
     '/servicos/beauty-tech-day', '/servicos/flacidez',
-    '/servicos/metodo-reviva', '/servicos/reviva-face',
-    '/blog/pos-operatorio-brasilia-guia-completo',
-    '/blog/drenagem-linfatica-brasilia-como-funciona',
-    '/blog/pos-parto-cuidados-puerperio-brasilia',
-    '/blog/drenagem-pos-operatorio-diferencas'
+    '/servicos/metodo-reviva', '/servicos/reviva-face'
   ];
   
   return [...new Set([...routes, ...expectedRoutes])];

@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { BLOG_POSTS, findPost, formatDatePtBr, postUrl } from "@/lib/blog";
+import { formatDatePtBr, postUrl } from "@/lib/blog";
+import { getPostBySlug } from "@/lib/blog-store";
 import { SITE, waLink } from "@/lib/site";
 import { trackClick } from "@/lib/tracking";
 import { pageSchemaScripts } from "@/lib/schema";
@@ -7,8 +8,8 @@ import { Logo } from "@/components/logo";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 
 export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = findPost(params.slug);
+  loader: async ({ params }) => {
+    const post = await getPostBySlug(params.slug);
     if (!post) throw notFound();
     return { post };
   },
@@ -23,24 +24,26 @@ export const Route = createFileRoute("/blog/$slug")({
     }
     const p = loaderData.post;
     const url = postUrl(p.slug);
-    const title = `${p.title} — Dra. Umbelina Mendez | Brasília DF`;
+    const title = p.meta_title || `${p.title} — Dra. Umbelina Mendez | Brasília DF`;
+    const description = p.meta_description || p.excerpt;
 
     return {
       meta: [
         { title },
-        { name: "description", content: p.description },
-        { name: "keywords", content: `${p.keywords.join(", ")}, Brasília DF, Dra Umbelina Mendez` },
+        { name: "description", content: description },
+        { name: "keywords", content: `${(p.keywords || []).join(", ")}, Brasília DF, Dra Umbelina Mendez` },
         { name: "author", content: "Dra. Umbelina Mendez — Bióloga Esteta" },
         { property: "og:title", content: title },
-        { property: "og:description", content: p.description },
+        { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "article:published_time", content: p.date },
+        { property: "og:image", content: p.hero_image || "" },
+        { property: "article:published_time", content: p.published_at },
         { property: "article:section", content: p.category },
         { property: "article:author", content: "Dra. Umbelina Mendez" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
-        { name: "twitter:description", content: p.description },
+        { name: "twitter:description", content: description },
         { name: "geo.region", content: "BR-DF" },
         { name: "geo.placename", content: "Brasília" },
         { name: "geo.position", content: "-15.7594;-47.8864" },
@@ -50,8 +53,8 @@ export const Route = createFileRoute("/blog/$slug")({
       scripts: pageSchemaScripts({
         path: `/blog/${p.slug}`,
         name: title,
-        description: p.description,
-        type: "MedicalWebPage",
+        description: description,
+        type: "Article",
         blogPost: p,
         breadcrumbs: [
           { name: "Início", path: "/" },
@@ -128,7 +131,7 @@ function BlogPostPage() {
             {post.category}
           </span>
           <span>•</span>
-          <time dateTime={post.date}>{formatDatePtBr(post.date)}</time>
+          <time dateTime={post.published_at}>{formatDatePtBr(post.published_at)}</time>
           <span>•</span>
           <span>{post.readingMinutes} min de leitura</span>
         </div>
@@ -139,10 +142,18 @@ function BlogPostPage() {
         >
           {post.title}
         </h1>
+        
+        {post.hero_image && (
+          <img 
+            src={post.hero_image} 
+            alt={post.title} 
+            className="w-full h-auto mt-8 rounded-3xl border border-[#E8D8D0] shadow-sm object-cover max-h-[400px]" 
+          />
+        )}
 
         <p
           data-speakable
-          className="mt-5 text-base md:text-lg text-[#6E5A56] font-medium leading-relaxed border-l-2 border-[#A86558] pl-4"
+          className="mt-8 text-base md:text-lg text-[#6E5A56] font-medium leading-relaxed border-l-2 border-[#A86558] pl-4"
         >
           {post.excerpt}
         </p>
@@ -160,7 +171,7 @@ function BlogPostPage() {
 
         {/* Corpo do Artigo */}
         <div data-speakable className="mt-10 space-y-8 text-sm md:text-base text-[#2D2322]/90 leading-relaxed font-normal">
-          {post.content.map((sec, i) => (
+          {(post.content || []).map((sec, i) => (
             <section key={i} className="space-y-4">
               {sec.heading && (
                 <h2 className="font-serif text-2xl md:text-3xl text-[#2D2322] font-semibold pt-4">

@@ -44,6 +44,7 @@ import {
 import { SERVICES, waLink, SITE } from "@/lib/site";
 import { buildPixPayload, qrImageUrl } from "@/lib/pix";
 import { Logo } from "@/components/logo";
+import { AdminBlog } from "@/components/admin-blog";
 
 export const Route = createFileRoute("/admin/promocoes")({
   head: () => ({
@@ -155,7 +156,7 @@ function AdminPromocoes() {
 }
 
 function AdminEditor({ onLogout }: { onLogout: () => void }) {
-  const [activeTab, setActiveTab] = useState<"agenda" | "leads" | "promos" | "pix" | "seo">("agenda");
+  const [activeTab, setActiveTab] = useState<"agenda" | "leads" | "promos" | "pix" | "seo" | "blog">("agenda");
 
   const [promos, setPromos] = useState<Promo[]>(() => loadPromos());
   const [pix, setPix] = useState<PixConfig>(() => loadPix());
@@ -343,6 +344,18 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               }`}
             >
               🔍 Auditoria SEO
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab("blog")}
+              className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition flex items-center gap-1.5 ${
+                activeTab === "blog"
+                  ? "bg-[#A86558] text-white shadow-sm"
+                  : "text-[#6E5A56] hover:text-[#2D2322]"
+              }`}
+            >
+              <span>📝 Blog</span>
             </button>
           </div>
 
@@ -606,6 +619,11 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
             </div>
           </div>
         )}
+
+        {/* ============================================================ */}
+        {/* ABA BLOG: CMS E SEO */}
+        {/* ============================================================ */}
+        {activeTab === "blog" && <AdminBlog />}
 
         {/* ============================================================ */}
         {/* ABA 2: LEADS & RECUPERAÇÃO DE VENDAS */}

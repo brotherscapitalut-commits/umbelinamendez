@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { SERVICES } from "@/lib/site";
-import { BLOG_POSTS } from "@/lib/blog";
+import { getPublishedPosts } from "@/lib/blog-store";
 
 const BASE_URL = "https://www.umbelinamendez.com.br"
 
@@ -9,6 +9,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const publishedPosts = await getPublishedPosts();
         const entries = [
           { path: "/", priority: "1.0", changefreq: "weekly" },
           { path: "/tratamentos", priority: "0.9", changefreq: "monthly" },
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/sitemap.xml")({
             priority: "0.8",
             changefreq: "monthly",
           })),
-          ...BLOG_POSTS.map((p) => ({
+          ...publishedPosts.map((p) => ({
             path: `/blog/${p.slug}`,
             priority: "0.7",
             changefreq: "monthly",
