@@ -85,8 +85,8 @@ export function useSeo() {
         const slug = path.split("/").pop();
         blogPostData = findPost(slug || "");
       } else if (path === "/faq" || path === "/") {
-        const { HOME_FAQS } = await import("../lib/site");
-        faqsData = HOME_FAQS;
+        const { GENERAL_FAQS } = await import("../lib/site");
+        faqsData = GENERAL_FAQS;
       }
 
       // Injetamos o schema consolidado

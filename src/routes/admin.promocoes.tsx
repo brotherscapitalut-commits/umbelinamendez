@@ -4,7 +4,9 @@ import type { Promo } from "@/lib/promos";
 import { PROMOS as DEFAULT_PROMOS } from "@/lib/promos";
 import {
   loadSeo,
+  loadSeoRemote,
   saveSeo,
+  saveSeoRemote,
   resetSeo,
   DEFAULT_SEO,
   type SeoConfig,
@@ -160,6 +162,13 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
   const [seoConfig, setSeoConfig] = useState<SeoConfig>(() => loadSeo());
   const [dirty, setDirty] = useState(false);
   const [savedMsg, setSavedMsg] = useState("");
+  
+  // Sincronizar com KV remote
+  useEffect(() => {
+    loadSeoRemote().then((remoteConfig) => {
+      setSeoConfig(remoteConfig);
+    });
+  }, []);
 
   // Estado da aba SEO
   const [isVerifyingSEO, setIsVerifyingSEO] = useState(false);
@@ -226,7 +235,10 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
   const saveAll = () => {
     savePromos(promos);
     savePix(pix);
-    saveSeo(seoConfig);
+    
+    // Tentamos salvar no backend (Vercel KV), token mockado por ora
+    saveSeoRemote(seoConfig, "umbelina2026");
+    
     setDirty(false);
     setSavedMsg("Alterações salvas com sucesso! ✨");
     setTimeout(() => setSavedMsg(""), 2500);

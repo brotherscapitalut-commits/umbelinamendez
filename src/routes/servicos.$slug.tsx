@@ -6,6 +6,7 @@ import { pageSchemaScripts } from "@/lib/schema";
 import { LeadForm } from "@/components/lead-form";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { Logo } from "@/components/logo";
+import { Depoimentos } from "@/components/depoimentos";
 import posopImg from "@/assets/service-posop.jpg";
 import gestanteImg from "@/assets/service-gestante.jpg";
 import posPartoImg from "@/assets/service-pos-parto.jpg";
@@ -234,7 +235,7 @@ function ServicePage() {
                 Agende sua Avaliação Personalizada
               </h3>
               <p className="mt-2 text-xs text-[#6E5A56] leading-relaxed">
-                Atendimento presencial no consultório na Asa Norte (SQN 513) ou domiciliar no Distrito Federal.
+                Atendimento presencial no consultório na Asa Norte (SEPN 513) ou domiciliar no Distrito Federal.
               </p>
 
               <div className="mt-6 space-y-2.5">
@@ -260,6 +261,13 @@ function ServicePage() {
           <LeadForm defaultService={service.slug} />
         </div>
       </section>
+
+      {/* Depoimentos */}
+      <Depoimentos 
+        filterKeyword={
+          service.slug.includes("pos") ? "pós" : undefined
+        } 
+      />
 
       <WhatsAppFab />
     </div>

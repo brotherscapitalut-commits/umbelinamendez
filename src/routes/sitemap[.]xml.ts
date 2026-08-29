@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { SERVICES } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog";
 
-const BASE_URL = "";
+const BASE_URL = "https://www.umbelinamendez.com.br"
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {

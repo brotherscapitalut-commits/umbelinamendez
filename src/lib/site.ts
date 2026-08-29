@@ -8,8 +8,8 @@ export const SITE = {
   city: "Brasília",
   region: "DF",
   country: "BR",
-  address: "SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte, Brasília - DF, 70763-510",
-  addressStreet: "SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte",
+  address: "SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília - DF, 70768-900",
+  addressStreet: "SEPN 513, Edifício Bittar I, Sala 110 – Asa Norte",
   email: "contato@umbelinamendez.com.br",
   whatsapp: "5561981567985",
   whatsappDisplay: "(61) 98156-7985",
@@ -18,8 +18,8 @@ export const SITE = {
   facebook: "",
   hours: "Segunda a Sexta • 08:00 às 18:00 | Sábado • 08:00 às 13:00",
   sessionDuration: "60 minutos (+ 20min de higienização e intervalo)",
-  url: "https://umbelinamendez.com.br",
-  mapsQuery: "SQN 513 Bloco A Edifício Bittar 1 Asa Norte Brasília DF",
+  url: "https://www.umbelinamendez.com.br",
+  mapsQuery: "SEPN 513 Edifício Bittar I Asa Norte Brasília DF",
   mapsEmbed:
     "https://www.google.com/maps?q=SQN+513+Bloco+A+Edificio+Bittar+1+Brasilia+DF&output=embed",
 };
@@ -376,11 +376,18 @@ export const SERVICES: Service[] = [
       {
         q: "A aplicação do laser é segura?",
         a: "Totalmente segura, indolor e não invasiva, realizada com parâmetros científicos precisos para cada objetivo.",
-      },
-    ],
+      },    {
+            q: "Quantas sessões de laserterapia são necessárias?",
+            a: "Depende do objetivo: para cicatrizes cirúrgicas recentes, geralmente de 4 a 8 sessões; para suporte de imunidade e recuperação pós-parto, o protocolo ILIB costuma ser feito em 4 sessões semanais consecutivas.",
   },
   {
-    slug: "drenagem-linfatica",
+            q: "Laserterapia e ILIB podem ser feitos junto com outros tratamentos?",
+            a: "Sim. Por serem terapias regenerativas de baixo estímulo, associamos com frequência à drenagem linfática, ao pós-operatório e ao Conexão Materna, potencializando cicatrização e bem-estar sem sobrecarregar o tecido.",
+  },
+      ],
+  },
+{
+      slug: "drenagem-linfatica",
     title: "Drenagem Linfática Especializada",
     short: "Desintoxicação profunda e redução de retenção líquida",
     desc: "Drenagem linfática manual baseada na fisiologia humana para desobstrução das vias linfáticas, desintoxicação e eliminação imediata da retenção de líquidos.",
@@ -403,6 +410,14 @@ export const SERVICES: Service[] = [
       {
         q: "Quantas vezes por semana posso realizar a drenagem?",
         a: "Geralmente 1 a 2 vezes por semana para manutenção, ou mais frequente em períodos específicos de retenção.",
+      },
+      {
+                q: "Drenagem linfática emagrece ou reduz medidas?",
+                a: "Não. A drenagem elimina líquido retido, não gordura, então não é um método de emagrecimento. O resultado é redução imediata de inchaço e sensação de leveza, o que pode refletir em centímetros de forma temporária.",
+      },
+      {
+                q: "A drenagem linfática dói?",
+                a: "Não. É uma técnica de manobras suaves e leves, muito diferente de uma massagem modeladora. Sente-se apenas relaxamento e, ao final, alívio da sensação de peso.",
       },
     ],
   },
@@ -428,10 +443,18 @@ export const SERVICES: Service[] = [
     ],
     faqs: [
       {
-        q: "Em quanto tempo vejo os resultados na firmeza?",
-        a: "A melhora da textura é notada desde as primeiras sessões, e a síntese profunda de colágeno se consolida entre a 4ª e a 8ª semana.",
+                q: "Em quanto tempo vejo os resultados na firmeza?",
+                a: "A melhora da textura é notada desde as primeiras sessões, e a síntese profunda de colágeno se consolida entre a 4ª e a 8ª semana.",
       },
-    ],
+      {
+                q: "Quantas sessões são necessárias para tratar a flacidez?",
+                a: "O protocolo costuma ser planejado em ciclos de 8 a 12 sessões, com frequência semanal, associando radiofrequência, ultrassom e eletroestimulação conforme o grau de flacidez tissular e muscular identificado na avaliação.",
+      },
+      {
+                q: "Existe diferença entre flacidez de pele e flacidez muscular?",
+                a: "Sim. A flacidez tissular envolve a perda de elasticidade da derme (colágeno e elastina), enquanto a flacidez muscular é a perda de tônus da musculatura profunda. Nosso protocolo trata as duas frentes de forma simultânea e direcionada.",
+      },
+          ]
   },
 ];
 
@@ -441,7 +464,7 @@ export type ServiceSlug = (typeof SERVICES)[number]["slug"];
 export const GENERAL_FAQS: ServiceFAQ[] = [
   {
     q: "Onde fica localizada a clínica em Brasília?",
-    a: "Nosso consultório fica na SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte, Brasília - DF. Também realizamos atendimentos domiciliares e hospitalares com estrutura completa em todo o Distrito Federal.",
+    a: "Nosso consultório fica na SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília - DF, 70768-900. Também realizamos atendimentos domiciliares e hospitalares com estrutura completa em todo o Distrito Federal.",
   },
   {
     q: "Como funciona a avaliação com a Dra. Umbelina?",
@@ -458,6 +481,26 @@ export const GENERAL_FAQS: ServiceFAQ[] = [
   {
     q: "Quem é a profissional que realiza os procedimentos?",
     a: "Todos os procedimentos e acompanhamentos são conduzidos diretamente pela Dra. Umbelina Mendez, Bióloga por formação (CRBio) e Esteticista com mais de 20 anos de experiência na área de saúde e estética avançada.",
+  },
+  {
+        q: "O que diferencia a Umbelina Mendez de outras clínicas de estética em Brasília?",
+        a: "A formação em Biologia (CRBio) permite um diagnóstico baseado em fisiologia real do corpo, não apenas em protocolos padronizados. Os atendimentos são sempre conduzidos pessoalmente pela Dra. Umbelina, com métodos próprios como o Método Reviva™ e o Conexão Materna, avaliação termográfica e mais de 20 anos de prática clínica na Asa Norte, Brasília.",
+  },
+  {
+        q: "O que é o Método Reviva™?",
+        a: "É o protocolo corporal exclusivo desenvolvido pela Dra. Umbelina Mendez, que combina drenagem linfática manual de precisão com tecnologias associadas (radiofrequência, criofrequência, ultrassom e eletroterapia) em um acompanhamento contínuo, planejado a partir de avaliação clínica e termográfica.",
+  },
+  {
+        q: "Quais regiões de Brasília e do DF são atendidas?",
+        a: "O consultório fica na Asa Norte (SEPN 513, Edifício Bittar I). Além do atendimento clínico, oferecemos visitas domiciliares e hospitalares em todo o Distrito Federal, incluindo Asa Sul, Lago Norte, Lago Sul, Sudoeste, Noroeste, Águas Claras e demais regiões administrativas.",
+  },
+  {
+        q: "Em quanto tempo após o parto ou a cirurgia posso agendar uma avaliação?",
+        a: "É possível agendar a avaliação ainda durante a gestação ou no pré-operatório, para planejar o protocolo com antecedência. Após o parto ou a cirurgia, o atendimento pode começar em poucas horas (protocolo hospitalar) ou nos primeiros dias, sempre com liberação médica.",
+  },
+  {
+        q: "Como faço para agendar uma sessão ou avaliação?",
+        a: "O agendamento é feito diretamente pelo WhatsApp ou pela página de agendamento do site, informando o procedimento de interesse. A equipe confirma o horário e envia todas as orientações de preparo.",
   },
 ];
 

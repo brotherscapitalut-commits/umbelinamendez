@@ -253,7 +253,7 @@ export function PixCheckout({ promo, onClose }: Props) {
       `💰 *Valor:* ${formatPriceBRL(promo.price)} (Pix Confirmado)\n` +
       `🗓️ *Data Agendada:* ${dateBr} (${formattedSelectedDate.split(",")[0]})\n` +
       `⏰ *Horário Reservado:* ${selectedSlot.startTime} às ${selectedSlot.endTime} (60 min)\n` +
-      `🏥 *Local:* Clínica Asa Norte — SQN 513 Bloco A, Sala 110\n` +
+      `🏥 *Local:* Clínica Asa Norte — SEPN 513 Bloco A, Sala 110\n` +
       `🔖 *Código do Voucher:* ${generatedVoucher}\n\n` +
       `✅ *Status:* Vaga garantida e horário bloqueado no sistema da clínica.`;
 
@@ -613,7 +613,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                     <span>60 min de sessão</span>
                   </div>
                   <div className="text-xs text-[#6E5A56] mt-2 pt-2 border-t border-[#F2E7E1]">
-                    📍 <b>Local:</b> SQN 513 Bloco A, Edifício Bittar 1, Sala 110 – Asa Norte
+                    📍 <b>Local:</b> SEPN 513, Edifício Bittar I, Sala 110 – Asa Norte
                   </div>
                 </div>
               )}
@@ -676,7 +676,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                   <div><b>Valor:</b> {formatPriceBRL(promo.price)} <span className="text-emerald-700 font-semibold">(Pago via Pix)</span></div>
                   <div><b>Data:</b> {formattedSelectedDate}</div>
                   <div><b>Horário Reservado:</b> {selectedSlot?.startTime} às {selectedSlot?.endTime} (60 min)</div>
-                  <div><b>Local:</b> SQN 513 Bloco A, Sala 110 – Asa Norte, Brasília</div>
+                  <div><b>Local:</b> SEPN 513, Edifício Bittar I, Sala 110 — Asa Norte, Brasília</div>
                 </div>
               </div>
 
