@@ -63,6 +63,37 @@ export function saveSeo(config: SeoConfig) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
 }
 
+export async function loadSeoRemote(): Promise<SeoConfig> {
+  try {
+    const res = await fetch("/api/config");
+    if (!res.ok) throw new Error("Erro na API");
+    const data = await res.json();
+    if (Object.keys(data).length === 0) return DEFAULT_SEO;
+    return { ...DEFAULT_SEO, ...data };
+  } catch (error) {
+    console.error("Falha ao carregar do Vercel KV, usando local:", error);
+    return loadSeo();
+  }
+}
+
+export async function saveSeoRemote(config: SeoConfig, token: string) {
+  // Salva no localStorage como backup e instantaneidade
+  saveSeo(config);
+  try {
+    const res = await fetch("/api/config", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(config)
+    });
+    if (!res.ok) throw new Error("Erro ao salvar remoto");
+  } catch (error) {
+    console.error("Falha ao salvar no Vercel KV:", error);
+  }
+}
+
 export function resetSeo() {
   if (typeof window === "undefined") return;
   localStorage.removeItem(STORAGE_KEY);
