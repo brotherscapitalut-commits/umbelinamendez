@@ -325,7 +325,7 @@ export function pageSchemaScripts(opts: {
   }
 
   // 4. FAQPage (evita duplicar na home, onde o componente FAQAccordion ja injeta o proprio faqJsonLd)
-  if (opts.faqs && opts.faqs.length > 0 && opts.path !== "/") {
+  if (opts.faqs && opts.faqs.length > 0) {
         scripts.push({
                 type: "application/ld+json",
                 children: JSON.stringify(faqPageJsonLd(opts.faqs)),
