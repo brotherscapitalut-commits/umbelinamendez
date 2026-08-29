@@ -3,9 +3,20 @@ import { waLink } from "@/lib/site";
 import { trackClick, trackEvent } from "@/lib/tracking";
 import { MonogramUM } from "@/components/logo";
 import { PixCheckout, type CheckoutItem } from "@/components/pix-checkout";
+import { useActivePromos } from "@/lib/promos";
 
 export function BeautyTechDaySection() {
   const [checkoutItem, setCheckoutItem] = useState<CheckoutItem | null>(null);
+  const promos = useActivePromos();
+  const btdPromo = promos.find((p) => p.serviceSlug === "beauty-tech-day");
+
+  let dateText = "Vagas Limitadas";
+  if (btdPromo && btdPromo.endsAt) {
+    const d = new Date(btdPromo.endsAt);
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    dateText = `${day}/${month} • Vagas Limitadas`;
+  }
 
   const defaultWa = waLink(
     "Olá, Dra. Umbelina! Gostaria de reservar meu horário para o *Beauty Tech Day* na clínica.",
@@ -61,7 +72,7 @@ export function BeautyTechDaySection() {
                 <span className="text-base">📅</span>
                 <div className="text-left">
                   <div className="text-[9px] uppercase tracking-widest text-[#6E5A56] font-semibold">Data Especial</div>
-                  <div className="font-serif text-base font-bold text-[#A86558]">18/08 • Vagas Limitadas</div>
+                  <div className="font-serif text-base font-bold text-[#A86558]">{dateText}</div>
                 </div>
               </div>
               <MonogramUM className="hidden md:block h-12 w-12 opacity-90" />
