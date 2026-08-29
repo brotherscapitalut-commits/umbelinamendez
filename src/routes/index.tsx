@@ -173,6 +173,7 @@ function Nav() {
     { href: "#sobre", label: "Sobre a Dra. Umbelina" },
     { href: "#tratamentos", label: "Tratamentos" },
     { href: "#depoimentos", label: "Resultados" },
+    { href: "/blog", label: "Blog" },
     { href: "#faq", label: "Dúvidas" },
     { href: "#contato", label: "Contato" },
   ];
@@ -184,9 +185,15 @@ function Nav() {
 
         <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-widest text-[#6E5A56] font-medium">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-[#A86558] transition-colors">
-              {l.label}
-            </a>
+            l.href.startsWith("#") ? (
+              <a key={l.href} href={l.href} className="hover:text-[#A86558] transition-colors">
+                {l.label}
+              </a>
+            ) : (
+              <Link key={l.href} to={l.href as any} className="hover:text-[#A86558] transition-colors">
+                {l.label}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -229,16 +236,17 @@ function Hero() {
         <div className="md:col-span-7">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#E8D8D0] bg-white/80 backdrop-blur px-3.5 py-1 text-xs uppercase tracking-[0.25em] text-[#A86558] font-medium shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-[#A86558]" />
-            {seo.heroH1}
+            BIÓLOGA ESTETA • ASA NORTE, BRASÍLIA
           </div>
 
           <h1 
             className="mt-6 font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.1] text-[#2D2322] font-semibold"
-            dangerouslySetInnerHTML={{ __html: seo.heroH2.replace(/<em/g, '<em className="text-[#A86558] italic font-normal"') }}
-          />
+          >
+            Pós-Operatório e Drenagem Linfática em Brasília
+          </h1>
 
           <p className="mt-6 text-base md:text-lg text-[#6E5A56] max-w-xl leading-relaxed">
-            {seo.heroH3}
+            Recuperação de cirurgia plástica, pós-parto e lipedema com drenagem linfática especializada, laserterapia e protocolo individualizado, Método Reviva™, na Asa Norte – Brasília.
           </p>
 
           {/* Card Seletor de Avaliação Rápida */}
@@ -658,6 +666,7 @@ function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-6 font-medium">
           <Link to="/tratamentos" className="hover:text-[#A86558] transition">Tratamentos</Link>
           <Link to="/agendamento" className="hover:text-[#A86558] transition">Agendar</Link>
+          <Link to="/blog" className="hover:text-[#A86558] transition">Blog</Link>
           <Link to="/faq" className="hover:text-[#A86558] transition">FAQ</Link>
           <Link to="/admin/promocoes" className="hover:text-[#A86558] transition text-[#6E5A56]/60">Painel Admin</Link>
         </div>
