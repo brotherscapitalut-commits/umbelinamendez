@@ -1,4 +1,5 @@
 import { TRACKING } from "./site";
+import { supabase } from "./supabase";
 
 declare global {
   interface Window {
@@ -8,12 +9,70 @@ declare global {
   }
 }
 
-/** Dispara um evento de conversão em GA4 e Meta Pixel. */
+function getDeviceType() {
+  if (typeof navigator === "undefined") return "desktop";
+  const ua = navigator.userAgent;
+  if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) return "tablet";
+  if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) return "mobile";
+  return "desktop";
+}
+
+function getUTMs() {
+  if (typeof window === "undefined") return {};
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get("utm_source") || null,
+    utm_medium: params.get("utm_medium") || null,
+    utm_campaign: params.get("utm_campaign") || null,
+  };
+}
+
+export async function trackConversion(data: {
+  event_type: string;
+  source_location: string;
+  service_interest?: string;
+}) {
+  if (typeof window === "undefined") return;
+
+  const utms = getUTMs();
+  const device = getDeviceType();
+  const page_path = window.location.pathname;
+
+  try {
+    // Fire and forget, non-blocking
+    if (!supabase) return;
+    
+    supabase.from("leads_conversions").insert([
+      {
+        event_type: data.event_type,
+        source_location: data.source_location,
+        service_interest: data.service_interest || null,
+        page_path,
+        device_type: device,
+        ...utms
+      }
+    ]).then(({ error }) => {
+      if (error) console.error("Erro ao rastrear lead:", error);
+    });
+  } catch (err) {
+    /* silent fail */
+  }
+}
+
+/** Dispara um evento de conversão em GA4, Meta Pixel e Supabase. */
 export function trackEvent(
   name: string,
   params: Record<string, any> = {}
 ) {
   if (typeof window === "undefined") return;
+  
+  // Envia para o Supabase
+  trackConversion({
+    event_type: name,
+    source_location: params.source || "unknown",
+    service_interest: params.service || params.promo || null,
+  });
+
   try {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: name, ...params });
@@ -21,7 +80,6 @@ export function trackEvent(
       window.gtag("event", name, params);
     }
     if (typeof window.fbq === "function") {
-      // Mapear alguns eventos padrão do Meta
       const meta = name === "lead" ? "Lead" : name === "contact" ? "Contact" : "CustomEvent";
       window.fbq("track", meta, params);
     }
@@ -33,6 +91,10 @@ export function trackEvent(
 /** Onclick helper para links WhatsApp/CTA. */
 export function trackClick(source: string, extra: Record<string, any> = {}) {
   return () => trackEvent("click_whatsapp", { source, ...extra });
+}
+
+export function trackPixIntent(source: string, extra: Record<string, any> = {}) {
+  return () => trackEvent("pix_intent", { source, ...extra });
 }
 
 /** Retorna as tags <script> a serem injetadas via head().scripts. */

@@ -45,6 +45,7 @@ import { SERVICES, waLink, SITE } from "@/lib/site";
 import { buildPixPayload, qrImageUrl } from "@/lib/pix";
 import { Logo } from "@/components/logo";
 import { AdminBlog } from "@/components/admin-blog";
+import { AdminLeads } from "@/components/admin-leads";
 
 export const Route = createFileRoute("/admin/promocoes")({
   head: () => ({
@@ -629,7 +630,10 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
         {/* ABA 2: LEADS & RECUPERAÇÃO DE VENDAS */}
         {/* ============================================================ */}
         {activeTab === "leads" && (
-          <div className="space-y-8 animate-[fadeIn_.2s_ease-out]">
+          <div className="space-y-12 animate-[fadeIn_.2s_ease-out]">
+            <AdminLeads />
+
+            <div className="pt-8 border-t border-[#E8D8D0] space-y-8">
             {/* Header da Aba */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
@@ -838,6 +842,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               )}
             </div>
           </div>
+        </div>
         )}
 
         {/* ============================================================ */}
