@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackingScripts } from "../lib/tracking";
 import { useSeo } from "../hooks/useSeo";
+import { syncFromCloud } from "../lib/promo-store";
 
 function NotFoundComponent() {
   return (
@@ -84,8 +85,9 @@ function RootComponent() {
   // Chama o hook de SEO para aplicar tags dinamicamente ao mudar de rota
   useSeo();
 
-  // Load tracking scripts on the client once mounted
+  // Load tracking scripts and sync cloud data on the client once mounted
   useEffect(() => {
+    syncFromCloud();
     const scripts = trackingScripts();
     if (scripts && scripts.length > 0) {
       scripts.forEach(scriptObj => {
