@@ -56,30 +56,11 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const IMG: Record<string, string> = {
-  "metodo-reviva": heroImg,
-  "reviva-face": aboutImg,
-  "conexao-materna": posPartoImg,
-  "pos-operatorio": posopImg,
-  "beauty-tech-day": heroImg,
-  "laserterapia-ilib": aboutImg,
-  "drenagem-linfatica": gestanteImg,
-  flacidez: heroImg,
-};
-
 const authorityBadges = [
   { n: "20+ Anos", l: "de Experiência Clínica e Biológica" },
   { n: "10+ Anos", l: "Especialista em Recuperação Pós-Parto" },
   { n: "3.000+", l: "Mulheres Cuidadas com Método Próprio" },
   { n: "DF Completo", l: "Atendimento Clínico, Domiciliar e Hospitalar" },
-];
-
-
-
-const beforeAfter = [
-  { title: "Método Reviva™ — 8 semanas de remodelamento corporal", img: posopImg },
-  { title: "Conexão Materna — Cicatrização com Laserterapia e ILIB", img: posPartoImg },
-  { title: "Reviva Face™ — Programa de 60 dias de colágeno", img: aboutImg },
 ];
 
 const HOME_FAQS = [
