@@ -1,24 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SERVICES } from "@/lib/site";
+import { useServices } from "@/lib/services-store";
+import { useMedia } from "@/lib/media-store";
 import { pageSchemaScripts } from "@/lib/schema";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { Logo } from "@/components/logo";
-import posopImg from "@/assets/service-posop.jpg";
-import gestanteImg from "@/assets/service-gestante.jpg";
-import posPartoImg from "@/assets/service-pos-parto.jpg";
-import heroImg from "@/assets/hero.jpg";
-import aboutImg from "@/assets/about.jpg";
 
-const IMAGES: Record<string, string> = {
-  "metodo-reviva": heroImg,
-  "reviva-face": aboutImg,
-  "conexao-materna": posPartoImg,
-  "pos-operatorio": posopImg,
-  "beauty-tech-day": heroImg,
-  "laserterapia-ilib": aboutImg,
-  "drenagem-linfatica": gestanteImg,
-  flacidez: heroImg,
-};
 
 export const Route = createFileRoute("/tratamentos")({
   head: () => ({
@@ -59,6 +45,20 @@ export const Route = createFileRoute("/tratamentos")({
 });
 
 function TreatmentsPage() {
+  const services = useServices();
+  const media = useMedia();
+
+  const IMAGES: Record<string, string> = {
+    "metodo-reviva": media.heroImg,
+    "reviva-face": media.aboutImg,
+    "conexao-materna": media.posPartoImg,
+    "pos-operatorio": media.posopImg,
+    "beauty-tech-day": media.heroImg,
+    "laserterapia-ilib": media.aboutImg,
+    "drenagem-linfatica": media.gestanteImg,
+    flacidez: media.heroImg,
+  };
+
   return (
     <div className="min-h-screen bg-[#F9F4F0] text-[#2D2322]">
       <header className="border-b border-[#E8D8D0] backdrop-blur-md bg-[#F9F4F0]/90 sticky top-0 z-30">
@@ -88,7 +88,7 @@ function TreatmentsPage() {
         </p>
 
         <div className="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {SERVICES.map((s) => (
+          {services.map((s) => (
             <Link
               key={s.slug}
               to="/servicos/$slug"
@@ -98,7 +98,7 @@ function TreatmentsPage() {
             >
               <div className="overflow-hidden h-56">
                 <img
-                  src={IMAGES[s.slug] ?? heroImg}
+                  src={IMAGES[s.slug] ?? media.heroImg}
                   alt={`${s.title} — Dra. Umbelina Mendez Brasília DF`}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

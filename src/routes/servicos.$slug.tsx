@@ -1,5 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { SERVICES, SITE, waLink, type ServicePlan } from "@/lib/site";
+import { SITE, waLink, type ServicePlan } from "@/lib/site";
+import { loadServices, useServices } from "@/lib/services-store";
+import { useMedia } from "@/lib/media-store";
 import { trackClick } from "@/lib/tracking";
 import { FAQAccordion } from "@/components/faq";
 import { pageSchemaScripts } from "@/lib/schema";
@@ -7,26 +9,12 @@ import { LeadForm } from "@/components/lead-form";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { Logo } from "@/components/logo";
 import { Depoimentos } from "@/components/depoimentos";
-import posopImg from "@/assets/service-posop.jpg";
-import gestanteImg from "@/assets/service-gestante.jpg";
-import posPartoImg from "@/assets/service-pos-parto.jpg";
-import heroImg from "@/assets/hero.jpg";
-import aboutImg from "@/assets/about.jpg";
 
-const IMAGES: Record<string, string> = {
-  "metodo-reviva": heroImg,
-  "reviva-face": aboutImg,
-  "conexao-materna": posPartoImg,
-  "pos-operatorio": posopImg,
-  "beauty-tech-day": heroImg,
-  "laserterapia-ilib": aboutImg,
-  "drenagem-linfatica": gestanteImg,
-  flacidez: heroImg,
-};
 
 export const Route = createFileRoute("/servicos/$slug")({
   head: ({ params }) => {
-    const s = SERVICES.find((x) => x.slug === params.slug);
+    const services = loadServices();
+    const s = services.find((x) => x.slug === params.slug);
     if (!s)
       return {
         meta: [
@@ -70,7 +58,8 @@ export const Route = createFileRoute("/servicos/$slug")({
     };
   },
   loader: ({ params }) => {
-    const s = SERVICES.find((x) => x.slug === params.slug);
+    const services = loadServices();
+    const s = services.find((x) => x.slug === params.slug);
     if (!s) throw notFound();
     return { service: s };
   },
@@ -91,13 +80,29 @@ export const Route = createFileRoute("/servicos/$slug")({
 
 function ServicePage() {
   const { slug } = Route.useParams();
-  const service = SERVICES.find((s) => s.slug === slug) ?? SERVICES[0];
-  const img = IMAGES[service.slug] ?? heroImg;
+  const services = useServices();
+  const media = useMedia();
+
+  const IMAGES: Record<string, string> = {
+    "metodo-reviva": media.heroImg,
+    "reviva-face": media.aboutImg,
+    "conexao-materna": media.posPartoImg,
+    "pos-operatorio": media.posopImg,
+    "beauty-tech-day": media.heroImg,
+    "laserterapia-ilib": media.aboutImg,
+    "drenagem-linfatica": media.gestanteImg,
+    flacidez: media.heroImg,
+  };
+
+  const service = services.find((s) => s.slug === slug) ?? services[0];
+  const img = IMAGES[service?.slug || ""] ?? media.heroImg;
   const wa = waLink(
-    `Olá, Dra. Umbelina! Tenho interesse em agendar o tratamento: *${service.title}*. Podemos conversar sobre horários?`,
+    `Olá, Dra. Umbelina! Tenho interesse em agendar o tratamento: *${service?.title || ""}*. Podemos conversar sobre horários?`,
     "servico_page",
-    service.slug
+    service?.slug || ""
   );
+
+  if (!service) return null;
 
   return (
     <div className="min-h-screen bg-[#F9F4F0] text-[#2D2322]">

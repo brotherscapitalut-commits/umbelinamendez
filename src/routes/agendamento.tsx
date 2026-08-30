@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { SERVICES, SITE, waLink } from "@/lib/site";
+import { SITE, waLink } from "@/lib/site";
+import { useServices } from "@/lib/services-store";
 import { trackEvent } from "@/lib/tracking";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { pageSchemaScripts } from "@/lib/schema";
@@ -60,10 +61,12 @@ function todayOrNextValidISO() {
 }
 
 function AgendamentoPage() {
+  const services = useServices();
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState<string>(SERVICES[0].slug);
+  const [service, setService] = useState<string>(services[0]?.slug || "");
   const [date, setDate] = useState<string>(todayOrNextValidISO());
   const [selectedSlot, setSelectedSlot] = useState<CalculatedSlot | null>(null);
   const [modality, setModality] = useState<"clinica" | "domiciliar">("clinica");
@@ -72,8 +75,8 @@ function AgendamentoPage() {
   const [bookingError, setBookingError] = useState("");
 
   const currentServiceObj = useMemo(
-    () => SERVICES.find((s) => s.slug === service) ?? SERVICES[0],
-    [service]
+    () => services.find((s) => s.slug === service) ?? services[0],
+    [service, services]
   );
 
   const valid =
@@ -237,7 +240,7 @@ function AgendamentoPage() {
                   onChange={(e) => setService(e.target.value)}
                   className={inputCls}
                 >
-                  {SERVICES.map((s) => (
+                  {services.map((s) => (
                     <option key={s.slug} value={s.slug}>
                       {s.title}
                     </option>

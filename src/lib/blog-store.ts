@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import type { BlogPost } from "@/lib/blog";
+import { BLOG_SEEDS } from "@/data/blog-seed";
 
 export async function getPublishedPosts(): Promise<BlogPost[]> {
   try {
@@ -10,11 +11,11 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
       .lte("published_at", new Date().toISOString())
       .order("published_at", { ascending: false });
 
-    if (error) {
-      console.error("Erro ao buscar posts publicados:", error);
-      return [];
+    if (error || !data || data.length === 0) {
+      if (error) console.error("Erro ao buscar posts publicados:", error);
+      return BLOG_SEEDS;
     }
-    return data || [];
+    return data;
   } catch (err) {
     console.error("Erro no fetch de posts:", err);
     return [];
@@ -31,9 +32,9 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       .lte("published_at", new Date().toISOString())
       .single();
 
-    if (error) {
-      console.error(`Erro ao buscar post ${slug}:`, error);
-      return null;
+    if (error || !data) {
+      if (error) console.error(`Erro ao buscar post ${slug}:`, error);
+      return BLOG_SEEDS.find(p => p.slug === slug) || null;
     }
     return data;
   } catch (err) {
@@ -49,11 +50,11 @@ export async function getAllAdminPosts(): Promise<BlogPost[]> {
       .select("*")
       .order("published_at", { ascending: false });
 
-    if (error) {
-      console.error("Erro ao buscar todos os posts:", error);
-      return [];
+    if (error || !data || data.length === 0) {
+      if (error) console.error("Erro ao buscar todos os posts:", error);
+      return BLOG_SEEDS;
     }
-    return data || [];
+    return data;
   } catch (err) {
     console.error("Erro admin:", err);
     return [];

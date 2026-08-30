@@ -1,11 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import heroImg from "@/assets/hero.jpg";
-import aboutImg from "@/assets/about.jpg";
-import posopImg from "@/assets/service-posop.jpg";
-import gestanteImg from "@/assets/service-gestante.jpg";
-import posPartoImg from "@/assets/service-pos-parto.jpg";
-import { SERVICES, SITE, GENERAL_FAQS, waLink } from "@/lib/site";
+import { useServices } from "@/lib/services-store";
+import { useMedia } from "@/lib/media-store";
+
+import { SITE, GENERAL_FAQS, waLink } from "@/lib/site";
 import { loadSeo } from "@/lib/seo-store";
 import { trackClick } from "@/lib/tracking";
 import { FAQAccordion, faqJsonLd } from "@/components/faq";
@@ -136,26 +134,25 @@ const LOCAL_BUSINESS_JSONLD = {
     },
   ],
   sameAs: [SITE.instagram],
-  makesOffer: SERVICES.map((s) => ({
-    "@type": "Offer",
-    itemOffered: { "@type": "Service", name: s.title, description: s.desc },
-  })),
 };
 
 function Index() {
+  const services = useServices();
+  const media = useMedia();
+
   return (
     <div className="min-h-screen bg-[#F9F4F0] text-[#2D2322]">
       <PromoBar />
       <Nav />
-      <Hero />
+      <Hero services={services} media={media} />
       <AuthorityBadgesSection />
       <MetodoRevivaSection />
       <BeautyTechDaySection />
       <Promotions />
-      <About />
-      <ServicesGridSection />
+      <About media={media} />
+      <ServicesGridSection services={services} media={media} />
       <Process />
-      <BeforeAfterSection />
+      <BeforeAfterSection media={media} />
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />
@@ -211,12 +208,12 @@ function Nav() {
   );
 }
 
-function Hero() {
+function Hero({ services, media }: { services: any[]; media: any }) {
   const seo = loadSeo();
-  const [selectedService, setSelectedService] = useState<string>(SERVICES[0].slug);
-  const currentService = SERVICES.find((s) => s.slug === selectedService) ?? SERVICES[0];
+  const [selectedService, setSelectedService] = useState<string>(services[0]?.slug || "");
+  const currentService = services.find((s) => s.slug === selectedService) ?? services[0];
   const wa = waLink(
-    `Olá, Dra. Umbelina! Gostaria de agendar uma avaliação para o tratamento: *${currentService.title}*.`,
+    `Olá, Dra. Umbelina! Gostaria de agendar uma avaliação para o tratamento: *${currentService?.title || ""}*.`,
     "hero_whatsapp",
     selectedService
   );
@@ -263,7 +260,7 @@ function Hero() {
                 onChange={(e) => setSelectedService(e.target.value)}
                 className="flex-1 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-sm text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60 transition"
               >
-                {SERVICES.map((s) => (
+                {services.map((s) => (
                   <option key={s.slug} value={s.slug}>
                     {s.title}
                   </option>
@@ -301,7 +298,7 @@ function Hero() {
             style={{ boxShadow: "0 20px 50px -15px rgba(168, 101, 88, 0.16)" }}
           >
             <img
-              src={heroImg}
+              src={media.heroImg}
               alt="Dra. Umbelina Mendez — Bióloga Esteta em Brasília"
               width={1400}
               height={1400}
@@ -342,7 +339,7 @@ function AuthorityBadgesSection() {
   );
 }
 
-function About() {
+function About({ media }: { media: any }) {
   return (
     <section id="sobre" className="mx-auto max-w-6xl px-6 py-24 md:py-32 grid md:grid-cols-12 gap-12 items-center">
       <div className="md:col-span-5 order-2 md:order-1">
@@ -351,7 +348,7 @@ function About() {
           style={{ boxShadow: "0 20px 50px -15px rgba(168, 101, 88, 0.14)" }}
         >
           <img
-            src={aboutImg}
+            src={media.aboutImg}
             alt="Dra. Umbelina Mendez — Bióloga Esteta"
             width={1000}
             height={1200}
@@ -396,7 +393,18 @@ function About() {
   );
 }
 
-function ServicesGridSection() {
+function ServicesGridSection({ services, media }: { services: any[]; media: any }) {
+  const IMG: Record<string, string> = {
+    "metodo-reviva": media.heroImg,
+    "reviva-face": media.aboutImg,
+    "conexao-materna": media.posPartoImg,
+    "pos-operatorio": media.posopImg,
+    "beauty-tech-day": media.heroImg,
+    "laserterapia-ilib": media.aboutImg,
+    "drenagem-linfatica": media.gestanteImg,
+    flacidez: media.heroImg,
+  };
+
   return (
     <section id="tratamentos" className="bg-[#F7EFE9]/50 py-24 md:py-32 border-y border-[#E8D8D0]">
       <div className="mx-auto max-w-6xl px-6">
@@ -413,7 +421,7 @@ function ServicesGridSection() {
         </div>
 
         <div className="mt-14 grid md:grid-cols-3 gap-6">
-          {SERVICES.map((s) => (
+          {services.map((s) => (
             <Link
               key={s.slug}
               to="/servicos/$slug"
@@ -481,7 +489,13 @@ function Process() {
   );
 }
 
-function BeforeAfterSection() {
+function BeforeAfterSection({ media }: { media: any }) {
+  const beforeAfter = [
+    { title: "Método Reviva™ — 8 semanas de remodelamento corporal", img: media.posopImg },
+    { title: "Conexão Materna — Cicatrização com Laserterapia e ILIB", img: media.posPartoImg },
+    { title: "Reviva Face™ — Programa de 60 dias de colágeno", img: media.aboutImg },
+  ];
+
   return (
     <section id="antes-depois" className="bg-[#F7EFE9]/60 py-24 md:py-32 border-y border-[#E8D8D0]">
       <div className="mx-auto max-w-6xl px-6">

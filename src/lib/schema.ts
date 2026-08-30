@@ -265,7 +265,7 @@ export function blogPostingJsonLd(post: BlogPost) {
           "@type": "Article",
           "@id": `${url}#article`,
           headline: post.title,
-          description: post.description,
+          description: post.meta_description || post.excerpt,
           articleBody: post.content.map((c) => `${c.heading ? `${c.heading}: ` : ""}${c.paragraphs.join(" ")}`).join("\n\n"),
           author: {
                   "@id": `${BASE}/#person`,
@@ -273,11 +273,11 @@ export function blogPostingJsonLd(post: BlogPost) {
           publisher: {
                   "@id": `${BASE}/#negocio`,
           },
-          datePublished: post.date,
-          dateModified: post.date,
+          datePublished: post.published_at,
+          dateModified: post.published_at,
           inLanguage: "pt-BR",
           mainEntityOfPage: url,
-          keywords: post.keywords.join(", "),
+          keywords: (post.keywords || []).join(", "),
     };
 }
 

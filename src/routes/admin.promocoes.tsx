@@ -46,6 +46,7 @@ import { buildPixPayload, qrImageUrl } from "@/lib/pix";
 import { Logo } from "@/components/logo";
 import { AdminBlog } from "@/components/admin-blog";
 import { AdminLeads } from "@/components/admin-leads";
+import { AdminServices } from "@/components/admin-services";
 
 export const Route = createFileRoute("/admin/promocoes")({
   head: () => ({
@@ -157,7 +158,7 @@ function AdminPromocoes() {
 }
 
 function AdminEditor({ onLogout }: { onLogout: () => void }) {
-  const [activeTab, setActiveTab] = useState<"agenda" | "leads" | "promos" | "pix" | "seo" | "blog">("agenda");
+  const [activeTab, setActiveTab] = useState<"agenda" | "leads" | "promos" | "pix" | "seo" | "blog" | "services">("agenda");
 
   const [promos, setPromos] = useState<Promo[]>(() => loadPromos());
   const [pix, setPix] = useState<PixConfig>(() => loadPix());
@@ -357,6 +358,17 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               }`}
             >
               <span>📝 Blog</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("services")}
+              className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition flex items-center gap-1.5 ${
+                activeTab === "services"
+                  ? "bg-[#A86558] text-white shadow-sm"
+                  : "text-[#6E5A56] hover:text-[#2D2322]"
+              }`}
+            >
+              <span>🖼️ Tratamentos & Fotos</span>
             </button>
           </div>
 
@@ -625,6 +637,11 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
         {/* ABA BLOG: CMS E SEO */}
         {/* ============================================================ */}
         {activeTab === "blog" && <AdminBlog />}
+
+        {/* ============================================================ */}
+        {/* ABA SERVICES E MEDIA */}
+        {/* ============================================================ */}
+        {activeTab === "services" && <AdminServices />}
 
         {/* ============================================================ */}
         {/* ABA 2: LEADS & RECUPERAÇÃO DE VENDAS */}
