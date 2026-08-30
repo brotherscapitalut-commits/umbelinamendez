@@ -18,7 +18,7 @@ export async function getPublishedPosts(): Promise<BlogPost[]> {
     return data;
   } catch (err) {
     console.error("Erro no fetch de posts:", err);
-    return [];
+    return BLOG_SEEDS;
   }
 }
 
@@ -38,8 +38,8 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     }
     return data;
   } catch (err) {
-    console.error("Erro no fetch do post:", err);
-    return null;
+    console.error(`Erro no fetch do post ${slug}:`, err);
+    return BLOG_SEEDS.find(p => p.slug === slug) || null;
   }
 }
 
@@ -57,7 +57,7 @@ export async function getAllAdminPosts(): Promise<BlogPost[]> {
     return data;
   } catch (err) {
     console.error("Erro admin:", err);
-    return [];
+    return BLOG_SEEDS;
   }
 }
 

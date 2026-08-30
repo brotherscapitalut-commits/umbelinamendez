@@ -472,9 +472,9 @@ function Process() {
 
 function BeforeAfterSection({ media }: { media: any }) {
   const beforeAfter = [
-    { title: "Método Reviva™ — 8 semanas de remodelamento corporal", img: media.posopImg },
-    { title: "Conexão Materna — Cicatrização com Laserterapia e ILIB", img: media.posPartoImg },
-    { title: "Reviva Face™ — Programa de 60 dias de colágeno", img: media.aboutImg },
+    { title: "Método Reviva™ — 8 semanas de remodelamento corporal", img: media.beforeAfter1 },
+    { title: "Conexão Materna — Cicatrização com Laserterapia e ILIB", img: media.beforeAfter2 },
+    { title: "Reviva Face™ — Programa de 60 dias de colágeno", img: media.beforeAfter3 },
   ];
 
   return (

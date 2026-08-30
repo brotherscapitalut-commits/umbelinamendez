@@ -7,8 +7,10 @@ export type MediaConfig = {
   aboutImg: string;
   posopImg: string;
   gestanteImg: string;
-  posPartoImg: string;
-};
+  beforeAfter1: string;
+  beforeAfter2: string;
+  beforeAfter3: string;
+}
 
 import heroImgUrl from "@/assets/hero.jpg";
 import aboutImgUrl from "@/assets/about.jpg";
@@ -19,9 +21,12 @@ import posPartoImgUrl from "@/assets/service-pos-parto.jpg";
 export const DEFAULT_MEDIA: MediaConfig = {
   heroImg: heroImgUrl,
   aboutImg: aboutImgUrl,
+  posPartoImg: posPartoImgUrl,
   posopImg: posopImgUrl,
   gestanteImg: gestanteImgUrl,
-  posPartoImg: posPartoImgUrl,
+  beforeAfter1: posopImgUrl,
+  beforeAfter2: posPartoImgUrl,
+  beforeAfter3: aboutImgUrl,
 };
 
 // Due to Vite bundling, dynamically importing from /src/assets via variable in img src is tricky.
