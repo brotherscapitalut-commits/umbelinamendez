@@ -27,10 +27,11 @@ async function generateSitemap() {
     '/servicos/conexao-materna', '/servicos/laserterapia-ilib',
     '/servicos/beauty-tech-day', '/servicos/flacidez',
     '/servicos/metodo-reviva', '/servicos/reviva-face',
-    '/blog/pos-operatorio-brasilia-guia-completo',
-    '/blog/drenagem-linfatica-brasilia-como-funciona',
-    '/blog/pos-parto-cuidados-puerperio-brasilia',
-    '/blog/drenagem-pos-operatorio-diferencas'
+    '/blog/drenagem-linfatica-pos-operatorio-brasilia',
+    '/blog/drenagem-linfatica-abdominoplastia-brasilia',
+    '/blog/pos-operatorio-cirurgia-plastica-brasilia',
+    '/blog/como-evitar-fibrose-pos-operatorio-lipoaspiracao',
+    '/blog/taping-pos-operatorio-parto-brasilia'
   ];
   
   const allRoutes = [...new Set([...routes, ...expectedRoutes])];

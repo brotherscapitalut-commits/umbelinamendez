@@ -31,7 +31,12 @@ async function getRoutes() {
     '/servicos/pos-operatorio', '/servicos/drenagem-linfatica',
     '/servicos/conexao-materna', '/servicos/laserterapia-ilib',
     '/servicos/beauty-tech-day', '/servicos/flacidez',
-    '/servicos/metodo-reviva', '/servicos/reviva-face'
+    '/servicos/metodo-reviva', '/servicos/reviva-face',
+    '/blog/drenagem-linfatica-pos-operatorio-brasilia',
+    '/blog/drenagem-linfatica-abdominoplastia-brasilia',
+    '/blog/pos-operatorio-cirurgia-plastica-brasilia',
+    '/blog/como-evitar-fibrose-pos-operatorio-lipoaspiracao',
+    '/blog/taping-pos-operatorio-parto-brasilia'
   ];
   
   return [...new Set([...routes, ...expectedRoutes])];
