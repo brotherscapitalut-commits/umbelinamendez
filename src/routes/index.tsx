@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { Facebook, Instagram } from "lucide-react";
 import { useServices } from "@/lib/services-store";
 import { useMedia } from "@/lib/media-store";
 
@@ -163,7 +164,7 @@ function Nav() {
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between gap-4">
         <Logo size="md" />
 
-        <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-widest text-[#6E5A56] font-medium">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 text-[10px] xl:text-xs uppercase tracking-wider text-[#6E5A56] font-medium whitespace-nowrap">
           {links.map((l) => (
             l.href.startsWith("#") ? (
               <a key={l.href} href={l.href} className="hover:text-[#8C4E43] transition-colors">
@@ -177,7 +178,15 @@ function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 lg:gap-4">
+          <a href={SITE.instagram} target="_blank" rel="noreferrer" className="hidden sm:block text-[#6E5A56] hover:text-[#8C4E43] transition-colors" title="Instagram" onClick={trackClick("nav_instagram")}>
+            <Instagram className="w-5 h-5" />
+          </a>
+          {SITE.facebook && (
+            <a href={SITE.facebook} target="_blank" rel="noreferrer" className="hidden sm:block text-[#6E5A56] hover:text-[#8C4E43] transition-colors" title="Facebook" onClick={trackClick("nav_facebook")}>
+              <Facebook className="w-5 h-5" />
+            </a>
+          )}
           <Link
             to="/agendamento"
             onClick={trackClick("nav_agendar")}
@@ -684,8 +693,13 @@ function Footer() {
           <Link to="/agendamento" className="hover:text-[#8C4E43] transition">Agendar</Link>
           <Link to="/blog" className="hover:text-[#8C4E43] transition">Blog</Link>
           <Link to="/faq" className="hover:text-[#8C4E43] transition">FAQ</Link>
+          <a href={SITE.instagram} target="_blank" rel="noreferrer" className="hover:text-[#8C4E43] transition flex items-center gap-1.5">
+            <Instagram className="w-4 h-4"/> Instagram
+          </a>
           {SITE.facebook && (
-            <a href={SITE.facebook} target="_blank" rel="noreferrer" className="hover:text-[#8C4E43] transition">Facebook</a>
+            <a href={SITE.facebook} target="_blank" rel="noreferrer" className="hover:text-[#8C4E43] transition flex items-center gap-1.5">
+              <Facebook className="w-4 h-4"/> Facebook
+            </a>
           )}
           <Link to="/admin/promocoes" className="hover:text-[#8C4E43] transition text-[#6E5A56]/60">Painel Admin</Link>
         </div>
