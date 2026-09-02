@@ -244,13 +244,6 @@ export function serviceJsonLd(service: Service) {
                   availability: "https://schema.org/InStock",
                   url,
           })),
-          aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "5.0",
-                  reviewCount: String(depoimentosReais.length),
-                  bestRating: "5",
-                  worstRating: "1",
-          },
     };
 }
 
