@@ -647,6 +647,23 @@ function ContactSection() {
                 {SITE.instagramHandle}
               </a>
             </li>
+
+            {SITE.facebook && (
+              <li className="p-3.5 rounded-2xl bg-white border border-[#E8D8D0]/80">
+                <div className="text-[10px] uppercase tracking-widest text-[#8C4E43] font-bold">
+                  Facebook Oficial
+                </div>
+                <a
+                  href={SITE.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={trackClick("contato_facebook")}
+                  className="mt-1 block text-xs md:text-sm text-[#8C4E43] font-semibold hover:underline"
+                >
+                  /umbelina.mendezdelima
+                </a>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -667,6 +684,9 @@ function Footer() {
           <Link to="/agendamento" className="hover:text-[#8C4E43] transition">Agendar</Link>
           <Link to="/blog" className="hover:text-[#8C4E43] transition">Blog</Link>
           <Link to="/faq" className="hover:text-[#8C4E43] transition">FAQ</Link>
+          {SITE.facebook && (
+            <a href={SITE.facebook} target="_blank" rel="noreferrer" className="hover:text-[#8C4E43] transition">Facebook</a>
+          )}
           <Link to="/admin/promocoes" className="hover:text-[#8C4E43] transition text-[#6E5A56]/60">Painel Admin</Link>
         </div>
 

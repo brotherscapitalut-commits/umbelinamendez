@@ -20,8 +20,17 @@ function getDeviceType() {
 function getUTMs() {
   if (typeof window === "undefined") return {};
   const params = new URLSearchParams(window.location.search);
+  
+  let source = params.get("utm_source");
+  if (!source && document.referrer) {
+    if (document.referrer.includes("instagram.com")) source = "instagram";
+    else if (document.referrer.includes("facebook.com")) source = "facebook";
+    else if (document.referrer.includes("google.com")) source = "google";
+    else source = document.referrer;
+  }
+  
   return {
-    utm_source: params.get("utm_source") || null,
+    utm_source: source || null,
     utm_medium: params.get("utm_medium") || null,
     utm_campaign: params.get("utm_campaign") || null,
   };
@@ -66,6 +75,9 @@ export function trackEvent(
 ) {
   if (typeof window === "undefined") return;
   
+  const utms = getUTMs();
+  const fullParams = { ...params, ...utms };
+  
   // Envia para o Supabase
   trackConversion({
     event_type: name,
@@ -75,13 +87,13 @@ export function trackEvent(
 
   try {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: name, ...params });
+    window.dataLayer.push({ event: name, ...fullParams });
     if (typeof window.gtag === "function") {
-      window.gtag("event", name, params);
+      window.gtag("event", name, fullParams);
     }
     if (typeof window.fbq === "function") {
       const meta = name === "lead" ? "Lead" : name === "contact" ? "Contact" : "CustomEvent";
-      window.fbq("track", meta, params);
+      window.fbq("track", meta, fullParams);
     }
   } catch {
     /* noop */
