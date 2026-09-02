@@ -66,22 +66,22 @@ function TreatmentsPage() {
           <Logo size="sm" />
           <Link
             to="/agendamento"
-            className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+            className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
           >
             Agendar Consulta
           </Link>
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <span className="text-xs uppercase tracking-[0.25em] text-[#A86558] font-semibold">
+      <main className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <span className="text-xs uppercase tracking-[0.25em] text-[#8C4E43] font-semibold">
           Catálogo Oficial de Protocolos & Métodos
         </span>
         <h1
           data-speakable
           className="mt-4 font-serif text-3xl sm:text-5xl md:text-6xl text-[#2D2322] font-semibold leading-[1.08]"
         >
-          Cuidados com <em className="text-[#A86558] italic font-normal">base científica</em> em Brasília — DF.
+          Cuidados com <em className="text-[#8C4E43] italic font-normal">base científica</em> em Brasília — DF.
         </h1>
         <p data-speakable className="mt-5 text-sm md:text-base text-[#6E5A56] max-w-2xl leading-relaxed">
           Protocolos personalizados combinando biologia tecidual, manobras precisas e tecnologia de ponta no consultório na Asa Norte (SEPN 513) ou no conforto da sua residência no Distrito Federal.
@@ -93,31 +93,37 @@ function TreatmentsPage() {
               key={s.slug}
               to="/servicos/$slug"
               params={{ slug: s.slug }}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#E8D8D0] hover:-translate-y-1.5 transition-all duration-500 block"
-              style={{ boxShadow: "0 10px 30px rgba(168, 101, 88, 0.06)" }}
+              className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-[#E8D8D0] hover:-translate-y-1 transition duration-500"
+              style={{ boxShadow: "0 10px 30px rgba(168, 101, 88, 0.05)" }}
             >
-              <div className="overflow-hidden h-56">
+              <div className="relative h-48 sm:h-56 w-full bg-[#F4EAE4] overflow-hidden">
                 <img
-                  src={IMAGES[s.slug] ?? media.heroImg}
-                  alt={`${s.title} — Dra. Umbelina Mendez Brasília DF`}
+                  src={IMAGES[s.slug]}
+                  alt={s.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-6">
-                <div className="text-[11px] uppercase tracking-wider text-[#A86558] font-semibold">
-                  {s.short}
+              <div className="p-6 md:p-8 flex-1 flex flex-col">
+                <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-semibold">
+                  {s.category}
                 </div>
-                <h2 className="mt-2 font-serif text-2xl text-[#2D2322] font-semibold">{s.title}</h2>
-                <p className="mt-2.5 text-xs text-[#6E5A56] leading-relaxed line-clamp-3">{s.desc}</p>
-                <span className="mt-5 inline-block text-xs font-semibold text-[#A86558] group-hover:underline underline-offset-4">
-                  Ver protocolo e detalhes →
-                </span>
+                <h2 className="mt-2 text-lg font-serif font-bold text-[#2D2322] leading-snug">
+                  {s.title}
+                </h2>
+                <p className="mt-2 text-sm text-[#6E5A56] line-clamp-3">
+                  {s.desc}
+                </p>
+                <div className="mt-auto pt-6 flex items-center justify-between border-t border-[#E8D8D0]/50">
+                  <span className="text-xs font-semibold text-[#8C4E43] group-hover:underline underline-offset-4">
+                    Detalhes do Protocolo →
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
         </div>
-      </section>
+      </main>
 
       <WhatsAppFab />
     </div>

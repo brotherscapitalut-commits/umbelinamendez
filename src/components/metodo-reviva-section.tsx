@@ -45,13 +45,13 @@ export function MetodoRevivaSection() {
       <div className="mx-auto max-w-6xl px-6">
         {/* Cabeçalho Conceitual */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.4em] text-[#A86558] font-semibold">
+          <div className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.4em] text-[#8C4E43] font-semibold">
             <span>ARTE DE CUIDAR</span>
             <span>◆ ◆ ◆</span>
           </div>
 
           <h2 className="mt-5 font-serif text-4xl sm:text-6xl text-[#2D2322] font-semibold tracking-wide">
-            REVIVA <span className="font-normal italic text-[#A86558] text-3xl sm:text-5xl">método ™</span>
+            REVIVA <span className="font-normal italic text-[#8C4E43] text-3xl sm:text-5xl">método ™</span>
           </h2>
 
           <p className="mt-4 text-xs sm:text-sm uppercase tracking-[0.25em] text-[#6E5A56] font-medium">
@@ -72,7 +72,7 @@ export function MetodoRevivaSection() {
         {/* O Conceito */}
         <div className="mt-16 grid md:grid-cols-12 gap-10 items-center p-8 md:p-12 rounded-[2.5rem] bg-[#F7EFE9]/60 border border-[#E8D8D0]">
           <div className="md:col-span-6">
-            <span className="text-[11px] uppercase tracking-[0.3em] text-[#A86558] font-bold">O Conceito</span>
+            <span className="text-[11px] uppercase tracking-[0.3em] text-[#8C4E43] font-bold">O Conceito</span>
             <h3 className="mt-2 font-serif text-2xl sm:text-4xl text-[#2D2322] font-semibold leading-tight">
               O que é o Método Reviva™?
             </h3>
@@ -84,7 +84,7 @@ export function MetodoRevivaSection() {
             </p>
 
             <div className="mt-6 p-4 rounded-2xl bg-white border border-[#E8D8D0] shadow-sm">
-              <p className="font-serif italic text-sm md:text-base text-[#A86558] font-medium">
+              <p className="font-serif italic text-sm md:text-base text-[#8C4E43] font-medium">
                 Aqui, não trabalhamos procedimentos aleatórios. Trabalhamos evolução corporal acompanhada.
               </p>
             </div>
@@ -101,7 +101,7 @@ export function MetodoRevivaSection() {
                     key={obj}
                     className="p-3 rounded-xl bg-[#FDFBF9] border border-[#E8D8D0]/70 flex items-start gap-2.5 text-xs text-[#2D2322] font-medium"
                   >
-                    <span className="text-[#A86558] mt-0.5 font-bold">＋</span>
+                    <span className="text-[#8C4E43] mt-0.5 font-bold">＋</span>
                     <span>{obj}</span>
                   </div>
                 ))}
@@ -115,7 +115,7 @@ export function MetodoRevivaSection() {
           {/* Como Funciona */}
           <div className="md:col-span-6 rounded-3xl bg-[#FDFBF9] border border-[#E8D8D0] p-8 flex flex-col justify-between">
             <div>
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[#A86558] font-bold">COMO FUNCIONA</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-[#8C4E43] font-bold">COMO FUNCIONA</span>
               <h3 className="mt-2 font-serif text-2xl font-semibold text-[#2D2322]">Uma jornada corporal estratégica</h3>
               <p className="mt-3 text-xs md:text-sm text-[#6E5A56] leading-relaxed">
                 As sessões associam drenagem manual com tecnologias específicas conforme a necessidade de cada fase:
@@ -124,7 +124,7 @@ export function MetodoRevivaSection() {
               <div className="mt-5 grid grid-cols-2 gap-2.5">
                 {tecnologias.map((t) => (
                   <div key={t.name} className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-[#E8D8D0]/60 text-xs text-[#2D2322] font-medium">
-                    <span className="text-[#A86558]">{t.icon}</span>
+                    <span className="text-[#8C4E43]">{t.icon}</span>
                     <span>{t.name}</span>
                   </div>
                 ))}
@@ -139,13 +139,13 @@ export function MetodoRevivaSection() {
           {/* O Diferencial */}
           <div className="md:col-span-6 rounded-3xl bg-[#FDFBF9] border border-[#E8D8D0] p-8 flex flex-col justify-between">
             <div>
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[#A86558] font-bold">O DIFERENCIAL</span>
+              <span className="text-[11px] uppercase tracking-[0.3em] text-[#8C4E43] font-bold">O DIFERENCIAL</span>
               <h3 className="mt-2 font-serif text-2xl font-semibold text-[#2D2322]">Diferenciais do Método Reviva™</h3>
 
               <ul className="mt-5 space-y-2 text-xs md:text-sm text-[#2D2322]">
                 {diferenciais.map((d) => (
                   <li key={d} className="flex items-center gap-2.5">
-                    <span className="text-[#A86558] font-bold">✦</span>
+                    <span className="text-[#8C4E43] font-bold">✦</span>
                     <span>{d}</span>
                   </li>
                 ))}
@@ -164,19 +164,19 @@ export function MetodoRevivaSection() {
         <div className="mt-14 grid sm:grid-cols-3 gap-6 text-center">
           <div className="p-6 rounded-3xl bg-[#F7EFE9]/70 border border-[#E8D8D0]">
             <div className="font-serif text-2xl font-bold text-[#2D2322]">Cuidado</div>
-            <div className="text-xs uppercase tracking-wider text-[#A86558] font-semibold mt-1">Personalizado</div>
+            <div className="text-xs uppercase tracking-wider text-[#8C4E43] font-semibold mt-1">Personalizado</div>
             <p className="text-xs text-[#6E5A56] mt-2">Protocolos adaptados individualmente para suas metas.</p>
           </div>
 
           <div className="p-6 rounded-3xl bg-[#F7EFE9]/70 border border-[#E8D8D0]">
             <div className="font-serif text-2xl font-bold text-[#2D2322]">Evolução</div>
-            <div className="text-xs uppercase tracking-wider text-[#A86558] font-semibold mt-1">Progressiva</div>
+            <div className="text-xs uppercase tracking-wider text-[#8C4E43] font-semibold mt-1">Progressiva</div>
             <p className="text-xs text-[#6E5A56] mt-2">Resultados sustentáveis com acompanhamento quinzenal.</p>
           </div>
 
           <div className="p-6 rounded-3xl bg-[#F7EFE9]/70 border border-[#E8D8D0]">
             <div className="font-serif text-2xl font-bold text-[#2D2322]">Resultado</div>
-            <div className="text-xs uppercase tracking-wider text-[#A86558] font-semibold mt-1">Duradouro</div>
+            <div className="text-xs uppercase tracking-wider text-[#8C4E43] font-semibold mt-1">Duradouro</div>
             <p className="text-xs text-[#6E5A56] mt-2">Constância biológica que preserva a saúde tecidual.</p>
           </div>
         </div>
@@ -184,7 +184,7 @@ export function MetodoRevivaSection() {
         {/* 3 Formatos de Acompanhamento (Planos) */}
         <div className="mt-16">
           <div className="text-center max-w-xl mx-auto">
-            <span className="text-[11px] uppercase tracking-[0.3em] text-[#A86558] font-bold">FORMATOS DE ACOMPANHAMENTO</span>
+            <span className="text-[11px] uppercase tracking-[0.3em] text-[#8C4E43] font-bold">FORMATOS DE ACOMPANHAMENTO</span>
             <h3 className="mt-2 font-serif text-3xl sm:text-4xl font-semibold text-[#2D2322]">
               Planos de Acompanhamento
             </h3>
@@ -194,11 +194,11 @@ export function MetodoRevivaSection() {
             {/* Essencial */}
             <div className="rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition">
               <div>
-                <span className="rounded-full bg-[#F4EAE4] text-[#A86558] text-[10px] uppercase tracking-widest font-bold px-3 py-1 inline-block">
+                <span className="rounded-full bg-[#F4EAE4] text-[#8C4E43] text-[10px] uppercase tracking-widest font-bold px-3 py-1 inline-block">
                   ESSENCIAL
                 </span>
                 <h4 className="mt-4 font-serif text-2xl font-bold text-[#2D2322]">Reviva™ Essencial</h4>
-                <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#A86558]">
+                <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#8C4E43]">
                   <span>◆</span>
                   <span>1 sessão semanal</span>
                 </div>
@@ -213,7 +213,7 @@ export function MetodoRevivaSection() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={trackClick("reviva_plano_essencial")}
-                  className="w-full inline-flex items-center justify-center rounded-full bg-white border border-[#E8D8D0] py-2.5 text-xs font-semibold text-[#2D2322] hover:bg-[#A86558] hover:text-white transition shadow-sm"
+                  className="w-full inline-flex items-center justify-center rounded-full bg-white border border-[#E8D8D0] py-2.5 text-xs font-semibold text-[#2D2322] hover:bg-[#8C4E43] hover:text-white transition shadow-sm"
                 >
                   Consultar Plano Essencial →
                 </a>
@@ -221,16 +221,16 @@ export function MetodoRevivaSection() {
             </div>
 
             {/* Intensivo */}
-            <div className="rounded-3xl border-2 border-[#A86558] bg-white p-7 flex flex-col justify-between shadow-lg relative">
-              <div className="absolute -top-3 right-6 rounded-full bg-[#A86558] text-white text-[10px] uppercase tracking-wider font-bold px-3 py-0.5">
+            <div className="rounded-3xl border-2 border-[#8C4E43] bg-white p-7 flex flex-col justify-between shadow-lg relative">
+              <div className="absolute -top-3 right-6 rounded-full bg-[#8C4E43] text-white text-[10px] uppercase tracking-wider font-bold px-3 py-0.5">
                 Mais Procurado
               </div>
               <div>
-                <span className="rounded-full bg-[#F4EAE4] text-[#A86558] text-[10px] uppercase tracking-widest font-bold px-3 py-1 inline-block">
+                <span className="rounded-full bg-[#F4EAE4] text-[#8C4E43] text-[10px] uppercase tracking-widest font-bold px-3 py-1 inline-block">
                   INTENSIVO
                 </span>
                 <h4 className="mt-4 font-serif text-2xl font-bold text-[#2D2322]">Reviva™ Intensivo</h4>
-                <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#A86558]">
+                <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#8C4E43]">
                   <span>◆</span>
                   <span>2 sessões semanais</span>
                 </div>
@@ -245,7 +245,7 @@ export function MetodoRevivaSection() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={trackClick("reviva_plano_intensivo")}
-                  className="w-full inline-flex items-center justify-center rounded-full bg-[#A86558] text-white py-2.5 text-xs font-semibold hover:bg-[#8C4E43] transition shadow-md"
+                  className="w-full inline-flex items-center justify-center rounded-full bg-[#8C4E43] text-white py-2.5 text-xs font-semibold hover:bg-[#8C4E43] transition shadow-md"
                 >
                   Consultar Plano Intensivo →
                 </a>
@@ -255,11 +255,11 @@ export function MetodoRevivaSection() {
             {/* Premium */}
             <div className="rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] p-7 flex flex-col justify-between shadow-sm hover:shadow-md transition">
               <div>
-                <span className="rounded-full bg-[#F4EAE4] text-[#A86558] text-[10px] uppercase tracking-widest font-bold px-3 py-1 inline-block">
+                <span className="rounded-full bg-[#F4EAE4] text-[#8C4E43] text-[10px] uppercase tracking-widest font-bold px-3 py-1 inline-block">
                   PREMIUM
                 </span>
                 <h4 className="mt-4 font-serif text-2xl font-bold text-[#2D2322]">Reviva™ Premium</h4>
-                <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#A86558]">
+                <div className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#8C4E43]">
                   <span>◆</span>
                   <span>Acompanhamento Intensivo + Benefícios</span>
                 </div>
@@ -274,7 +274,7 @@ export function MetodoRevivaSection() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={trackClick("reviva_plano_premium")}
-                  className="w-full inline-flex items-center justify-center rounded-full bg-white border border-[#E8D8D0] py-2.5 text-xs font-semibold text-[#2D2322] hover:bg-[#A86558] hover:text-white transition shadow-sm"
+                  className="w-full inline-flex items-center justify-center rounded-full bg-white border border-[#E8D8D0] py-2.5 text-xs font-semibold text-[#2D2322] hover:bg-[#8C4E43] hover:text-white transition shadow-sm"
                 >
                   Consultar Plano Premium →
                 </a>
@@ -285,7 +285,7 @@ export function MetodoRevivaSection() {
 
         {/* Rodapé da Seção */}
         <div className="mt-14 text-center pt-8 border-t border-[#E8D8D0]">
-          <p className="font-serif italic text-base text-[#A86558]">
+          <p className="font-serif italic text-base text-[#8C4E43]">
             "Seu corpo muda quando o cuidado se torna contínuo."
           </p>
           <div className="mt-2 text-xs text-[#6E5A56]">

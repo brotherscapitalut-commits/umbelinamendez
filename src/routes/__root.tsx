@@ -17,7 +17,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#F9F4F0] px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-serif font-bold text-[#A86558]">404</h1>
+        <h1 className="text-7xl font-serif font-bold text-[#8C4E43]">404</h1>
         <h2 className="mt-4 text-xl font-semibold text-[#2D2322]">Página não encontrada</h2>
         <p className="mt-2 text-sm text-[#6E5A56]">
           A página que você procura não existe ou foi movida.
@@ -25,7 +25,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-full bg-[#A86558] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#8C4E43]"
+            className="inline-flex items-center justify-center rounded-full bg-[#8C4E43] px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[#8C4E43]"
           >
             Voltar ao início
           </Link>
@@ -57,7 +57,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-full bg-[#A86558] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#8C4E43]"
+            className="inline-flex items-center justify-center rounded-full bg-[#8C4E43] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#8C4E43]"
           >
             Tentar novamente
           </button>

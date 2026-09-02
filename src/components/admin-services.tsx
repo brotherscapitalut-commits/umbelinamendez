@@ -108,7 +108,7 @@ export function AdminServices() {
           <button
             onClick={handleSaveMedia}
             disabled={loading}
-            className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43]"
+            className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43]"
           >
             Salvar e Publicar Imagens
           </button>

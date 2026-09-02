@@ -100,7 +100,7 @@ export function AdminBlog() {
           </h2>
           <button
             onClick={() => setEditingPost(null)}
-            className="text-xs text-[#6E5A56] hover:text-[#A86558] underline underline-offset-4"
+            className="text-xs text-[#6E5A56] hover:text-[#8C4E43] underline underline-offset-4"
           >
             Voltar para lista
           </button>
@@ -119,7 +119,7 @@ export function AdminBlog() {
                   type="text"
                   value={editingPost.title || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, title: e.target.value })}
-                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                 />
               </div>
 
@@ -130,7 +130,7 @@ export function AdminBlog() {
                   type="text"
                   value={editingPost.slug || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, slug: e.target.value })}
-                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                   placeholder="ex: como-funciona-o-pos-operatorio"
                 />
               </div>
@@ -141,7 +141,7 @@ export function AdminBlog() {
                   type="text"
                   value={editingPost.hero_image || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, hero_image: e.target.value })}
-                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                 />
               </div>
 
@@ -152,7 +152,7 @@ export function AdminBlog() {
                     type="text"
                     value={editingPost.category || ""}
                     onChange={(e) => setEditingPost({ ...editingPost, category: e.target.value })}
-                    className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                    className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                   />
                 </div>
                 <div>
@@ -161,7 +161,7 @@ export function AdminBlog() {
                     type="number"
                     value={editingPost.readingMinutes || 5}
                     onChange={(e) => setEditingPost({ ...editingPost, readingMinutes: Number(e.target.value) })}
-                    className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                    className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ export function AdminBlog() {
                     // Ignora erro de sintaxe durante a digitação
                   }
                 }}
-                className="w-full h-64 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60 font-mono"
+                className="w-full h-64 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60 font-mono"
               />
               <p className="text-[10px] text-amber-600">Formato: array de objetos com heading (opcional) e paragraphs (array de strings).</p>
             </div>
@@ -189,7 +189,7 @@ export function AdminBlog() {
 
           {/* Coluna Direita: SEO e Publicação */}
           <div className="space-y-6">
-            <div className="p-6 rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] shadow-sm space-y-4 border-l-4 border-l-[#A86558]">
+            <div className="p-6 rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] shadow-sm space-y-4 border-l-4 border-l-[#8C4E43]">
               <h3 className="font-semibold text-[#2D2322] border-b border-[#F2E7E1] pb-3 mb-4 flex items-center gap-2">
                 🔍 Otimização SEO
               </h3>
@@ -205,7 +205,7 @@ export function AdminBlog() {
                   type="text"
                   value={editingPost.meta_title || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, meta_title: e.target.value })}
-                  className="w-full rounded-xl border border-[#E8D8D0] bg-white px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="w-full rounded-xl border border-[#E8D8D0] bg-white px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                 />
               </div>
 
@@ -220,7 +220,7 @@ export function AdminBlog() {
                   rows={3}
                   value={editingPost.meta_description || ""}
                   onChange={(e) => setEditingPost({ ...editingPost, meta_description: e.target.value, excerpt: e.target.value })}
-                  className="w-full rounded-xl border border-[#E8D8D0] bg-white px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="w-full rounded-xl border border-[#E8D8D0] bg-white px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                 />
               </div>
 
@@ -269,7 +269,7 @@ export function AdminBlog() {
                       : (editingPost.published_at || "")
                   }
                   onChange={(e) => setEditingPost({ ...editingPost, published_at: e.target.value })}
-                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                 />
               </div>
             </div>
@@ -277,7 +277,7 @@ export function AdminBlog() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-full bg-[#A86558] text-white py-3.5 text-sm font-semibold hover:bg-[#8C4E43] shadow-md transition disabled:opacity-50"
+              className="w-full rounded-full bg-[#8C4E43] text-white py-3.5 text-sm font-semibold hover:bg-[#8C4E43] shadow-md transition disabled:opacity-50"
             >
               {loading ? "Salvando..." : "Salvar Artigo"}
             </button>
@@ -301,7 +301,7 @@ export function AdminBlog() {
 
         <button
           onClick={handleCreate}
-          className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+          className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
         >
           + Novo Artigo
         </button>
@@ -385,7 +385,7 @@ export function AdminBlog() {
                   <td className="py-3 px-4 text-right">
                     <button 
                       onClick={() => setEditingPost(post)}
-                      className="text-[#A86558] hover:underline font-semibold mr-3"
+                      className="text-[#8C4E43] hover:underline font-semibold mr-3"
                     >
                       Editar
                     </button>

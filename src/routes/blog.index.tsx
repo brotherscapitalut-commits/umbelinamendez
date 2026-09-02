@@ -83,16 +83,16 @@ function BlogIndex() {
         <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
           <Logo size="sm" />
           <nav className="flex gap-6 text-xs uppercase tracking-wider font-semibold text-[#6E5A56]">
-            <Link to="/tratamentos" className="hover:text-[#A86558] transition">Tratamentos</Link>
-            <Link to="/agendamento" className="hover:text-[#A86558] transition">Agendar</Link>
+            <Link to="/tratamentos" className="hover:text-[#8C4E43] transition">Tratamentos</Link>
+            <Link to="/agendamento" className="hover:text-[#8C4E43] transition">Agendar</Link>
           </nav>
         </div>
       </header>
 
       <section className="mx-auto max-w-3xl px-6 py-16">
-        <p className="text-xs uppercase tracking-[0.25em] text-[#A86558] font-semibold">Artigos & Ciência</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-[#8C4E43] font-semibold">Artigos & Ciência</p>
         <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight text-[#2D2322] font-semibold">
-          Cuidado e saúde feminina, com <em className="text-[#A86558] italic font-normal">embasamento biológico</em>
+          Cuidado e saúde feminina, com <em className="text-[#8C4E43] italic font-normal">embasamento biológico</em>
         </h1>
         <p className="mt-4 text-xs md:text-sm text-[#6E5A56] leading-relaxed">
           Artigos sobre o Método Reviva™, recuperação pós-parto, cirurgias plásticas e tecnologias estéticas — compartilhados pela Dra. Umbelina Mendez a partir de mais de 20 anos de experiência clínica no DF.
@@ -103,14 +103,14 @@ function BlogIndex() {
         <ul className="space-y-8">
           {posts.map((p) => (
               <li key={p.slug} className="border-b border-[#E8D8D0] pb-8">
-                <div className="text-[11px] uppercase tracking-wider text-[#A86558] font-semibold">
+                <div className="text-[11px] uppercase tracking-wider text-[#8C4E43] font-semibold">
                   {p.category} · {formatDatePtBr(p.published_at)} · {p.readingMinutes} min de leitura
                 </div>
                 <h2 className="mt-2 font-serif text-2xl md:text-3xl text-[#2D2322] font-semibold">
                   <Link
                     to="/blog/$slug"
                     params={{ slug: p.slug }}
-                    className="hover:text-[#A86558] transition"
+                    className="hover:text-[#8C4E43] transition"
                   >
                     {p.title}
                   </Link>
@@ -119,7 +119,7 @@ function BlogIndex() {
                 <Link
                   to="/blog/$slug"
                   params={{ slug: p.slug }}
-                  className="mt-4 inline-block text-xs font-semibold text-[#A86558] underline underline-offset-4 hover:text-[#8C4E43]"
+                  className="mt-4 inline-block text-xs font-semibold text-[#8C4E43] underline underline-offset-4 hover:text-[#8C4E43]"
                 >
                   Ler artigo completo →
                 </Link>

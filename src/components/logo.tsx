@@ -24,7 +24,7 @@ export function MonogramUM({ className = "h-10 w-10" }: { className?: string }) 
           <stop offset="25%" stopColor="#C58577" />
           <stop offset="48%" stopColor="#FAD3C8" />
           <stop offset="55%" stopColor="#E2A597" />
-          <stop offset="78%" stopColor="#A86558" />
+          <stop offset="78%" stopColor="#8C4E43" />
           <stop offset="100%" stopColor="#6E2F24" />
         </linearGradient>
 

@@ -27,7 +27,7 @@ export const PROMOS: Promo[] = [
     serviceSlug: "beauty-tech-day",
     endsAt: nextSunday(),
     active: true,
-    gradient: "linear-gradient(135deg, #8C4A3E 0%, #A86558 50%, #B76E79 100%)",
+    gradient: "linear-gradient(135deg, #8C4A3E 0%, #8C4E43 50%, #B76E79 100%)",
     emoji: "❄️",
   },
   {
@@ -42,7 +42,7 @@ export const PROMOS: Promo[] = [
     serviceSlug: "beauty-tech-day",
     endsAt: nextSunday(),
     active: true,
-    gradient: "linear-gradient(135deg, #A86558 0%, #C58577 100%)",
+    gradient: "linear-gradient(135deg, #8C4E43 0%, #C58577 100%)",
     emoji: "✨",
   },
   {
@@ -57,7 +57,7 @@ export const PROMOS: Promo[] = [
     serviceSlug: "metodo-reviva",
     endsAt: inDays(18),
     active: true,
-    gradient: "linear-gradient(135deg, #9B564A 0%, #A86558 100%)",
+    gradient: "linear-gradient(135deg, #9B564A 0%, #8C4E43 100%)",
     emoji: "🌿",
   },
   {
@@ -72,7 +72,7 @@ export const PROMOS: Promo[] = [
     serviceSlug: "conexao-materna",
     endsAt: inDays(21),
     active: true,
-    gradient: "linear-gradient(135deg, #B76E79 0%, #A86558 100%)",
+    gradient: "linear-gradient(135deg, #B76E79 0%, #8C4E43 100%)",
     emoji: "🌸",
   },
 ];

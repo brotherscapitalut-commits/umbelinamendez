@@ -20,7 +20,7 @@ export function FAQAccordion({ items, idBase = "faq" }: { items: FAQ[]; idBase?:
               <span className="font-serif text-lg md:text-xl text-[#2D2322] font-medium">{it.q}</span>
               <span
                 aria-hidden
-                className={`text-[#A86558] text-2xl font-light transition-transform duration-300 ${
+                className={`text-[#8C4E43] text-2xl font-light transition-transform duration-300 ${
                   isOpen ? "rotate-45" : ""
                 }`}
               >

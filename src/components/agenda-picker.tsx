@@ -160,7 +160,7 @@ export function AgendaPicker({
         {/* Topo do Calendário com Mês e Botões */}
         <div className="flex items-center justify-between pb-4 border-b border-[#F2E7E1]">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
               Selecione o Dia
             </span>
             <h4 className="font-serif text-xl md:text-2xl font-bold text-[#2D2322] capitalize">
@@ -172,7 +172,7 @@ export function AgendaPicker({
             <button
               type="button"
               onClick={prevMonth}
-              className="h-8 w-8 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs text-[#2D2322] hover:border-[#A86558] transition"
+              className="h-8 w-8 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs text-[#2D2322] hover:border-[#8C4E43] transition"
               aria-label="Mês Anterior"
             >
               ‹
@@ -180,7 +180,7 @@ export function AgendaPicker({
             <button
               type="button"
               onClick={nextMonth}
-              className="h-8 w-8 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs text-[#2D2322] hover:border-[#A86558] transition"
+              className="h-8 w-8 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs text-[#2D2322] hover:border-[#8C4E43] transition"
               aria-label="Próximo Mês"
             >
               ›
@@ -213,10 +213,10 @@ export function AgendaPicker({
                 }}
                 className={`h-9 md:h-10 rounded-xl text-xs font-semibold flex flex-col items-center justify-center transition relative ${
                   isSelected
-                    ? "bg-[#A86558] text-white shadow-md font-bold scale-105 z-10"
+                    ? "bg-[#8C4E43] text-white shadow-md font-bold scale-105 z-10"
                     : isDisabled
                     ? "text-stone-300 cursor-not-allowed bg-transparent"
-                    : "text-[#2D2322] bg-[#FDFBF9] border border-[#E8D8D0]/60 hover:border-[#A86558] hover:bg-[#F4EAE4]/60"
+                    : "text-[#2D2322] bg-[#FDFBF9] border border-[#E8D8D0]/60 hover:border-[#8C4E43] hover:bg-[#F4EAE4]/60"
                 }`}
               >
                 <span>{c.day}</span>
@@ -230,7 +230,7 @@ export function AgendaPicker({
 
         <div className="mt-4 pt-3 border-t border-[#F2E7E1] flex flex-wrap items-center justify-between text-[10px] text-[#6E5A56] gap-2">
           <span>🕒 Atendimento: 60 min (+ 20 min higienização)</span>
-          <span className="text-[#A86558] font-medium">● Domingo Fechado</span>
+          <span className="text-[#8C4E43] font-medium">● Domingo Fechado</span>
         </div>
       </div>
 
@@ -238,7 +238,7 @@ export function AgendaPicker({
       <div className="rounded-3xl border border-[#E8D8D0] bg-white p-5 md:p-6 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#F2E7E1]">
           <div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
               Horários em Tempo Real
             </span>
             <h4 className="font-serif text-lg md:text-xl font-bold text-[#2D2322] capitalize">
@@ -263,7 +263,7 @@ export function AgendaPicker({
           <div className="mt-5 space-y-4">
             {/* Manhã */}
             <div>
-              <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold mb-2.5 flex items-center gap-1.5">
+              <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold mb-2.5 flex items-center gap-1.5">
                 <span>☀️</span> Turno da Manhã (08:00 às 12:00)
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -282,7 +282,7 @@ export function AgendaPicker({
 
             {/* Tarde */}
             <div className="pt-2">
-              <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold mb-2.5 flex items-center gap-1.5">
+              <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold mb-2.5 flex items-center gap-1.5">
                 <span>⛅</span> Turno da Tarde (13:00 às 18:00)
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
@@ -346,14 +346,14 @@ function SlotButton({
       onClick={onSelect}
       className={`p-3 rounded-2xl border text-left transition flex flex-col justify-between ${
         isSelected
-          ? "border-2 border-[#A86558] bg-[#F4EAE4] shadow-sm scale-102"
-          : "border-[#E8D8D0] bg-[#FDFBF9] hover:border-[#A86558] hover:bg-white"
+          ? "border-2 border-[#8C4E43] bg-[#F4EAE4] shadow-sm scale-102"
+          : "border-[#E8D8D0] bg-[#FDFBF9] hover:border-[#8C4E43] hover:bg-white"
       }`}
     >
       <div className="flex items-center justify-between">
         <span
           className={`font-mono text-xs md:text-sm font-bold ${
-            isSelected ? "text-[#A86558]" : "text-[#2D2322]"
+            isSelected ? "text-[#8C4E43]" : "text-[#2D2322]"
           }`}
         >
           {slot.startTime}
@@ -361,7 +361,7 @@ function SlotButton({
         <span
           className={`text-[9px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded-full ${
             isSelected
-              ? "bg-[#A86558] text-white"
+              ? "bg-[#8C4E43] text-white"
               : "bg-emerald-50 text-emerald-700 border border-emerald-200"
           }`}
         >
@@ -371,7 +371,7 @@ function SlotButton({
 
       <div className="text-[10px] text-[#6E5A56] mt-1.5 flex items-center justify-between">
         <span>até {slot.endTime}</span>
-        <span className="text-[9px] text-[#A86558] font-medium">60 min</span>
+        <span className="text-[9px] text-[#8C4E43] font-medium">60 min</span>
       </div>
     </button>
   );

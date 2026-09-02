@@ -70,7 +70,7 @@ export const Route = createFileRoute("/servicos/$slug")({
       <p className="mt-2 text-sm text-[#6E5A56]">O tratamento procurado pode ter sido atualizado.</p>
       <Link
         to="/tratamentos"
-        className="mt-6 inline-flex rounded-full bg-[#A86558] text-white px-6 py-2.5 text-xs font-semibold"
+        className="mt-6 inline-flex rounded-full bg-[#8C4E43] text-white px-6 py-2.5 text-xs font-semibold"
       >
         Ver Todos os Tratamentos
       </Link>
@@ -113,13 +113,13 @@ function ServicePage() {
           <div className="flex items-center gap-4">
             <Link
               to="/tratamentos"
-              className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#A86558] font-medium"
+              className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#8C4E43] font-medium"
             >
               Todos os Tratamentos
             </Link>
             <Link
               to="/agendamento"
-              className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+              className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
             >
               Agendar Avaliação
             </Link>
@@ -131,18 +131,18 @@ function ServicePage() {
       <section className="mx-auto max-w-6xl px-6 py-14 md:py-20 grid md:grid-cols-12 gap-12 items-start">
         <div className="md:col-span-7">
           <nav className="text-xs uppercase tracking-widest text-[#6E5A56]">
-            <Link to="/" className="hover:text-[#A86558]">Início</Link>
+            <Link to="/" className="hover:text-[#8C4E43]">Início</Link>
             <span className="mx-2 text-[#E8D8D0]">/</span>
-            <Link to="/tratamentos" className="hover:text-[#A86558]">Tratamentos</Link>
+            <Link to="/tratamentos" className="hover:text-[#8C4E43]">Tratamentos</Link>
             <span className="mx-2 text-[#E8D8D0]">/</span>
-            <span className="text-[#A86558] font-semibold">{service.title}</span>
+            <span className="text-[#8C4E43] font-semibold">{service.title}</span>
           </nav>
 
           <h1
             data-speakable
             className="mt-5 font-serif text-3xl sm:text-4xl md:text-5xl text-[#2D2322] font-semibold leading-tight"
           >
-            {service.title} <em className="text-[#A86558] italic font-normal">em Brasília — DF</em>
+            {service.title} <em className="text-[#8C4E43] italic font-normal">em Brasília — DF</em>
           </h1>
           <p data-speakable className="mt-4 text-base text-[#6E5A56] font-medium leading-relaxed">
             {service.short}
@@ -160,7 +160,7 @@ function ServicePage() {
             <ul className="mt-4 grid sm:grid-cols-2 gap-3 text-xs md:text-sm text-[#2D2322]">
               {service.bullets.map((b: string) => (
                 <li key={b} className="flex items-start gap-2.5">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#A86558] shrink-0" />
+                  <span className="mt-1 h-2 w-2 rounded-full bg-[#8C4E43] shrink-0" />
                   <span>{b}</span>
                 </li>
               ))}
@@ -179,7 +179,7 @@ function ServicePage() {
                   >
                     <div>
                       {plan.badge && (
-                        <span className="inline-block rounded-full bg-[#F4EAE4] text-[#A86558] text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 mb-2">
+                        <span className="inline-block rounded-full bg-[#F4EAE4] text-[#8C4E43] text-[10px] uppercase tracking-wider font-semibold px-2.5 py-0.5 mb-2">
                           {plan.badge}
                         </span>
                       )}
@@ -206,7 +206,7 @@ function ServicePage() {
             <ul className="mt-3 space-y-2 text-xs md:text-sm text-[#6E5A56]">
               {service.indications.map((ind: string) => (
                 <li key={ind} className="flex items-center gap-2">
-                  <span className="text-[#A86558]">✓</span>
+                  <span className="text-[#8C4E43]">✓</span>
                   <span>{ind}</span>
                 </li>
               ))}
@@ -246,7 +246,7 @@ function ServicePage() {
               <div className="mt-6 space-y-2.5">
                 <Link
                   to="/agendamento"
-                  className="w-full inline-flex items-center justify-center rounded-full bg-[#A86558] text-white py-3 text-xs font-semibold hover:bg-[#8C4E43] shadow-[0_4px_14px_rgba(168,101,88,0.25)] transition"
+                  className="w-full inline-flex items-center justify-center rounded-full bg-[#8C4E43] text-white py-3 text-xs font-semibold hover:bg-[#8C4E43] shadow-[0_4px_14px_rgba(168,101,88,0.25)] transition"
                 >
                   Agendar com Bloqueio de Horário →
                 </Link>

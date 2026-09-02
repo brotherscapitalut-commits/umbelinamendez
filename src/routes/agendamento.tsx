@@ -155,7 +155,7 @@ function AgendamentoPage() {
           <Logo size="sm" />
           <Link
             to="/"
-            className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#A86558] font-semibold"
+            className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#8C4E43] font-semibold"
           >
             ← Voltar ao Início
           </Link>
@@ -164,11 +164,11 @@ function AgendamentoPage() {
 
       <section className="relative py-14 md:py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <span className="text-xs uppercase tracking-[0.25em] text-[#A86558] font-semibold">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#8C4E43] font-semibold">
             Agendamento Inteligente em Tempo Real
           </span>
           <h1 className="mt-3 font-serif text-3xl sm:text-5xl md:text-6xl text-[#2D2322] font-semibold leading-[1.08]">
-            Reserve seu <em className="text-[#A86558] italic font-normal">momento de cuidado</em>.
+            Reserve seu <em className="text-[#8C4E43] italic font-normal">momento de cuidado</em>.
           </h1>
           <p className="mt-4 text-xs md:text-sm text-[#6E5A56] max-w-2xl leading-relaxed">
             Selecione o tratamento e escolha o horário diretamente no calendário da clínica. O horário selecionado será <b>bloqueado imediatamente</b> para o seu atendimento.
@@ -183,7 +183,7 @@ function AgendamentoPage() {
         >
           {/* Seção 1: Identificação */}
           <div>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
               Passo 1
             </span>
             <h2 className="font-serif text-2xl font-bold text-[#2D2322] mt-0.5">
@@ -226,7 +226,7 @@ function AgendamentoPage() {
 
           {/* Seção 2: Tratamento & Modalidade */}
           <div className="pt-4 border-t border-[#F2E7E1]">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
               Passo 2
             </span>
             <h2 className="font-serif text-2xl font-bold text-[#2D2322] mt-0.5">
@@ -255,7 +255,7 @@ function AgendamentoPage() {
                     onClick={() => setModality("clinica")}
                     className={`py-3 px-4 rounded-xl border text-xs font-semibold tracking-wide transition ${
                       modality === "clinica"
-                        ? "border-[#A86558] bg-[#F4EAE4] text-[#A86558]"
+                        ? "border-[#8C4E43] bg-[#F4EAE4] text-[#8C4E43]"
                         : "border-[#E8D8D0] bg-[#FDFBF9] text-[#6E5A56] hover:bg-white"
                     }`}
                   >
@@ -266,7 +266,7 @@ function AgendamentoPage() {
                     onClick={() => setModality("domiciliar")}
                     className={`py-3 px-4 rounded-xl border text-xs font-semibold tracking-wide transition ${
                       modality === "domiciliar"
-                        ? "border-[#A86558] bg-[#F4EAE4] text-[#A86558]"
+                        ? "border-[#8C4E43] bg-[#F4EAE4] text-[#8C4E43]"
                         : "border-[#E8D8D0] bg-[#FDFBF9] text-[#6E5A56] hover:bg-white"
                     }`}
                   >
@@ -292,7 +292,7 @@ function AgendamentoPage() {
 
           {/* Seção 3: Calendário & Grade de Horários Inteligente */}
           <div className="pt-4 border-t border-[#F2E7E1]">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
               Passo 3
             </span>
             <h2 className="font-serif text-2xl font-bold text-[#2D2322] mt-0.5 mb-4">
@@ -333,9 +333,9 @@ function AgendamentoPage() {
             </Field>
 
             {selectedSlot && (
-              <div className="p-4 rounded-2xl bg-[#F4EAE4] border border-[#A86558]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="p-4 rounded-2xl bg-[#F4EAE4] border border-[#8C4E43]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                  <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                     Resumo do Agendamento
                   </div>
                   <div className="font-serif text-base md:text-lg font-bold text-[#2D2322] mt-0.5">
@@ -352,13 +352,13 @@ function AgendamentoPage() {
               <button
                 type="submit"
                 disabled={!valid}
-                className="inline-flex items-center gap-2 rounded-full bg-[#A86558] text-white px-8 py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_4px_14px_rgba(168,101,88,0.22)] transition"
+                className="inline-flex items-center gap-2 rounded-full bg-[#8C4E43] text-white px-8 py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_4px_14px_rgba(168,101,88,0.22)] transition"
               >
                 Bloquear Horário e Confirmar no WhatsApp →
               </button>
               <Link
                 to="/"
-                className="text-xs text-[#6E5A56] hover:text-[#A86558] underline underline-offset-4"
+                className="text-xs text-[#6E5A56] hover:text-[#8C4E43] underline underline-offset-4"
               >
                 Cancelar e voltar
               </Link>
@@ -373,7 +373,7 @@ function AgendamentoPage() {
 }
 
 const inputCls =
-  "w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-sm text-[#2D2322] outline-none focus:bg-white focus:ring-2 focus:ring-[#A86558]/60 focus:border-[#A86558] transition placeholder:text-[#6E5A56]/60";
+  "w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-sm text-[#2D2322] outline-none focus:bg-white focus:ring-2 focus:ring-[#8C4E43]/60 focus:border-[#8C4E43] transition placeholder:text-[#6E5A56]/60";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (

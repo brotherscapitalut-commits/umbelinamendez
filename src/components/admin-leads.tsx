@@ -50,7 +50,7 @@ export function AdminLeads() {
         </div>
         <button
           onClick={loadData}
-          className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+          className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
         >
           Atualizar Dados
         </button>
@@ -75,10 +75,10 @@ export function AdminLeads() {
         </div>
 
         <div className="p-5 rounded-3xl bg-white border border-[#E8D8D0] shadow-sm">
-          <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+          <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
             Serviço Mais Buscado
           </div>
-          <div className="font-serif text-xl font-bold text-[#A86558] mt-1 truncate">{topService}</div>
+          <div className="font-serif text-xl font-bold text-[#8C4E43] mt-1 truncate">{topService}</div>
           <div className="text-[10px] text-[#6E5A56] mt-0.5">{topServiceCount} interações</div>
         </div>
       </div>
@@ -127,7 +127,7 @@ export function AdminLeads() {
                     <td className="py-4 px-6 font-medium text-[#2D2322]">
                       {c.source_location}
                       {c.utm_source && (
-                        <div className="text-[9px] text-[#A86558] mt-1 bg-[#FDFBF9] px-2 py-0.5 rounded border border-[#E8D8D0] inline-block">
+                        <div className="text-[9px] text-[#8C4E43] mt-1 bg-[#FDFBF9] px-2 py-0.5 rounded border border-[#E8D8D0] inline-block">
                           UTM: {c.utm_source} / {c.utm_medium}
                         </div>
                       )}

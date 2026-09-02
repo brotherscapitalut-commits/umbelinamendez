@@ -14,8 +14,8 @@ export function Depoimentos({ limit = 3, filterKeyword }: { limit?: number, filt
             Resultados reais de quem vivenciou
           </h2>
           <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="text-2xl font-bold text-[#A86558]">5,0</span>
-            <div className="flex text-[#A86558]">
+            <span className="text-2xl font-bold text-[#8C4E43]">5,0</span>
+            <div className="flex text-[#8C4E43]">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-current" />
               ))}
@@ -25,7 +25,7 @@ export function Depoimentos({ limit = 3, filterKeyword }: { limit?: number, filt
             href="https://www.google.com/maps?cid=7360214300302830863"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-[#6E5A56] hover:text-[#A86558] underline decoration-1 underline-offset-4"
+            className="text-sm font-medium text-[#6E5A56] hover:text-[#8C4E43] underline decoration-1 underline-offset-4"
           >
             Baseado em 21 avaliações reais no Google
           </a>
@@ -37,7 +37,7 @@ export function Depoimentos({ limit = 3, filterKeyword }: { limit?: number, filt
               key={idx}
               className="bg-white p-6 rounded-2xl shadow-sm border border-[#E8D8D0]/40 flex flex-col h-full hover:shadow-md transition-shadow"
             >
-              <div className="flex text-[#A86558] mb-3">
+              <div className="flex text-[#8C4E43] mb-3">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
@@ -46,7 +46,7 @@ export function Depoimentos({ limit = 3, filterKeyword }: { limit?: number, filt
                 "{depoimento.texto}"
               </p>
               <div className="flex items-center gap-3 mt-auto">
-                <div className="w-10 h-10 rounded-full bg-[#FDFBF9] border border-[#E8D8D0] flex items-center justify-center flex-shrink-0 text-[#A86558] font-serif font-bold">
+                <div className="w-10 h-10 rounded-full bg-[#FDFBF9] border border-[#E8D8D0] flex items-center justify-center flex-shrink-0 text-[#8C4E43] font-serif font-bold">
                   {depoimento.nome.charAt(0)}
                 </div>
                 <div>

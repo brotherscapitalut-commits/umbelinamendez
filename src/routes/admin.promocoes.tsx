@@ -88,7 +88,7 @@ function emptyPromo(): Promo {
     serviceSlug: SERVICES[0]?.slug,
     endsAt: d.toISOString(),
     active: true,
-    gradient: "linear-gradient(135deg, #A86558 0%, #B76E79 100%)",
+    gradient: "linear-gradient(135deg, #8C4E43 0%, #B76E79 100%)",
     emoji: "✨",
   };
 }
@@ -134,11 +134,11 @@ function AdminPromocoes() {
             value={pass}
             onChange={(e) => setPass(e.target.value)}
             placeholder="Digite sua senha de acesso"
-            className="mt-5 w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60 transition text-center"
+            className="mt-5 w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60 transition text-center"
           />
           <button
             type="submit"
-            className="mt-4 w-full rounded-full bg-[#A86558] text-white py-3 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition shadow-md"
+            className="mt-4 w-full rounded-full bg-[#8C4E43] text-white py-3 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition shadow-md"
           >
             Acessar Painel
           </button>
@@ -288,7 +288,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("agenda")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition flex items-center gap-1.5 ${
                 activeTab === "agenda"
-                  ? "bg-[#A86558] text-white shadow-sm"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
                   : "text-[#6E5A56] hover:text-[#2D2322]"
               }`}
             >
@@ -300,7 +300,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("leads")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition flex items-center gap-2 ${
                 activeTab === "leads"
-                  ? "bg-[#A86558] text-white shadow-sm"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
                   : "text-[#6E5A56] hover:text-[#2D2322]"
               }`}
             >
@@ -317,7 +317,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("promos")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition ${
                 activeTab === "promos"
-                  ? "bg-[#A86558] text-white shadow-sm"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
                   : "text-[#6E5A56] hover:text-[#2D2322]"
               }`}
             >
@@ -329,7 +329,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("pix")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition ${
                 activeTab === "pix"
-                  ? "bg-[#A86558] text-white shadow-sm"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
                   : "text-[#6E5A56] hover:text-[#2D2322]"
               }`}
             >
@@ -341,8 +341,8 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("seo")}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
                 activeTab === "seo"
-                  ? "bg-[#A86558] text-white shadow-sm"
-                  : "bg-white/80 text-[#5C4D4A] hover:bg-[#A86558]/10"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
+                  : "bg-white/80 text-[#5C4D4A] hover:bg-[#8C4E43]/10"
               }`}
             >
               🔍 Auditoria SEO
@@ -353,7 +353,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("blog")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition flex items-center gap-1.5 ${
                 activeTab === "blog"
-                  ? "bg-[#A86558] text-white shadow-sm"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
                   : "text-[#6E5A56] hover:text-[#2D2322]"
               }`}
             >
@@ -364,7 +364,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               onClick={() => setActiveTab("services")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition flex items-center gap-1.5 ${
                 activeTab === "services"
-                  ? "bg-[#A86558] text-white shadow-sm"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
                   : "text-[#6E5A56] hover:text-[#2D2322]"
               }`}
             >
@@ -375,7 +375,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
           <div className="flex items-center gap-3">
             <Link
               to="/"
-              className="text-xs text-[#6E5A56] hover:text-[#A86558] underline underline-offset-4 mr-1 font-medium"
+              className="text-xs text-[#6E5A56] hover:text-[#8C4E43] underline underline-offset-4 mr-1 font-medium"
             >
               Ver Site
             </Link>
@@ -388,7 +388,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
             <button
               onClick={saveAll}
               disabled={!dirty}
-              className="rounded-full bg-[#A86558] text-white px-5 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] disabled:opacity-40 shadow-sm transition"
+              className="rounded-full bg-[#8C4E43] text-white px-5 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] disabled:opacity-40 shadow-sm transition"
             >
               {dirty ? "Salvar Alterações *" : "Salvo ✓"}
             </button>
@@ -396,7 +396,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
         </div>
 
         {savedMsg && (
-          <div className="bg-[#A86558] text-white text-xs text-center py-1.5 font-medium tracking-wide">
+          <div className="bg-[#8C4E43] text-white text-xs text-center py-1.5 font-medium tracking-wide">
             {savedMsg}
           </div>
         )}
@@ -411,7 +411,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
             {/* Top Bar da Agenda */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-[#E8D8D0] shadow-sm">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
                   Motor de Agendamento
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2D2322] mt-0.5">
@@ -427,7 +427,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                 <button
                   type="button"
                   onClick={() => changeDay(-1)}
-                  className="h-9 w-9 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs hover:border-[#A86558] transition"
+                  className="h-9 w-9 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs hover:border-[#8C4E43] transition"
                   title="Dia anterior"
                 >
                   ‹
@@ -436,12 +436,12 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                   type="date"
                   value={selectedAgendaDate}
                   onChange={(e) => setSelectedAgendaDate(e.target.value)}
-                  className="rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-3.5 py-2 text-xs font-semibold text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                  className="rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-3.5 py-2 text-xs font-semibold text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                 />
                 <button
                   type="button"
                   onClick={() => changeDay(1)}
-                  className="h-9 w-9 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs hover:border-[#A86558] transition"
+                  className="h-9 w-9 rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] grid place-items-center text-xs hover:border-[#8C4E43] transition"
                   title="Próximo dia"
                 >
                   ›
@@ -449,7 +449,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                 <button
                   type="button"
                   onClick={() => setSelectedAgendaDate(todayISO())}
-                  className="text-xs text-[#A86558] underline underline-offset-4 ml-1 font-semibold"
+                  className="text-xs text-[#8C4E43] underline underline-offset-4 ml-1 font-semibold"
                 >
                   Hoje
                 </button>
@@ -503,7 +503,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                 </h3>
                 <button
                   onClick={resetSampleAgenda}
-                  className="text-xs text-[#6E5A56] hover:text-[#A86558] underline underline-offset-4"
+                  className="text-xs text-[#6E5A56] hover:text-[#8C4E43] underline underline-offset-4"
                 >
                   Restaurar Exemplos da Agenda
                 </button>
@@ -589,7 +589,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                                   reason
                                 );
                               }}
-                              className="rounded-full border border-[#E8D8D0] bg-white px-3.5 py-1.5 text-xs font-semibold text-[#6E5A56] hover:text-[#A86558] hover:border-[#A86558] transition"
+                              className="rounded-full border border-[#E8D8D0] bg-white px-3.5 py-1.5 text-xs font-semibold text-[#6E5A56] hover:text-[#8C4E43] hover:border-[#8C4E43] transition"
                             >
                               🔒 Bloquear Horário
                             </button>
@@ -600,7 +600,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                               href={`https://wa.me/${apt.clientPhone.replace(/\D/g, "")}`}
                               target="_blank"
                               rel="noreferrer"
-                              className="rounded-full bg-[#A86558] text-white px-3.5 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+                              className="rounded-full bg-[#8C4E43] text-white px-3.5 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
                             >
                               💬 WhatsApp
                             </a>
@@ -665,7 +665,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={resetSampleLeads}
-                  className="text-xs text-[#6E5A56] hover:text-[#A86558] underline underline-offset-4 font-medium"
+                  className="text-xs text-[#6E5A56] hover:text-[#8C4E43] underline underline-offset-4 font-medium"
                 >
                   Restaurar Exemplos
                 </button>
@@ -719,10 +719,10 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               </div>
 
               <div className="p-5 rounded-3xl bg-white border border-[#E8D8D0] shadow-sm">
-                <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                   Taxa de Conversão
                 </div>
-                <div className="font-serif text-3xl font-bold text-[#A86558] mt-1">
+                <div className="font-serif text-3xl font-bold text-[#8C4E43] mt-1">
                   {metrics.total > 0
                     ? `${Math.round((metrics.pagosCount / metrics.total) * 100)}%`
                     : "0%"}
@@ -785,7 +785,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                               <div className="font-semibold text-sm text-[#2D2322]">{l.name}</div>
                               <div className="text-xs text-[#6E5A56]">{l.phone}</div>
                               {l.bestContactTime && (
-                                <div className="text-[10px] text-[#A86558] font-medium mt-0.5">
+                                <div className="text-[10px] text-[#8C4E43] font-medium mt-0.5">
                                   Preferência: {l.bestContactTime}
                                 </div>
                               )}
@@ -835,7 +835,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                                   target="_blank"
                                   rel="noreferrer"
                                   title="Abrir WhatsApp com mensagem de recuperação formatada"
-                                  className="inline-flex items-center gap-1.5 rounded-full bg-[#A86558] text-white px-3.5 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+                                  className="inline-flex items-center gap-1.5 rounded-full bg-[#8C4E43] text-white px-3.5 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
                                 >
                                   <span>💬 Recuperar no WhatsApp</span>
                                 </a>
@@ -879,13 +879,13 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               <div className="flex items-center gap-3">
                 <button
                   onClick={restoreDefaults}
-                  className="text-xs text-[#6E5A56] hover:text-[#A86558] underline underline-offset-4"
+                  className="text-xs text-[#6E5A56] hover:text-[#8C4E43] underline underline-offset-4"
                 >
                   Restaurar Padrão
                 </button>
                 <button
                   onClick={add}
-                  className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+                  className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
                 >
                   + Nova Campanha
                 </button>
@@ -930,7 +930,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
                 </div>
                 <button
                   onClick={restorePix}
-                  className="text-xs text-[#A86558] hover:underline underline-offset-4 font-medium"
+                  className="text-xs text-[#8C4E43] hover:underline underline-offset-4 font-medium"
                 >
                   Restaurar Padrão
                 </button>
@@ -988,7 +988,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
           <div className="space-y-8 animate-[fadeIn_.2s_ease-out]">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-[#E8D8D0] shadow-sm">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
                   Conteúdo Estrutural & Metadados
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#2D2322] mt-0.5">
@@ -1000,7 +1000,7 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
               </div>
               <button
                 onClick={restoreSeo}
-                className="text-[11px] font-semibold text-[#A86558] border border-[#A86558] rounded-full px-4 py-1.5 hover:bg-[#F9F4F0] transition"
+                className="text-[11px] font-semibold text-[#8C4E43] border border-[#8C4E43] rounded-full px-4 py-1.5 hover:bg-[#F9F4F0] transition"
               >
                 Restaurar Padrões
               </button>
@@ -1175,7 +1175,7 @@ function PromoRow({
               type="checkbox"
               checked={promo.active}
               onChange={(e) => onChange({ active: e.target.checked })}
-              className="h-4 w-4 rounded accent-[#A86558]"
+              className="h-4 w-4 rounded accent-[#8C4E43]"
             />
             <span className="text-xs font-semibold text-[#2D2322]">Campanha Ativa</span>
           </label>
@@ -1320,7 +1320,7 @@ function PromoRow({
 
         {/* Preview do QR Code Pix */}
         <div className="md:col-span-4 p-5 rounded-2xl bg-[#FDFBF9] border border-[#E8D8D0] flex flex-col items-center justify-center text-center">
-          <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold mb-2">
+          <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold mb-2">
             Pré-visualização do Pix
           </div>
           <img

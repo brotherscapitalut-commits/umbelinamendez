@@ -37,7 +37,7 @@ export function Promotions() {
       />
       <div
         className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full opacity-25 blur-3xl animate-[float_18s_ease-in-out_infinite_reverse]"
-        style={{ background: "#A86558" }}
+        style={{ background: "#8C4E43" }}
       />
 
       <div
@@ -48,15 +48,15 @@ export function Promotions() {
       >
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#E8D8D0] bg-white/80 backdrop-blur px-3.5 py-1 text-xs uppercase tracking-[0.25em] text-[#A86558] font-medium shadow-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#E8D8D0] bg-white/80 backdrop-blur px-3.5 py-1 text-xs uppercase tracking-[0.25em] text-[#8C4E43] font-medium shadow-sm">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#A86558] opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#A86558]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#8C4E43] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#8C4E43]" />
               </span>
               Campanhas & Oportunidades
             </span>
             <h2 className="mt-4 font-serif text-3xl md:text-5xl leading-tight text-[#2D2322]">
-              Condições <em className="text-[#A86558] italic">exclusivas</em> para sua evolução.
+              Condições <em className="text-[#8C4E43] italic">exclusivas</em> para sua evolução.
             </h2>
             <p className="mt-3 text-base text-[#6E5A56] leading-relaxed">
               Programas estruturados e eventos tecnológicos como o <strong>Beauty Tech Day</strong> com vagas limitadas para garantir atendimento individual de excelência.
@@ -118,10 +118,10 @@ function PromoCard({
       {/* Topo do Card */}
       <div>
         <div className="flex items-start justify-between gap-2">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] px-2.5 py-1 text-[11px] uppercase tracking-wider font-medium text-[#A86558]">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] px-2.5 py-1 text-[11px] uppercase tracking-wider font-medium text-[#8C4E43]">
             <span>{promo.emoji ?? "✦"}</span> {promo.badge}
           </span>
-          <span className="rounded-full bg-[#F4EAE4] text-[#A86558] font-sans text-xs font-semibold px-2.5 py-1">
+          <span className="rounded-full bg-[#F4EAE4] text-[#8C4E43] font-sans text-xs font-semibold px-2.5 py-1">
             {promo.discount}
           </span>
         </div>
@@ -168,7 +168,7 @@ function PromoCard({
           <button
             type="button"
             onClick={onBuy}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#A86558] text-white py-2.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition-all shadow-[0_4px_14px_rgba(168,101,88,0.25)]"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white py-2.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition-all shadow-[0_4px_14px_rgba(168,101,88,0.25)]"
           >
             {promo.ctaLabel}
             <span aria-hidden>→</span>
@@ -190,7 +190,7 @@ function PromoCard({
               <Link
                 to="/servicos/$slug"
                 params={{ slug: service.slug }}
-                className="text-[11px] text-[#A86558] hover:underline underline-offset-2"
+                className="text-[11px] text-[#8C4E43] hover:underline underline-offset-2"
               >
                 Ver detalhes do protocolo →
               </Link>

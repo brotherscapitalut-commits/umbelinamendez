@@ -59,7 +59,6 @@ export function getGlobalEntityGraph() {
                       image: `${BASE}/hero.jpg`,
                       telephone: "+5561981567985",
                       priceRange: "$$",
-                      medicalSpecialty: ["Dermatology", "PlasticSurgery"],
                       currenciesAccepted: "BRL",
                       paymentAccepted: "Pix, Cartão de Crédito, Dinheiro",
                       address: {
@@ -188,7 +187,7 @@ export function webPageJsonLd(opts: {
           // AEO (Answer Engine Optimization) & Voice Search
           speakable: {
                   "@type": "SpeakableSpecification",
-                  cssSelector: ["[data-speakable]", "h1", "h2", ".hero-description"],
+                  cssSelector: ["h1", "h2"],
           },
     };
     if (opts.primaryImage) {

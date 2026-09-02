@@ -55,7 +55,7 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
         className="bg-white border border-[#E8D8D0] rounded-3xl p-8 text-center"
         style={{ boxShadow: "0 10px 30px rgba(168, 101, 88, 0.07)" }}
       >
-        <div className="font-serif text-3xl text-[#A86558] font-semibold">Solicitação Enviada! ✨</div>
+        <div className="font-serif text-3xl text-[#8C4E43] font-semibold">Solicitação Enviada! ✨</div>
         <p className="mt-3 text-sm text-[#6E5A56] leading-relaxed">
           Estamos te redirecionando ao WhatsApp da Dra. Umbelina Mendez para confirmar seu horário.
         </p>
@@ -69,7 +69,7 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
       className="bg-white border border-[#E8D8D0] rounded-3xl p-6 md:p-8 space-y-4"
       style={{ boxShadow: "0 10px 30px rgba(168, 101, 88, 0.07)" }}
     >
-      <div className="text-xs uppercase tracking-[0.25em] text-[#A86558] font-semibold">
+      <div className="text-xs uppercase tracking-[0.25em] text-[#8C4E43] font-semibold">
         Atendimento Personalizado
       </div>
       <h3 className="font-serif text-3xl text-[#2D2322] font-semibold">
@@ -81,6 +81,7 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
 
       <div className="grid sm:grid-cols-2 gap-3.5 pt-2">
         <input
+          aria-label="Seu nome completo"
           required
           maxLength={80}
           value={name}
@@ -95,6 +96,7 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
           onChange={(e) => setPhone(e.target.value)}
           className={inputCls}
           placeholder="WhatsApp com DDD"
+          aria-label="WhatsApp com DDD"
           inputMode="tel"
         />
         <input
@@ -104,8 +106,10 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
           onChange={(e) => setEmail(e.target.value)}
           className={`${inputCls} sm:col-span-2`}
           placeholder="E-mail (opcional)"
+          aria-label="E-mail"
         />
         <select
+          aria-label="Selecione o tratamento"
           value={service}
           onChange={(e) => setService(e.target.value)}
           className={`${inputCls} sm:col-span-2`}
@@ -121,7 +125,7 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
       <button
         type="submit"
         disabled={!valid}
-        className="w-full inline-flex items-center justify-center rounded-full bg-[#A86558] text-white px-6 py-3.5 text-sm font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 transition shadow-[0_4px_14px_rgba(168,101,88,0.25)]"
+        className="w-full inline-flex items-center justify-center rounded-full bg-[#8C4E43] text-white px-6 py-3.5 text-sm font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 transition shadow-[0_4px_14px_rgba(168,101,88,0.25)]"
       >
         Solicitar Atendimento via WhatsApp →
       </button>
@@ -133,4 +137,4 @@ export function LeadForm({ defaultService }: { defaultService?: string }) {
 }
 
 const inputCls =
-  "w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-sm text-[#2D2322] outline-none focus:bg-white focus:ring-2 focus:ring-[#A86558]/60 focus:border-[#A86558] transition placeholder:text-[#6E5A56]/60";
+  "w-full rounded-xl border border-[#E8D8D0] bg-[#FDFBF9] px-4 py-3 text-sm text-[#2D2322] outline-none focus:bg-white focus:ring-2 focus:ring-[#8C4E43]/60 focus:border-[#8C4E43] transition placeholder:text-[#6E5A56]/60";

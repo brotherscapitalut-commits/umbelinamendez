@@ -54,13 +54,13 @@ function FAQPage() {
           <div className="flex items-center gap-4">
             <Link
               to="/tratamentos"
-              className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#A86558] font-medium"
+              className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#8C4E43] font-medium"
             >
               Tratamentos
             </Link>
             <Link
               to="/agendamento"
-              className="rounded-full bg-[#A86558] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+              className="rounded-full bg-[#8C4E43] text-white px-5 py-2 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
             >
               Agendar Consulta
             </Link>
@@ -69,14 +69,14 @@ function FAQPage() {
       </header>
 
       <section className="mx-auto max-w-3xl px-6 py-16 md:py-24">
-        <span className="text-xs uppercase tracking-[0.25em] text-[#A86558] font-semibold">
+        <span className="text-xs uppercase tracking-[0.25em] text-[#8C4E43] font-semibold">
           Central de Dúvidas & Guia Clínico
         </span>
         <h1
           data-speakable
           className="mt-4 font-serif text-3xl sm:text-5xl md:text-6xl text-[#2D2322] font-semibold leading-[1.08]"
         >
-          Perguntas <em className="text-[#A86558] italic font-normal">Frequentes</em>.
+          Perguntas <em className="text-[#8C4E43] italic font-normal">Frequentes</em>.
         </h1>
         <p data-speakable className="mt-4 text-xs md:text-sm text-[#6E5A56] leading-relaxed">
           Reunimos as respostas para as principais dúvidas sobre nossos métodos, segurança clínica e rotina de atendimento na Asa Norte e em Domicílio no Distrito Federal.

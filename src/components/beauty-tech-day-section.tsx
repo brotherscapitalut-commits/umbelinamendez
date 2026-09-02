@@ -42,7 +42,7 @@ export function BeautyTechDaySection() {
       />
       <div
         className="pointer-events-none absolute -bottom-24 -right-24 h-96 w-96 rounded-full opacity-25 blur-3xl"
-        style={{ background: "#A86558" }}
+        style={{ background: "#8C4E43" }}
       />
 
       <div className="mx-auto max-w-6xl px-6 relative">
@@ -54,15 +54,15 @@ export function BeautyTechDaySection() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-[#F2E7E1]">
             <div className="flex items-center gap-4">
               <div className="h-16 w-16 rounded-full border border-[#E8D8D0] bg-[#FDFBF9] flex flex-col items-center justify-center text-center p-1 shadow-sm shrink-0">
-                <span className="text-[8px] uppercase tracking-widest text-[#A86558] font-bold">EDIÇÃO</span>
+                <span className="text-[8px] uppercase tracking-widest text-[#8C4E43] font-bold">EDIÇÃO</span>
                 <span className="font-serif text-[11px] font-semibold text-[#2D2322] leading-none mt-0.5">ESPECIAL</span>
               </div>
               <div>
-                <div className="text-[11px] uppercase tracking-[0.3em] text-[#A86558] font-semibold">
+                <div className="text-[11px] uppercase tracking-[0.3em] text-[#8C4E43] font-semibold">
                   Evento Tecnológico Exclusivo
                 </div>
                 <h2 className="font-serif text-3xl sm:text-5xl text-[#2D2322] font-semibold tracking-wide mt-1">
-                  BEAUTY <span className="font-normal italic text-[#A86558]">TECH DAY</span>
+                  BEAUTY <span className="font-normal italic text-[#8C4E43]">TECH DAY</span>
                 </h2>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function BeautyTechDaySection() {
                 <span className="text-base">📅</span>
                 <div className="text-left">
                   <div className="text-[9px] uppercase tracking-widest text-[#6E5A56] font-semibold">Data Especial</div>
-                  <div className="font-serif text-base font-bold text-[#A86558]">{dateText}</div>
+                  <div className="font-serif text-base font-bold text-[#8C4E43]">{dateText}</div>
                 </div>
               </div>
               <MonogramUM className="hidden md:block h-12 w-12 opacity-90" />
@@ -88,7 +88,7 @@ export function BeautyTechDaySection() {
             {/* 1. Criolipólise */}
             <div className="rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] p-6 flex flex-col justify-between hover:shadow-md transition">
               <div>
-                <div className="h-10 w-10 rounded-2xl bg-white border border-[#E8D8D0] grid place-items-center text-xl text-[#A86558] shadow-sm mb-4">
+                <div className="h-10 w-10 rounded-2xl bg-white border border-[#E8D8D0] grid place-items-center text-xl text-[#8C4E43] shadow-sm mb-4">
                   ❄️
                 </div>
                 <h3 className="font-serif text-xl font-bold text-[#2D2322]">CRIOLIPÓLISE DE PLACAS</h3>
@@ -98,7 +98,7 @@ export function BeautyTechDaySection() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-[#E8D8D0]/60 space-y-2">
-                <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                   Clique no plano para garantir:
                 </div>
                 <button
@@ -114,10 +114,10 @@ export function BeautyTechDaySection() {
                       emoji: "❄️",
                     })
                   }
-                  className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border border-[#E8D8D0] hover:border-[#A86558] hover:bg-[#F4EAE4]/50 transition group text-left"
+                  className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border border-[#E8D8D0] hover:border-[#8C4E43] hover:bg-[#F4EAE4]/50 transition group text-left"
                 >
-                  <span className="font-medium text-[#2D2322] group-hover:text-[#A86558]">1 Placa</span>
-                  <span className="font-serif font-bold text-[#A86558]">R$ 150,00 →</span>
+                  <span className="font-medium text-[#2D2322] group-hover:text-[#8C4E43]">1 Placa</span>
+                  <span className="font-serif font-bold text-[#8C4E43]">R$ 150,00 →</span>
                 </button>
 
                 <button
@@ -133,10 +133,10 @@ export function BeautyTechDaySection() {
                       emoji: "❄️",
                     })
                   }
-                  className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border-2 border-[#A86558] bg-[#F4EAE4]/30 hover:bg-[#F4EAE4] transition group text-left shadow-sm"
+                  className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border-2 border-[#8C4E43] bg-[#F4EAE4]/30 hover:bg-[#F4EAE4] transition group text-left shadow-sm"
                 >
                   <span className="font-bold text-[#2D2322]">2 Placas (Mais pedido)</span>
-                  <span className="font-serif font-bold text-[#A86558]">R$ 230,00 →</span>
+                  <span className="font-serif font-bold text-[#8C4E43]">R$ 230,00 →</span>
                 </button>
 
                 <button
@@ -152,10 +152,10 @@ export function BeautyTechDaySection() {
                       emoji: "❄️",
                     })
                   }
-                  className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border border-[#E8D8D0] hover:border-[#A86558] hover:bg-[#F4EAE4]/50 transition group text-left"
+                  className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border border-[#E8D8D0] hover:border-[#8C4E43] hover:bg-[#F4EAE4]/50 transition group text-left"
                 >
-                  <span className="font-medium text-[#2D2322] group-hover:text-[#A86558]">4 Placas</span>
-                  <span className="font-serif font-bold text-[#A86558]">R$ 349,00 →</span>
+                  <span className="font-medium text-[#2D2322] group-hover:text-[#8C4E43]">4 Placas</span>
+                  <span className="font-serif font-bold text-[#8C4E43]">R$ 349,00 →</span>
                 </button>
               </div>
             </div>
@@ -163,7 +163,7 @@ export function BeautyTechDaySection() {
             {/* 2. Lavier */}
             <div className="rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] p-6 flex flex-col justify-between hover:shadow-md transition">
               <div>
-                <div className="h-10 w-10 rounded-2xl bg-white border border-[#E8D8D0] grid place-items-center text-xl text-[#A86558] shadow-sm mb-4">
+                <div className="h-10 w-10 rounded-2xl bg-white border border-[#E8D8D0] grid place-items-center text-xl text-[#8C4E43] shadow-sm mb-4">
                   ✧
                 </div>
                 <h3 className="font-serif text-xl font-bold text-[#2D2322]">LAVIER</h3>
@@ -173,7 +173,7 @@ export function BeautyTechDaySection() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-[#E8D8D0]/60">
-                <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                   Sessão a partir de
                 </div>
                 <button
@@ -189,12 +189,12 @@ export function BeautyTechDaySection() {
                       emoji: "✨",
                     })
                   }
-                  className="w-full mt-2 text-center py-3.5 px-4 rounded-2xl bg-white border border-[#E8D8D0] hover:border-[#A86558] hover:bg-[#F4EAE4]/60 transition shadow-sm group"
+                  className="w-full mt-2 text-center py-3.5 px-4 rounded-2xl bg-white border border-[#E8D8D0] hover:border-[#8C4E43] hover:bg-[#F4EAE4]/60 transition shadow-sm group"
                 >
-                  <div className="font-serif text-3xl font-bold text-[#2D2322] group-hover:text-[#A86558] transition">
+                  <div className="font-serif text-3xl font-bold text-[#2D2322] group-hover:text-[#8C4E43] transition">
                     R$ 199,00
                   </div>
-                  <div className="text-[11px] text-[#A86558] font-semibold tracking-wider mt-0.5">
+                  <div className="text-[11px] text-[#8C4E43] font-semibold tracking-wider mt-0.5">
                     Garantir Vaga no Pix →
                   </div>
                 </button>
@@ -204,7 +204,7 @@ export function BeautyTechDaySection() {
             {/* 3. Depilação a Laser */}
             <div className="rounded-3xl border border-[#E8D8D0] bg-[#FDFBF9] p-6 flex flex-col justify-between hover:shadow-md transition">
               <div>
-                <div className="h-10 w-10 rounded-2xl bg-white border border-[#E8D8D0] grid place-items-center text-xl text-[#A86558] shadow-sm mb-4">
+                <div className="h-10 w-10 rounded-2xl bg-white border border-[#E8D8D0] grid place-items-center text-xl text-[#8C4E43] shadow-sm mb-4">
                   💎
                 </div>
                 <h3 className="font-serif text-xl font-bold text-[#2D2322]">DEPILAÇÃO A LASER</h3>
@@ -214,7 +214,7 @@ export function BeautyTechDaySection() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-[#E8D8D0]/60">
-                <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                   Sessão a partir de
                 </div>
                 <button
@@ -230,12 +230,12 @@ export function BeautyTechDaySection() {
                       emoji: "💎",
                     })
                   }
-                  className="w-full mt-2 text-center py-3.5 px-4 rounded-2xl bg-white border border-[#E8D8D0] hover:border-[#A86558] hover:bg-[#F4EAE4]/60 transition shadow-sm group"
+                  className="w-full mt-2 text-center py-3.5 px-4 rounded-2xl bg-white border border-[#E8D8D0] hover:border-[#8C4E43] hover:bg-[#F4EAE4]/60 transition shadow-sm group"
                 >
-                  <div className="font-serif text-3xl font-bold text-[#2D2322] group-hover:text-[#A86558] transition">
+                  <div className="font-serif text-3xl font-bold text-[#2D2322] group-hover:text-[#8C4E43] transition">
                     R$ 39,99
                   </div>
-                  <div className="text-[11px] text-[#A86558] font-semibold tracking-wider mt-0.5">
+                  <div className="text-[11px] text-[#8C4E43] font-semibold tracking-wider mt-0.5">
                     Garantir Vaga no Pix →
                   </div>
                 </button>
@@ -270,7 +270,7 @@ export function BeautyTechDaySection() {
           {/* Chamada para Ação e Local */}
           <div className="mt-10 pt-6 border-t border-[#F2E7E1] flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <div className="text-xs font-serif italic text-[#A86558] text-base">
+              <div className="text-xs font-serif italic text-[#8C4E43] text-base">
                 "Porque cuidar de você também merece entrar na sua agenda. ♡"
               </div>
               <div className="text-[11px] text-[#6E5A56] mt-1">
@@ -292,7 +292,7 @@ export function BeautyTechDaySection() {
                     emoji: "✨",
                   })
                 }
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#A86558] text-white px-8 py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] shadow-[0_4px_16px_rgba(168,101,88,0.25)] transition shrink-0"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white px-8 py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] shadow-[0_4px_16px_rgba(168,101,88,0.25)] transition shrink-0"
               >
                 Garantir Vaga no Beauty Tech Day →
               </button>

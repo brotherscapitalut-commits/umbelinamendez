@@ -287,7 +287,7 @@ export function PixCheckout({ promo, onClose }: Props) {
         <div
           className="p-6 text-white relative"
           style={{
-            background: "linear-gradient(135deg, #8C4A3E 0%, #A86558 50%, #B76E79 100%)",
+            background: "linear-gradient(135deg, #8C4A3E 0%, #8C4E43 50%, #B76E79 100%)",
           }}
         >
           <button
@@ -344,7 +344,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                 ✓ PAGO VIA PIX
               </span>
             ) : promo.discount ? (
-              <span className="rounded-full bg-white text-[#A86558] px-2.5 py-0.5 text-xs font-bold shadow-sm">
+              <span className="rounded-full bg-white text-[#8C4E43] px-2.5 py-0.5 text-xs font-bold shadow-sm">
                 {promo.discount}
               </span>
             ) : null}
@@ -359,7 +359,7 @@ export function PixCheckout({ promo, onClose }: Props) {
           {step === 1 && (
             <form onSubmit={handleAdvanceToPix} className="space-y-4">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
                   Passo 1 de 3
                 </span>
                 <h4 className="font-serif text-2xl text-[#2D2322] font-semibold mt-0.5">
@@ -423,7 +423,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                 <button
                   type="submit"
                   disabled={!name.trim() || phone.trim().length < 8}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#A86558] text-white py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 disabled:cursor-not-allowed transition shadow-[0_4px_16px_rgba(168,101,88,0.25)]"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 disabled:cursor-not-allowed transition shadow-[0_4px_16px_rgba(168,101,88,0.25)]"
                 >
                   Avançar para Pagamento Pix →
                 </button>
@@ -441,7 +441,7 @@ export function PixCheckout({ promo, onClose }: Props) {
             <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
                     Passo 2 de 3
                   </span>
                   <h4 className="font-serif text-2xl text-[#2D2322] font-semibold mt-0.5">
@@ -454,7 +454,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                   className={`rounded-full px-3 py-1 text-xs font-mono font-bold tracking-wider border ${
                     isTimeExpired
                       ? "bg-red-50 text-red-700 border-red-200"
-                      : "bg-[#F4EAE4] text-[#A86558] border-[#E8D8D0]"
+                      : "bg-[#F4EAE4] text-[#8C4E43] border-[#E8D8D0]"
                   }`}
                 >
                   ⏱️ {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
@@ -496,11 +496,11 @@ export function PixCheckout({ promo, onClose }: Props) {
                     readOnly
                     value={payload}
                     onFocus={(e) => e.currentTarget.select()}
-                    className="flex-1 rounded-xl border border-[#E8D8D0] bg-white px-3 py-2 text-xs font-mono text-[#2D2322] truncate outline-none focus:ring-2 focus:ring-[#A86558]/60"
+                    className="flex-1 rounded-xl border border-[#E8D8D0] bg-white px-3 py-2 text-xs font-mono text-[#2D2322] truncate outline-none focus:ring-2 focus:ring-[#8C4E43]/60"
                   />
                   <button
                     onClick={copyPayload}
-                    className="rounded-xl bg-[#A86558] text-white px-4 py-2 text-xs font-semibold hover:bg-[#8C4E43] transition shadow-sm shrink-0"
+                    className="rounded-xl bg-[#8C4E43] text-white px-4 py-2 text-xs font-semibold hover:bg-[#8C4E43] transition shadow-sm shrink-0"
                   >
                     {copied ? "Copiado ✓" : "Copiar"}
                   </button>
@@ -515,7 +515,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                 <button
                   type="button"
                   onClick={handleConfirmPaid}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#A86558] text-white py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition shadow-[0_4px_16px_rgba(168,101,88,0.25)]"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition shadow-[0_4px_16px_rgba(168,101,88,0.25)]"
                 >
                   ✓ Confirmar Pagamento e Escolher Horário →
                 </button>
@@ -562,7 +562,7 @@ export function PixCheckout({ promo, onClose }: Props) {
               </div>
 
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
                   Passo 3 de 3 • Agendamento
                 </span>
                 <h4 className="font-serif text-2xl sm:text-3xl text-[#2D2322] font-semibold mt-0.5">
@@ -596,18 +596,18 @@ export function PixCheckout({ promo, onClose }: Props) {
 
               {/* Voucher de Pré-Visualização */}
               {selectedSlot && (
-                <div className="p-5 rounded-3xl bg-white border-2 border-[#A86558] shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 bg-[#A86558] text-white text-[10px] uppercase tracking-wider font-bold px-4 py-1 rounded-bl-2xl">
+                <div className="p-5 rounded-3xl bg-white border-2 border-[#8C4E43] shadow-sm relative overflow-hidden">
+                  <div className="absolute top-0 right-0 bg-[#8C4E43] text-white text-[10px] uppercase tracking-wider font-bold px-4 py-1 rounded-bl-2xl">
                     Vaga Selecionada
                   </div>
 
-                  <div className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                  <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                     Resumo da Reserva na Clínica
                   </div>
                   <div className="font-serif text-xl font-bold text-[#2D2322] mt-1">
                     {formattedSelectedDate}
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#A86558] mt-1">
+                  <div className="flex items-center gap-2 text-sm font-semibold text-[#8C4E43] mt-1">
                     <span>⏰ {selectedSlot.startTime} às {selectedSlot.endTime}</span>
                     <span>•</span>
                     <span>60 min de sessão</span>
@@ -623,7 +623,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                   type="button"
                   disabled={!selectedSlot}
                   onClick={handleFinishBooking}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#A86558] text-white py-4 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 disabled:cursor-not-allowed transition shadow-[0_4px_16px_rgba(168,101,88,0.25)]"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white py-4 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] disabled:opacity-40 disabled:cursor-not-allowed transition shadow-[0_4px_16px_rgba(168,101,88,0.25)]"
                 >
                   <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true">
                     <path d="M19.11 17.37c-.28-.14-1.65-.81-1.9-.9-.26-.09-.44-.14-.63.14-.19.28-.72.9-.88 1.09-.16.19-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.63-1.54-1.9-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.49.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.63-1.52-.86-2.08-.23-.55-.47-.48-.63-.49h-.54c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.72 1.14 2.91c.14.19 1.98 3.02 4.8 4.24.67.29 1.19.46 1.6.59.67.21 1.28.18 1.77.11.54-.08 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33zM16.02 5.33c-5.87 0-10.65 4.78-10.65 10.65 0 1.87.49 3.7 1.42 5.31L5 27l5.87-1.54c1.55.85 3.31 1.3 5.1 1.3h.01c5.87 0 10.65-4.78 10.65-10.65 0-2.85-1.11-5.52-3.12-7.53a10.61 10.61 0 00-7.49-3.25z" />
@@ -661,7 +661,7 @@ export function PixCheckout({ promo, onClose }: Props) {
               {/* Ticket do Voucher */}
               <div className="p-6 rounded-3xl bg-white border border-[#E8D8D0] shadow-md text-left space-y-3">
                 <div className="flex items-center justify-between pb-3 border-b border-[#F2E7E1]">
-                  <span className="text-[10px] uppercase tracking-wider text-[#A86558] font-bold">
+                  <span className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
                     VOUCHER OFICIAL
                   </span>
                   <span className="font-mono text-xs font-bold text-[#2D2322] bg-[#F4EAE4] px-2 py-0.5 rounded-md">
@@ -684,7 +684,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full inline-flex items-center justify-center rounded-full bg-[#A86558] text-white py-3.5 text-xs font-semibold hover:bg-[#8C4E43] transition shadow-md"
+                  className="w-full inline-flex items-center justify-center rounded-full bg-[#8C4E43] text-white py-3.5 text-xs font-semibold hover:bg-[#8C4E43] transition shadow-md"
                 >
                   Concluir e Fechar Janela
                 </button>
@@ -707,7 +707,7 @@ export function PixCheckout({ promo, onClose }: Props) {
                       `Por favor, confirme meu agendamento! ♡`;
                     window.open(waLink(waMsg, "pix_confirmation", promo.serviceSlug), "_blank");
                   }}
-                  className="text-xs text-[#A86558] hover:underline underline-offset-4 font-semibold"
+                  className="text-xs text-[#8C4E43] hover:underline underline-offset-4 font-semibold"
                 >
                   Reabrir conversa no WhatsApp Oficial →
                 </button>
@@ -721,4 +721,4 @@ export function PixCheckout({ promo, onClose }: Props) {
 }
 
 const inputCls =
-  "w-full rounded-xl border border-[#E8D8D0] bg-white px-3.5 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#A86558]/60 focus:border-[#A86558] transition placeholder:text-[#6E5A56]/60 mt-1";
+  "w-full rounded-xl border border-[#E8D8D0] bg-white px-3.5 py-2.5 text-xs text-[#2D2322] outline-none focus:ring-2 focus:ring-[#8C4E43]/60 focus:border-[#8C4E43] transition placeholder:text-[#6E5A56]/60 mt-1";

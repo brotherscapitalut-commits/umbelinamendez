@@ -70,7 +70,7 @@ export const Route = createFileRoute("/blog/$slug")({
       <p className="mt-3 text-sm text-[#6E5A56]">
         O conteúdo que você procura pode ter sido movido.
       </p>
-      <Link to="/blog" className="mt-6 inline-block text-xs font-semibold text-[#A86558] underline">
+      <Link to="/blog" className="mt-6 inline-block text-xs font-semibold text-[#8C4E43] underline">
         Voltar para o blog
       </Link>
     </div>
@@ -78,7 +78,7 @@ export const Route = createFileRoute("/blog/$slug")({
   errorComponent: ({ reset }) => (
     <div className="mx-auto max-w-2xl px-6 py-24 text-center">
       <h1 className="font-serif text-2xl text-[#2D2322]">Não conseguimos abrir este artigo</h1>
-      <button onClick={reset} className="mt-4 text-xs font-semibold text-[#A86558] underline">
+      <button onClick={reset} className="mt-4 text-xs font-semibold text-[#8C4E43] underline">
         Tentar novamente
       </button>
     </div>
@@ -102,13 +102,13 @@ function BlogPostPage() {
           <div className="flex items-center gap-4">
             <Link
               to="/blog"
-              className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#A86558] font-medium"
+              className="text-xs uppercase tracking-wider text-[#6E5A56] hover:text-[#8C4E43] font-medium"
             >
               ← Todos os Artigos
             </Link>
             <Link
               to="/agendamento"
-              className="rounded-full bg-[#A86558] text-white px-4 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
+              className="rounded-full bg-[#8C4E43] text-white px-4 py-1.5 text-xs font-semibold hover:bg-[#8C4E43] shadow-sm transition"
             >
               Agendar Avaliação
             </Link>
@@ -119,15 +119,15 @@ function BlogPostPage() {
       {/* Artigo */}
       <article className="mx-auto max-w-3xl px-6 py-14 md:py-20">
         <nav className="text-xs uppercase tracking-widest text-[#6E5A56]">
-          <Link to="/" className="hover:text-[#A86558]">Início</Link>
+          <Link to="/" className="hover:text-[#8C4E43]">Início</Link>
           <span className="mx-2 text-[#E8D8D0]">/</span>
-          <Link to="/blog" className="hover:text-[#A86558]">Blog</Link>
+          <Link to="/blog" className="hover:text-[#8C4E43]">Blog</Link>
           <span className="mx-2 text-[#E8D8D0]">/</span>
-          <span className="text-[#A86558] font-semibold">{post.category}</span>
+          <span className="text-[#8C4E43] font-semibold">{post.category}</span>
         </nav>
 
         <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-[#6E5A56]">
-          <span className="rounded-full bg-[#F4EAE4] px-3 py-1 font-semibold text-[#A86558]">
+          <span className="rounded-full bg-[#F4EAE4] px-3 py-1 font-semibold text-[#8C4E43]">
             {post.category}
           </span>
           <span>•</span>
@@ -153,14 +153,14 @@ function BlogPostPage() {
 
         <p
           data-speakable
-          className="mt-8 text-base md:text-lg text-[#6E5A56] font-medium leading-relaxed border-l-2 border-[#A86558] pl-4"
+          className="mt-8 text-base md:text-lg text-[#6E5A56] font-medium leading-relaxed border-l-2 border-[#8C4E43] pl-4"
         >
           {post.excerpt}
         </p>
 
         {/* Autor e Credenciais */}
         <div className="mt-8 p-4 rounded-2xl bg-white border border-[#E8D8D0] flex items-center gap-3.5 shadow-xs">
-          <div className="h-11 w-11 rounded-full bg-[#F4EAE4] border border-[#A86558]/30 grid place-items-center text-xs font-serif font-bold text-[#A86558]">
+          <div className="h-11 w-11 rounded-full bg-[#F4EAE4] border border-[#8C4E43]/30 grid place-items-center text-xs font-serif font-bold text-[#8C4E43]">
             UM
           </div>
           <div>
@@ -189,7 +189,7 @@ function BlogPostPage() {
 
         {/* Box de Ação no Final do Artigo */}
         <div className="mt-14 p-8 rounded-3xl bg-white border border-[#E8D8D0] shadow-sm text-center">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#A86558] font-bold">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C4E43] font-bold">
             Atendimento na Asa Norte ou em Domicílio
           </span>
           <h3 className="font-serif text-2xl font-bold text-[#2D2322] mt-1">
@@ -202,7 +202,7 @@ function BlogPostPage() {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               to="/agendamento"
-              className="rounded-full bg-[#A86558] text-white px-7 py-3 text-xs font-semibold hover:bg-[#8C4E43] shadow-[0_4px_14px_rgba(168,101,88,0.22)] transition"
+              className="rounded-full bg-[#8C4E43] text-white px-7 py-3 text-xs font-semibold hover:bg-[#8C4E43] shadow-[0_4px_14px_rgba(168,101,88,0.22)] transition"
             >
               Agendar Avaliação com Bloqueio de Horário →
             </Link>

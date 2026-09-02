@@ -36,7 +36,7 @@ export function PromoBar() {
     <div
       className="relative overflow-hidden text-white border-b border-[#8C4E43]/40"
       style={{
-        background: "linear-gradient(90deg, #8C4E43 0%, #A86558 50%, #B76E79 100%)",
+        background: "linear-gradient(90deg, #8C4E43 0%, #8C4E43 50%, #B76E79 100%)",
       }}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm">
@@ -49,7 +49,7 @@ export function PromoBar() {
                   {p.badge}
                 </strong>
                 <span className="opacity-95 text-xs">{p.subtitle}</span>
-                <span className="rounded-full bg-white text-[#A86558] px-2 py-0.5 text-[10px] font-bold tracking-wider">
+                <span className="rounded-full bg-white text-[#8C4E43] px-2 py-0.5 text-[10px] font-bold tracking-wider">
                   {p.discount}
                 </span>
               </span>
