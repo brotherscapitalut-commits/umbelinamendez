@@ -147,7 +147,8 @@ function BlogPostPage() {
           <img 
             src={post.hero_image} 
             alt={post.title} 
-            className="w-full h-auto mt-8 rounded-3xl border border-[#E8D8D0] shadow-sm object-cover max-h-[400px]" 
+            className="w-full max-h-[420px] object-cover rounded-2xl shadow-sm mt-8 border border-[#E8D8D0]" 
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
         )}
 
