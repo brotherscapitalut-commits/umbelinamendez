@@ -8,38 +8,39 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// We need to parse seo.config.ts to get the routes.
-// To avoid ts-node in build step, we will extract routes using a simple regex since we know the format.
-async function getRoutes() {
-  const configPath = path.join(__dirname, '../src/seo/seo.config.ts');
-  const content = await fs.readFile(configPath, 'utf-8');
-  
-  // Find all keys in the seoConfig object
-  const routes = [];
-  const regex = /"(\/[^"]*)"\s*:\s*\{|'(\/[^']*)'\s*:\s*\{|(\/[a-zA-Z0-9/-]+)\s*:\s*\{/g;
-  let match;
-  while ((match = regex.exec(content)) !== null) {
-    const route = match[1] || match[2] || match[3];
-    if (route) {
-      routes.push(route);
+async function getRoutes(port) {
+  try {
+    const res = await fetch(`http://localhost:${port}/sitemap.xml`);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch sitemap: ${res.status}`);
     }
+    const text = await res.text();
+    
+    // Save the dynamic sitemap to dist
+    const distDir = path.join(__dirname, '../dist');
+    await fs.mkdir(distDir, { recursive: true });
+    await fs.writeFile(path.join(distDir, 'sitemap.xml'), text, 'utf-8');
+    console.log('✅ Dynamic sitemap saved to dist/sitemap.xml');
+
+    // Parse out all <loc> tags from the XML
+    const routes = [];
+    const regex = /<loc>(?:https?:\/\/[^/]+)?(\/[^<]*)<\/loc>/g;
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      routes.push(match[1]);
+    }
+    return [...new Set(routes)];
+  } catch (error) {
+    console.error("Error fetching sitemap routes:", error);
+    // Fallback if sitemap fails
+    return [
+      '/', '/tratamentos', '/agendamento', '/faq', '/blog',
+      '/servicos/pos-operatorio', '/servicos/drenagem-linfatica',
+      '/servicos/conexao-materna', '/servicos/laserterapia-ilib',
+      '/servicos/beauty-tech-day', '/servicos/flacidez',
+      '/servicos/metodo-reviva', '/servicos/reviva-face'
+    ];
   }
-  
-  // Also include any static routes we know if they are missed by regex
-  const expectedRoutes = [
-    '/', '/tratamentos', '/agendamento', '/faq', '/blog',
-    '/servicos/pos-operatorio', '/servicos/drenagem-linfatica',
-    '/servicos/conexao-materna', '/servicos/laserterapia-ilib',
-    '/servicos/beauty-tech-day', '/servicos/flacidez',
-    '/servicos/metodo-reviva', '/servicos/reviva-face',
-    '/blog/drenagem-linfatica-pos-operatorio-brasilia',
-    '/blog/drenagem-linfatica-abdominoplastia-brasilia',
-    '/blog/pos-operatorio-cirurgia-plastica-brasilia',
-    '/blog/como-evitar-fibrose-pos-operatorio-lipoaspiracao',
-    '/blog/taping-pos-operatorio-parto-brasilia'
-  ];
-  
-  return [...new Set([...routes, ...expectedRoutes])];
 }
 
 async function startServer() {
@@ -62,14 +63,14 @@ async function startServer() {
 }
 
 async function prerender() {
-  const routes = await getRoutes();
-  console.log(`Pre-rendering ${routes.length} routes...`);
-
   let serverProcess;
   try {
     const { server, port } = await startServer();
     serverProcess = server;
     console.log(`Server started on port ${port}`);
+
+    const routes = await getRoutes(port);
+    console.log(`Pre-rendering ${routes.length} routes...`);
 
     const isVercelBuild = !!process.env.VERCEL;
 

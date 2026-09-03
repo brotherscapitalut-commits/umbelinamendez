@@ -73,29 +73,5 @@ export const seoConfig: Record<string, RouteSeo> = {
           type: "service",
     },
 
-    // Blog posts
-    "/blog/pos-operatorio-brasilia-guia-completo": {
-          title: "Pós-Operatório em Brasília: Guia Completo | Umbelina Mendez",
-          description: "O pós-operatório define o resultado da cirurgia plástica. Veja quando iniciar a drenagem, quantas sessões fazer e como evitar fibrose em Brasília - DF.",
-          type: "article",
-          h1: "Pós-operatório em Brasília: guia completo para uma recuperação segura"
-    },
-    "/blog/drenagem-linfatica-brasilia-como-funciona": {
-          title: "Como Funciona a Drenagem Linfática em Brasília? | Umbelina",
-          description: "A drenagem linfática manual estimula o sistema a eliminar líquidos retidos, sem deformar tecido ou causar dor. Entenda a técnica usada em Brasília - DF.",
-          type: "article",
-          h1: "Drenagem linfática em Brasília: como funciona e para quem é indicada"
-    },
-    "/blog/pos-parto-cuidados-puerperio-brasilia": {
-          title: "Cuidados no Puerpério e Pós-Parto em Brasília | Umbelina",
-          description: "Os primeiros 40 dias após o parto pedem cuidado especializado. Veja como a recuperação pós-parto é acelerada com protocolo biológico em Brasília - DF.",
-          type: "article",
-          h1: "Pós-parto em Brasília: cuidados no puerpério que fazem diferença"
-    },
-    "/blog/drenagem-pos-operatorio-diferencas": {
-          title: "Drenagem Estética x Pós-Operatória: Qual a Diferença?",
-          description: "Ambas usam o mesmo princípio linfático, mas a pós-operatória exige manejo cuidadoso do tecido em cicatrização. Entenda a diferença e quando usar cada uma.",
-          type: "article",
-          h1: "Drenagem estética x drenagem pós-operatória: qual é a diferença?"
-    }
+    // Blog posts will be loaded dynamically from Supabase
 };
