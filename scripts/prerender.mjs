@@ -10,18 +10,10 @@ const __dirname = path.dirname(__filename);
 
 async function getRoutes(port) {
   try {
-    const res = await fetch(`http://localhost:${port}/sitemap.xml`);
-    if (!res.ok) {
-      throw new Error(`Failed to fetch sitemap: ${res.status}`);
-    }
-    const text = await res.text();
-    
-    // Save the dynamic sitemap to dist
     const distDir = path.join(__dirname, '../dist');
-    await fs.mkdir(distDir, { recursive: true });
-    await fs.writeFile(path.join(distDir, 'sitemap.xml'), text, 'utf-8');
-    console.log('✅ Dynamic sitemap saved to dist/sitemap.xml');
-
+    const sitemapPath = path.join(distDir, 'sitemap.xml');
+    const text = await fs.readFile(sitemapPath, 'utf-8');
+    
     // Parse out all <loc> tags from the XML
     const routes = [];
     const regex = /<loc>(?:https?:\/\/[^/]+)?(\/[^<]*)<\/loc>/g;
