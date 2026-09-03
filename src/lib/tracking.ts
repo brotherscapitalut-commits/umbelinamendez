@@ -88,11 +88,17 @@ export function trackEvent(
   try {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: name, ...fullParams });
+    
     if (typeof window.gtag === "function") {
       window.gtag("event", name, fullParams);
+      // Explicitly send standard Google Ads / GA4 lead conversion event
+      if (name.includes("whatsapp") || name === "lead" || name === "form_agendamento") {
+        window.gtag("event", "generate_lead", fullParams);
+      }
     }
+    
     if (typeof window.fbq === "function") {
-      const meta = name === "lead" ? "Lead" : name === "contact" ? "Contact" : "CustomEvent";
+      const meta = (name === "lead" || name.includes("whatsapp")) ? "Lead" : name === "contact" ? "Contact" : "CustomEvent";
       window.fbq("track", meta, fullParams);
     }
   } catch {

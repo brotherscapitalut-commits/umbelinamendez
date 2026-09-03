@@ -4,10 +4,21 @@ import { getRecentConversions, type ConversionEvent } from "@/lib/analytics-stor
 export function AdminLeads() {
   const [conversions, setConversions] = useState<ConversionEvent[]>([]);
   const [loading, setLoading] = useState(false);
+  
+  // Local status state
+  const [statuses, setStatuses] = useState<Record<string, "convertido" | "nao_convertido" | "pendente">>({});
 
   useEffect(() => {
     loadData();
-    // Poderia configurar realtime do Supabase aqui futuramente se desejar
+    // Load statuses from local storage
+    if (typeof window !== "undefined") {
+      const saved = window.localStorage.getItem("umbelina.leads.status");
+      if (saved) {
+        try {
+          setStatuses(JSON.parse(saved));
+        } catch { /* noop */ }
+      }
+    }
   }, []);
 
   async function loadData() {
@@ -17,9 +28,22 @@ export function AdminLeads() {
     setLoading(false);
   }
 
+  function updateStatus(id: string, status: "convertido" | "nao_convertido" | "pendente") {
+    setStatuses(prev => {
+      const next = { ...prev, [id]: status };
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("umbelina.leads.status", JSON.stringify(next));
+      }
+      return next;
+    });
+  }
+
   // Métricas
   const totalWhatsApp = conversions.filter(c => c.event_type === "click_whatsapp" || c.event_type.includes("wa")).length;
   const totalPix = conversions.filter(c => c.event_type === "pix_intent" || c.event_type === "begin_checkout").length;
+  
+  // Custom metrics based on status
+  const convertedCount = Object.values(statuses).filter(s => s === "convertido").length;
 
   const serviceCounts = conversions.reduce((acc, curr) => {
     if (curr.service_interest) {
@@ -57,7 +81,7 @@ export function AdminLeads() {
       </div>
 
       {/* Cards de Métricas */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <div className="p-5 rounded-3xl bg-white border border-emerald-200 bg-emerald-50/40 shadow-sm">
           <div className="text-[10px] uppercase tracking-wider text-emerald-800 font-bold flex items-center gap-1.5">
             <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -76,6 +100,16 @@ export function AdminLeads() {
 
         <div className="p-5 rounded-3xl bg-white border border-[#E8D8D0] shadow-sm">
           <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
+            Leads Convertidos
+          </div>
+          <div className="font-serif text-3xl font-bold text-[#8C4E43] mt-1">
+            {convertedCount}
+          </div>
+          <div className="text-[10px] text-[#6E5A56] mt-0.5">Marcados manualmente</div>
+        </div>
+
+        <div className="p-5 rounded-3xl bg-white border border-[#E8D8D0] shadow-sm">
+          <div className="text-[10px] uppercase tracking-wider text-[#8C4E43] font-bold">
             Serviço Mais Buscado
           </div>
           <div className="font-serif text-xl font-bold text-[#8C4E43] mt-1 truncate">{topService}</div>
@@ -86,7 +120,7 @@ export function AdminLeads() {
       {/* Tabela de Feed */}
       <div className="rounded-3xl border border-[#E8D8D0] bg-white overflow-hidden shadow-sm">
         <div className="p-6 border-b border-[#F2E7E1] flex items-center justify-between">
-          <h3 className="font-serif text-xl font-bold text-[#2D2322]">Feed em Tempo Real</h3>
+          <h3 className="font-serif text-xl font-bold text-[#2D2322]">Feed de Leads (Ações no Site)</h3>
           <span className="text-xs text-[#6E5A56] font-medium">{conversions.length} eventos (últimos 100)</span>
         </div>
 
@@ -103,43 +137,61 @@ export function AdminLeads() {
                   <th className="py-3.5 px-6">Tipo / Ação</th>
                   <th className="py-3.5 px-6">Origem do Clique</th>
                   <th className="py-3.5 px-6">Interesse / Serviço</th>
-                  <th className="py-3.5 px-6">Dispositivo</th>
+                  <th className="py-3.5 px-6">Status Comercial</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#F2E7E1]">
-                {conversions.map(c => (
-                  <tr key={c.id} className="hover:bg-[#FDFBF9] transition">
-                    <td className="py-4 px-6 text-[11px] text-[#6E5A56] whitespace-nowrap">
-                      {new Date(c.created_at).toLocaleDateString("pt-BR")}
-                      <div className="text-[10px] text-[#6E5A56]/70">
-                        {new Date(c.created_at).toLocaleTimeString("pt-BR")}
-                      </div>
-                    </td>
-                    <td className="py-4 px-6">
-                      <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
-                        c.event_type.includes("whatsapp") ? "bg-emerald-50 text-emerald-700" :
-                        (c.event_type.includes("pix") || c.event_type.includes("checkout")) ? "bg-amber-50 text-amber-700" :
-                        "bg-stone-100 text-stone-600"
-                      }`}>
-                        {c.event_type.replace("click_", "")}
-                      </span>
-                    </td>
-                    <td className="py-4 px-6 font-medium text-[#2D2322]">
-                      {c.source_location}
-                      {c.utm_source && (
-                        <div className="text-[9px] text-[#8C4E43] mt-1 bg-[#FDFBF9] px-2 py-0.5 rounded border border-[#E8D8D0] inline-block">
-                          UTM: {c.utm_source} / {c.utm_medium}
+                {conversions.map(c => {
+                  const status = statuses[c.id] || "pendente";
+                  
+                  return (
+                    <tr key={c.id} className="hover:bg-[#FDFBF9] transition">
+                      <td className="py-4 px-6 text-[11px] text-[#6E5A56] whitespace-nowrap">
+                        {new Date(c.created_at).toLocaleDateString("pt-BR")}
+                        <div className="text-[10px] text-[#6E5A56]/70">
+                          {new Date(c.created_at).toLocaleTimeString("pt-BR")}
                         </div>
-                      )}
-                    </td>
-                    <td className="py-4 px-6 text-[#6E5A56]">
-                      {c.service_interest || "-"}
-                    </td>
-                    <td className="py-4 px-6 text-[#6E5A56] capitalize">
-                      {c.device_type}
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+                      <td className="py-4 px-6">
+                        <span className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase ${
+                          c.event_type.includes("whatsapp") ? "bg-emerald-50 text-emerald-700" :
+                          (c.event_type.includes("pix") || c.event_type.includes("checkout")) ? "bg-amber-50 text-amber-700" :
+                          "bg-stone-100 text-stone-600"
+                        }`}>
+                          {c.event_type.replace("click_", "")}
+                        </span>
+                      </td>
+                      <td className="py-4 px-6 font-medium text-[#2D2322]">
+                        {c.source_location}
+                        {c.utm_source && (
+                          <div className="text-[9px] text-[#8C4E43] mt-1 bg-[#FDFBF9] px-2 py-0.5 rounded border border-[#E8D8D0] inline-block">
+                            UTM: {c.utm_source} / {c.utm_medium}
+                          </div>
+                        )}
+                      </td>
+                      <td className="py-4 px-6 text-[#6E5A56]">
+                        {c.service_interest || "-"}
+                      </td>
+                      <td className="py-4 px-6">
+                        <select
+                          value={status}
+                          onChange={(e) => updateStatus(c.id, e.target.value as any)}
+                          className={`px-2 py-1.5 rounded-lg border text-xs font-semibold outline-none transition ${
+                            status === "convertido"
+                              ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                              : status === "nao_convertido"
+                              ? "bg-red-50 text-red-800 border-red-200"
+                              : "bg-white text-amber-700 border-amber-200"
+                          }`}
+                        >
+                          <option value="pendente">Pendente</option>
+                          <option value="convertido">Convertido (Venda)</option>
+                          <option value="nao_convertido">Não Convertido</option>
+                        </select>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -148,3 +200,4 @@ export function AdminLeads() {
     </div>
   );
 }
+
