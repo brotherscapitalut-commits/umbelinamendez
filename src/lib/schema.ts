@@ -45,7 +45,7 @@ export function getGlobalEntityGraph() {
 
                   // ENTIDADE 2: HEALTH & BEAUTY / MEDICAL BUSINESS (LOCAL BUSINESS)
             {
-                      "@type": ["HealthAndBeautyBusiness", "MedicalBusiness"],
+                      "@type": "LocalBusiness",
                       "@id": `${BASE}/#negocio`,
                       name: "Umbelina Mendez - Especialista em Pós-Operatório e Pós-Parto",
                       legalName: "Umbelina Mendez - Bióloga Esteta",

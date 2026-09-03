@@ -185,5 +185,51 @@ export const BLOG_SEEDS: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "lipedema-sintomas-tratamento-brasilia",
+    title: "Lipedema Não É Apenas Gordura: Sintomas, Graus e Tratamentos em Brasília",
+    meta_title: "Lipedema: Sintomas e Tratamento em Brasília | Dra Umbelina Mendez",
+    meta_description: "Sente dores e inchaço nas pernas? Descubra o que é o lipedema, como diferenciar de gordura localizada e quais os tratamentos clínicos na Asa Norte – DF.",
+    hero_image: "/src/assets/hero.jpg",
+    excerpt: "Sente dores e inchaço nas pernas? Descubra o que é o lipedema, como diferenciar de gordura localizada e quais os tratamentos clínicos na Asa Norte – DF.",
+    category: "Cuidados & Saúde",
+    keywords: ["lipedema brasília", "tratamento lipedema asa norte df", "drenagem para lipedema", "sintomas de lipedema"],
+    readingMinutes: 8,
+    published_at: new Date("2026-09-02T12:00:00Z").toISOString(),
+    cadence_interval_days: 0,
+    status: "published",
+    content: [
+      {
+        heading: "O que é o Lipedema e suas características",
+        paragraphs: [
+          "Muitas mulheres passam a vida lutando contra dietas restritivas e exercícios intensos sem conseguir reduzir a gordura das pernas e braços. O que poucos sabem é que isso pode ser o Lipedema.",
+          "O Lipedema é uma doença crônica, de origem genética e hormonal, caracterizada pelo acúmulo anormal e desproporcional de gordura, geralmente nos membros inferiores (quadril, coxas e pernas) e, em alguns casos, nos braços.",
+          "As características mais marcantes incluem dor ao toque, sensação de peso intenso, facilidade para hematomas (manchas roxas) sem motivo aparente e o famoso 'garrote' nos tornozelos, onde o acúmulo de gordura para abruptamente, poupando os pés."
+        ]
+      },
+      {
+        heading: "Diferença entre Lipedema, Celulite e Obesidade",
+        paragraphs: [
+          "É fundamental não confundir o Lipedema com celulite comum ou obesidade. Enquanto a obesidade afeta o corpo de forma sistêmica, o Lipedema é altamente simétrico (afeta ambas as pernas igualmente) e não responde a dietas convencionais.",
+          "Diferente da celulite estética, a inflamação do lipedema afeta diretamente a microcirculação e o sistema linfático, gerando muita dor física. O corpo fica em estado constante de estresse oxidativo, piorando o quadro ao longo dos anos se não for tratado."
+        ]
+      },
+      {
+        heading: "Tratamentos conservadores em Brasília: Aliviando a pressão e a dor",
+        paragraphs: [
+          "O tratamento para Lipedema exige uma abordagem multifatorial e não se baseia apenas em cirurgia. Em Brasília, trabalhamos com protocolos conservadores avançados que priorizam o alívio da pressão tecidual e da inflamação sistêmica.",
+          "A drenagem linfática especializada e direcionada ajuda a retirar o excesso de líquido retido que o sistema linfático do paciente lipedêmico não consegue escoar. O uso da Laserterapia e ILIB contribui ativamente para a modulação da inflamação e melhora do fluxo sanguíneo.",
+          "As terapias manuais delicadas (sem dor), somadas ao uso de bandagem compressiva e equipamentos específicos, ajudam a devolver a mobilidade e qualidade de vida."
+        ]
+      },
+      {
+        heading: "Agende sua avaliação em Brasília",
+        paragraphs: [
+          "Se você se identificou com os sintomas, não espere a dor limitar sua vida. Um acompanhamento correto pode paralisar a evolução do Lipedema.",
+          "Agende sua avaliação com a Dra. Umbelina Mendez, bióloga esteta, em nossa clínica na Asa Norte, Brasília. Montaremos um protocolo biológico e integrativo para cuidar de você com segurança e resultado."
+        ]
+      }
+    ]
   }
 ];
