@@ -2,11 +2,11 @@ import { useState } from "react";
 import { waLink } from "@/lib/site";
 import { trackClick, trackEvent } from "@/lib/tracking";
 import { MonogramUM } from "@/components/logo";
-import { PixCheckout, type CheckoutItem } from "@/components/pix-checkout";
 import { useActivePromos } from "@/lib/promos";
+import { useCart } from "@/lib/cart-store";
 
 export function BeautyTechDaySection() {
-  const [checkoutItem, setCheckoutItem] = useState<CheckoutItem | null>(null);
+  const cart = useCart();
   const promos = useActivePromos();
   const btdPromo = promos.find((p) => p.serviceSlug === "beauty-tech-day");
 
@@ -24,13 +24,18 @@ export function BeautyTechDaySection() {
     "beauty-tech-day"
   );
 
-  function handleBuy(item: CheckoutItem) {
+  function handleBuy(item: { id: string, title: string, price: number, badge: string }) {
     trackEvent("select_promotion", {
       promo: item.title,
       value: item.price,
       currency: "BRL",
     });
-    setCheckoutItem(item);
+    cart.addItem({
+      id: item.id,
+      title: `${item.badge}: ${item.title}`,
+      price: item.price,
+      category: "Evento BTD",
+    });
   }
 
   return (
@@ -117,7 +122,7 @@ export function BeautyTechDaySection() {
                   className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border border-[#E8D8D0] hover:border-[#8C4E43] hover:bg-[#F4EAE4]/50 transition group text-left"
                 >
                   <span className="font-medium text-[#2D2322] group-hover:text-[#8C4E43]">1 Placa</span>
-                  <span className="font-serif font-bold text-[#8C4E43]">R$ 150,00 →</span>
+                  <span className="font-serif font-bold text-[#8C4E43]">Adicionar <span aria-hidden>+</span></span>
                 </button>
 
                 <button
@@ -136,7 +141,7 @@ export function BeautyTechDaySection() {
                   className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border-2 border-[#8C4E43] bg-[#F4EAE4]/30 hover:bg-[#F4EAE4] transition group text-left shadow-sm"
                 >
                   <span className="font-bold text-[#2D2322]">2 Placas (Mais pedido)</span>
-                  <span className="font-serif font-bold text-[#8C4E43]">R$ 230,00 →</span>
+                  <span className="font-serif font-bold text-[#8C4E43]">Adicionar <span aria-hidden>+</span></span>
                 </button>
 
                 <button
@@ -155,7 +160,7 @@ export function BeautyTechDaySection() {
                   className="w-full flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-white border border-[#E8D8D0] hover:border-[#8C4E43] hover:bg-[#F4EAE4]/50 transition group text-left"
                 >
                   <span className="font-medium text-[#2D2322] group-hover:text-[#8C4E43]">4 Placas</span>
-                  <span className="font-serif font-bold text-[#8C4E43]">R$ 349,00 →</span>
+                  <span className="font-serif font-bold text-[#8C4E43]">Adicionar <span aria-hidden>+</span></span>
                 </button>
               </div>
             </div>
@@ -195,7 +200,7 @@ export function BeautyTechDaySection() {
                     R$ 199,00
                   </div>
                   <div className="text-[11px] text-[#8C4E43] font-semibold tracking-wider mt-0.5">
-                    Garantir Vaga no Pix →
+                    Adicionar ao Pacote <span aria-hidden>+</span>
                   </div>
                 </button>
               </div>
@@ -236,7 +241,7 @@ export function BeautyTechDaySection() {
                     R$ 39,99
                   </div>
                   <div className="text-[11px] text-[#8C4E43] font-semibold tracking-wider mt-0.5">
-                    Garantir Vaga no Pix →
+                    Adicionar ao Pacote <span aria-hidden>+</span>
                   </div>
                 </button>
               </div>
@@ -294,7 +299,7 @@ export function BeautyTechDaySection() {
                 }
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white px-8 py-3.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] shadow-[0_4px_16px_rgba(168,101,88,0.25)] transition shrink-0"
               >
-                Garantir Vaga no Beauty Tech Day →
+                Adicionar ao Pacote <span aria-hidden>+</span>
               </button>
 
               <a
@@ -311,10 +316,6 @@ export function BeautyTechDaySection() {
         </div>
       </div>
 
-      {/* Modal de Checkout Pix com 3 Etapas Integrado */}
-      {checkoutItem && (
-        <PixCheckout promo={checkoutItem} onClose={() => setCheckoutItem(null)} />
-      )}
-    </section>
+      </section>
   );
 }

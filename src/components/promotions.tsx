@@ -4,7 +4,7 @@ import { activePromos, useActivePromos } from "@/lib/promos";
 import { SERVICES, waLink } from "@/lib/site";
 import { trackClick, trackEvent } from "@/lib/tracking";
 import { useInView } from "@/hooks/use-in-view";
-import { PixCheckout } from "@/components/pix-checkout";
+import { useCart } from "@/lib/cart-store";
 
 function useCountdown(target: string) {
   const [now, setNow] = useState(() => Date.now());
@@ -25,7 +25,7 @@ function useCountdown(target: string) {
 export function Promotions() {
   const promos = useActivePromos();
   const { ref, inView } = useInView<HTMLDivElement>();
-  const [checkout, setCheckout] = useState<ReturnType<typeof activePromos>[number] | null>(null);
+  const cart = useCart();
   if (promos.length === 0) return null;
 
   return (
@@ -72,13 +72,17 @@ export function Promotions() {
               delay={idx * 80}
               onBuy={() => {
                 trackEvent("select_promotion", { promo: p.id, value: p.price, currency: "BRL" });
-                setCheckout(p);
+                cart.addItem({
+                  id: p.id,
+                  title: `${p.badge}: ${p.title}`,
+                  price: p.price,
+                  category: "Promoção",
+                });
               }}
             />
           ))}
         </div>
       </div>
-      {checkout && <PixCheckout promo={checkout} onClose={() => setCheckout(null)} />}
     </section>
   );
 }
@@ -170,8 +174,8 @@ function PromoCard({
             onClick={onBuy}
             className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#8C4E43] text-white py-2.5 text-xs font-semibold tracking-wide hover:bg-[#8C4E43] transition-all shadow-[0_4px_14px_rgba(168,101,88,0.25)]"
           >
-            {promo.ctaLabel}
-            <span aria-hidden>→</span>
+            Adicionar ao Pacote
+            <span aria-hidden>+</span>
           </button>
           <a
             href={wa}
