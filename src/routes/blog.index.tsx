@@ -104,7 +104,7 @@ function BlogIndex() {
           {posts.map((p) => (
               <li key={p.slug} className="border-b border-[#E8D8D0] pb-8">
                 <div className="text-[11px] uppercase tracking-wider text-[#8C4E43] font-semibold">
-                  {p.category} · {formatDatePtBr(p.published_at)} · {p.readingMinutes} min de leitura
+                  {p.category} · {formatDatePtBr((p.published_at || p.publishedAt)!)} · {p.readingMinutes || p.readingTime} min de leitura
                 </div>
                 <h2 className="mt-2 font-serif text-2xl md:text-3xl text-[#2D2322] font-semibold">
                   <Link
