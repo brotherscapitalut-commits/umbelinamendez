@@ -154,6 +154,7 @@ function Nav() {
     { href: "#sobre", label: "Sobre a Dra. Umbelina" },
     { href: "#tratamentos", label: "Tratamentos" },
     { href: "#depoimentos", label: "Resultados" },
+    { href: "/atendimento-domiciliar", label: "Atendimento Domiciliar" },
     { href: "/blog", label: "Blog" },
     { href: "#faq", label: "Dúvidas" },
     { href: "#contato", label: "Contato" },
@@ -690,6 +691,7 @@ function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-6 font-medium">
           <Link to="/tratamentos" className="hover:text-[#8C4E43] transition">Tratamentos</Link>
+          <Link to="/atendimento-domiciliar" className="hover:text-[#8C4E43] transition">Atend. Domiciliar</Link>
           <Link to="/agendamento" className="hover:text-[#8C4E43] transition">Agendar</Link>
           <Link to="/blog" className="hover:text-[#8C4E43] transition">Blog</Link>
           <Link to="/faq" className="hover:text-[#8C4E43] transition">FAQ</Link>

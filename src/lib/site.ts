@@ -66,6 +66,8 @@ export const SERVICES: Service[] = [
       "O Método Reviva™ Corporal foi desenvolvido pela Dra. Umbelina Mendez unindo mais de 20 anos de fundamentação biológica e prática clínica. Mais do que uma sessão isolada, trata-se de um planejamento estratégico para contorno, textura da pele e redução de retenção líquida profunda.",
       "Através da avaliação clínica e termográfica, personalizamos o protocolo combinando drenagem linfática manual com tecnologias de ponta para potencializar a quebra de adiposidades, estímulo de neocolagênese e melhora imediata do tônus tecidual.",
       "Ideal para mulheres que buscam resultados duradouros com base na ciência, sem dor e com máximo conforto em ambiente clínico na Asa Norte ou domiciliar no DF.",
+      "A base biológica do Método Reviva™ foca não apenas no sintoma estético superficial, mas na raiz do acúmulo de fluidos e perda de tônus. Ao induzir a cascata de reparo tecidual, ativamos o metabolismo celular, o que promove um contorno corporal mais definido de dentro para fora, respeitando o ritmo natural do corpo.",
+      "Durante o acompanhamento, as medições termográficas permitem ajustar os parâmetros das tecnologias a cada sessão. Isso significa que, seja no pós-férias, em um projeto verão ou como cuidado contínuo de saúde, o Método Reviva™ se adapta perfeitamente ao que o seu tecido conjuntivo necessita no momento exato do atendimento."
     ],
     bullets: [
       "Drenagem Linfática Manual Estratégica & Massagem Modeladora",
@@ -113,7 +115,11 @@ export const SERVICES: Service[] = [
       },
       {
         q: "O procedimento causa dor ou hematomas?",
-        a: "Não. Todos os protocolos do Método Reviva™ são confortáveis, relaxantes e não causam hematomas ou dor.",
+        a: "Não. Todos os protocolos do Método Reviva™ são confortáveis, relaxantes e não causam hematomas ou dor. Nossa filosofia é que a eficácia biológica não requer agressão tecidual. As pressões são precisas e adaptadas ao seu limiar de conforto.",
+      },
+      {
+        q: "Posso fazer o Método Reviva™ se estiver com muita retenção de líquido e flacidez ao mesmo tempo?",
+        a: "Exatamente! O grande diferencial deste método exclusivo é justamente a abordagem multifatorial. Enquanto a drenagem linfática reversa elimina o inchaço e a retenção hídrica, tecnologias como a Criofrequência e a Radiofrequência estimulam a firmeza dérmica na mesma sessão.",
       },
     ],
   },
@@ -126,6 +132,8 @@ export const SERVICES: Service[] = [
       "O Reviva Face™ é um programa completo estruturado em 60 dias para regenerar a derme, uniformizar o tom e suavizar linhas de expressão e flacidez com fundamentação na biologia tecidual.",
       "Iniciamos com um mapeamento minucioso com tecnologia Dermoscan, identificando as camadas dérmicas, manchas profundas e níveis de hidratação. A partir desse diagnóstico, aplicamos microagulhamento estéril de precisão, fotobiomodulação por laser terapêutico e ativos biomiméticos.",
       "Os resultados são progressivos: estímulo sustentado de colágeno tipo I e III, textura acetinada e viço radiante natural sem aspecto artificial.",
+      "Muitos tratamentos faciais focam apenas na agressão controlada sem nutrir a pele após o trauma. O Reviva Face™ resolve esse problema ao associar o Microagulhamento com a Fotobiomodulação (Laserterapia). O laser age nas mitocôndrias, dobrando a produção de energia celular e acalmando a inflamação, o que reduz o tempo de cicatrização e previne manchas (hipercromia pós-inflamatória).",
+      "É o programa perfeito para quem deseja prevenir o envelhecimento precoce ou tratar rugas e linhas finas sem recorrer a preenchedores exagerados, mantendo a mímica facial e a beleza autêntica intactas ao longo dos anos."
     ],
     bullets: [
       "Diagnóstico facial computadorizado com Dermoscan",
@@ -167,7 +175,11 @@ export const SERVICES: Service[] = [
       },
       {
         q: "Posso trabalhar no dia seguinte ao microagulhamento?",
-        a: "Sim. A vermelhidão inicial diminui rapidamente nas primeiras 12 a 24 horas graças à aplicação imediata do laser regenerativo pós-procedimento.",
+        a: "Sim. A vermelhidão inicial diminui rapidamente nas primeiras 12 a 24 horas graças à aplicação imediata do laser regenerativo pós-procedimento. Fornecemos todas as instruções de Skincare e fotoproteção para uso domiciliar.",
+      },
+      {
+        q: "O Reviva Face™ substitui a aplicação de toxina botulínica?",
+        a: "O Reviva Face atua na qualidade, firmeza e textura da derme (trata a 'tela'). A toxina botulínica atua relaxando o músculo (trata a 'dinâmica'). São tratamentos perfeitamente complementares. Recomendamos melhorar primeiro a qualidade dérmica com nosso protocolo antes de injetáveis para um resultado mais elegante e natural.",
       },
     ],
   },
@@ -180,6 +192,8 @@ export const SERVICES: Service[] = [
       "O puerpério é um dos momentos mais transformadores e sensíveis na vida de uma mulher. O programa Conexão Materna foi criado para oferecer suporte técnico de excelência e acolhimento humano na sua recuperação.",
       "Atuamos desde a maternidade ou primeiras semanas em domicílio com Laserterapia de baixa potência para acelerar a cicatrização da cesárea ou lacerações do parto normal, Laserterapia ILIB para modular o estresse e inflamação sistêmica, e Taping compressivo seguro.",
       "Cada atendimento respeita rigorosamente a rotina da mãe e do bebê, com pausas para amamentação e ambiente de absoluto afeto e segurança.",
+      "Além da cicatrização, focamos intensamente no conforto gastrointestinal e no inchaço. A mulher puerperal frequentemente sofre com edemas nos membros inferiores e abdômen distendido. Aplicamos a drenagem linfática reversa que desobstrui as vias excretores suavemente e, associada ao Taping Linfático (Kinesio Taping), garante ação contínua de descompressão linfática por até 5 dias após a sessão.",
+      "Nosso atendimento domiciliar abrange todo o DF, permitindo que a puérpera não precise sair do conforto do seu lar nos primeiros dias do recém-nascido. Todo o material é estéril, descartável ou rigorosamente higienizado."
     ],
     bullets: [
       "Atendimento hospitalar e domiciliar em todo o DF",
@@ -325,6 +339,8 @@ export const SERVICES: Service[] = [
       "O pós-operatório cirúrgico define o sucesso estético e funcional da sua cirurgia plástica. Como Bióloga Esteta com mais de 20 anos de experiência clínica, conduzo cada caso com rigor biológico e precisão técnica.",
       "Nosso protocolo atua ativamente na prevenção de fibroses precoces e tardias, drenagem de seromas, manejo de hematomas e aceleração da cicatrização. Levamos equipamentos hospitalares e portáteis para atendimento em domicílio ou na clínica na Asa Norte.",
       "Mantemos contato direto com o cirurgião responsável, garantindo evolução documentada e segurança absoluta em todas as etapas.",
+      "As fibroses são cicatrizes internas que o corpo forma para curar o tecido lesionado pela cânula da lipoaspiração. Se não tratadas com a técnica correta de terapia manual e tração, elas podem se tornar aderências duras e deformantes. Nós utilizamos manobras de liberação miofascial sem dor, combinadas com ultrassom focalizado e radiofrequência, que quebram a matriz fibrótica dura e alinham as fibras de colágeno, deixando o abdômen liso e natural.",
+      "Além disso, o uso adequado do Taping no pós-operatório imediato (ainda no centro cirúrgico ou primeiros dias) ajuda a reduzir a tensão na pele, controla a expansão do hematoma (roxo) e guia o fluxo linfático de forma passiva 24h por dia."
     ],
     bullets: [
       "Drenagem Linfática Reversa Especializada",
@@ -394,6 +410,8 @@ export const SERVICES: Service[] = [
     long: [
       "A drenagem linfática realizada com conhecimento biológico estimula a linfa com a pressão e o ritmo corretos para direcionar toxinas e fluidos acumulados aos gânglios de eliminação.",
       "Proporciona alívio imediato de pernas pesadas, redução de inchaço corporal e bem-estar geral.",
+      "Entender a anatomia do sistema linfático é o segredo para uma drenagem eficaz. Ao contrário de uma massagem modeladora, a verdadeira drenagem linfática não amassa ou machuca. Ela utiliza pressões de cerca de 30 a 40 mmHg — exata medida para movimentar o fluido preso no interstício sem colapsar os vasos linfáticos capilares superficiais.",
+      "Esse tratamento é indispensável para quadros de Lipedema, pernas cansadas no período pré-menstrual ou gestantes a partir do terceiro mês, ajudando a eliminar toxinas e fortalecer a oxigenação celular de todo o corpo."
     ],
     bullets: [
       "Manobras manuais suaves e precisas",

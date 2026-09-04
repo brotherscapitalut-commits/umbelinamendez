@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgendamentoRouteImport } from './routes/agendamento'
+import { Route as AtendimentoDomiciliarRouteImport } from './routes/atendimento-domiciliar'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TratamentosRouteImport } from './routes/tratamentos'
@@ -27,6 +28,11 @@ const IndexRoute = IndexRouteImport.update({
 const AgendamentoRoute = AgendamentoRouteImport.update({
   id: '/agendamento',
   path: '/agendamento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AtendimentoDomiciliarRoute = AtendimentoDomiciliarRouteImport.update({
+  id: '/atendimento-domiciliar',
+  path: '/atendimento-domiciliar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -68,6 +74,7 @@ const ServicosSlugRoute = ServicosSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agendamento': typeof AgendamentoRoute
+  '/atendimento-domiciliar': typeof AtendimentoDomiciliarRoute
   '/faq': typeof FaqRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tratamentos': typeof TratamentosRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agendamento': typeof AgendamentoRoute
+  '/atendimento-domiciliar': typeof AtendimentoDomiciliarRoute
   '/faq': typeof FaqRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tratamentos': typeof TratamentosRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agendamento': typeof AgendamentoRoute
+  '/atendimento-domiciliar': typeof AtendimentoDomiciliarRoute
   '/faq': typeof FaqRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tratamentos': typeof TratamentosRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/agendamento'
+    | '/atendimento-domiciliar'
     | '/faq'
     | '/sitemap.xml'
     | '/tratamentos'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/agendamento'
+    | '/atendimento-domiciliar'
     | '/faq'
     | '/sitemap.xml'
     | '/tratamentos'
@@ -126,6 +137,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/agendamento'
+    | '/atendimento-domiciliar'
     | '/faq'
     | '/sitemap.xml'
     | '/tratamentos'
@@ -138,6 +150,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgendamentoRoute: typeof AgendamentoRoute
+  AtendimentoDomiciliarRoute: typeof AtendimentoDomiciliarRoute
   FaqRoute: typeof FaqRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TratamentosRoute: typeof TratamentosRoute
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/agendamento'
       fullPath: '/agendamento'
       preLoaderRoute: typeof AgendamentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atendimento-domiciliar': {
+      id: '/atendimento-domiciliar'
+      path: '/atendimento-domiciliar'
+      fullPath: '/atendimento-domiciliar'
+      preLoaderRoute: typeof AtendimentoDomiciliarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -218,6 +238,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgendamentoRoute: AgendamentoRoute,
+  AtendimentoDomiciliarRoute: AtendimentoDomiciliarRoute,
   FaqRoute: FaqRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TratamentosRoute: TratamentosRoute,

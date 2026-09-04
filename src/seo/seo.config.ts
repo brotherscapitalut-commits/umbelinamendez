@@ -8,43 +8,48 @@ export type RouteSeo = {
 
 export const seoConfig: Record<string, RouteSeo> = {
     "/": {
-          title: "Bióloga Esteta em Brasília: Pós-Op e Pós-Parto | Umbelina",
-          description: "CRBio, 20+ anos de experiência. Método Reviva™, Conexão Materna e drenagem pós-cirúrgica com protocolo biológico na Asa Norte, Brasília. Agende sua avaliação.",
+          title: "Bióloga Esteta: Estética e Pós-Op | Umbelina Mendez",
+          description: "Dra. Umbelina Mendez, Bióloga Esteta (CRBio). Drenagem Linfática, Pós-Operatório e Método Reviva™ na Asa Norte, Brasília. Agende sua avaliação clínica.",
           type: "website",
     },
     "/tratamentos": {
-          title: "Tratamentos com Base Biológica em Brasília | Umbelina Mendez",
-          description: "Método Reviva™, Reviva Face™, Conexão Materna, drenagem, laserterapia e pós-operatório com avaliação biológica na Asa Norte, Brasília. Conheça todos.",
+          title: "Tratamentos com Base Biológica em Brasília | Umbelina",
+          description: "Protocolos: Método Reviva™, Conexão Materna, drenagem linfática e recuperação pós-cirúrgica na Asa Norte, DF. Conheça nossos tratamentos.",
           type: "website",
     },
     "/agendamento": {
-          title: "Agende sua Avaliação com Bióloga Esteta | Brasília",
-          description: "Avaliação biológica individualizada na Asa Norte, Brasília. Pós-operatório, pós-parto, drenagem linfática e laserterapia com a Dra. Umbelina Mendez.",
+          title: "Agendar Avaliação com Bióloga Esteta na Asa Norte, DF",
+          description: "Agende sua consulta estética ou pós-operatório em Brasília. Avaliação individualizada para drenagem e estética avançada. Atendimento clínico e domiciliar.",
+          type: "website",
+    },
+    "/atendimento-domiciliar": {
+          title: "Atendimento Domiciliar de Estética no DF | Dra. Umbelina",
+          description: "Drenagem linfática pós-operatório, pós-parto e Método Reviva™ no conforto do seu lar no Distrito Federal (Asa Sul, Asa Norte, Lago Sul, Noroeste).",
           type: "website",
     },
     "/faq": {
-          title: "Perguntas Frequentes: Pós-Operatório e Pós-Parto | Brasília",
-          description: "Quando iniciar a drenagem, quantas sessões fazer, como funciona o atendimento domiciliar. Respostas diretas da bióloga esteta CRBio em Brasília - DF.",
+          title: "Dúvidas Frequentes: Estética e Pós-Op em Brasília",
+          description: "Tire suas dúvidas sobre drenagem linfática, recuperação plástica, domicílio e tecnologias estéticas (Radiofrequência). Respostas da Dra. Umbelina Mendez.",
           type: "website",
     },
     "/blog": {
-          title: "Blog de Recuperação Pós-Cirúrgica e Pós-Parto | Brasília",
-          description: "Artigos com base científica sobre pós-operatório, puerpério e drenagem linfática, escritos pela bióloga esteta Umbelina Mendez na Asa Norte, Brasília.",
+          title: "Blog: Estética e Recuperação Pós-Cirúrgica | Brasília",
+          description: "Artigos e respostas reais sobre pós-operatório (lipo, abdominoplastia), puerpério e estética avançada. Por Dra. Umbelina Mendez.",
           type: "website",
     },
     "/servicos/pos-operatorio": {
-          title: "Drenagem Pós-Operatória em Brasília: Reduz Fibrose e Inchaço",
-          description: "Protocolo pós-cirúrgico com drenagem linfática manual, laserterapia e liberação miofascial. Início em até 72h, atendimento clínico ou domiciliar em Brasília.",
+          title: "Drenagem Pós-Operatório em Brasília (Asa Norte e Casa)",
+          description: "Recuperação cirúrgica em Brasília (Lipo LAD, Abdominoplastia). Drenagem reversa, ultrassom e laser para prevenção de fibroses. Agende agora.",
           type: "service",
     },
     "/servicos/drenagem-linfatica": {
-          title: "Drenagem Linfática em Brasília: Bióloga Esteta CRBio",
-          description: "Drenagem linfática manual para pós-operatório, pós-parto, lipedema e retenção crônica. Protocolo individualizado na Asa Norte, Brasília. Agende sua sessão.",
+          title: "Drenagem Linfática Manual Especializada em Brasília DF",
+          description: "Drenagem linfática para retenção, lipedema e inchaço. Protocolo biológico da Dra. Umbelina Mendez na Asa Norte e domiciliar no DF.",
           type: "service",
     },
     "/servicos/conexao-materna": {
-          title: "Conexão Materna: Recuperação Pós-Parto em Brasília",
-          description: "Protocolo pós-parto e pós-cesárea com laserterapia na cicatriz, ILIB sistêmico e drenagem humanizada, iniciado ainda na maternidade. Atendimento em Brasília.",
+          title: "Conexão Materna: Recuperação Pós-Parto em Domicílio DF",
+          description: "Pós-parto no hospital ou em domicílio (Brasília). Laserterapia na cicatriz, ILIB de imunidade e drenagem linfática para mamães.",
           type: "service",
     },
     "/servicos/laserterapia-ilib": {

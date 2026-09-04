@@ -231,5 +231,78 @@ export const BLOG_SEEDS: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "diferenca-drenagem-linfatica-pos-operatorio-brasilia",
+    title: "Qual a diferença entre Drenagem Linfática Comum e Pós-Operatório Especializado em Brasília?",
+    meta_title: "Diferença Drenagem Comum vs Pós-Operatório | Brasília DF",
+    meta_description: "Entenda por que a drenagem linfática comum não é suficiente para recuperar sua cirurgia plástica e os riscos associados. Saiba tudo com a Dra. Umbelina Mendez.",
+    hero_image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "Você sabia que realizar uma massagem comum após uma lipoaspiração pode comprometer seu resultado? Entenda a diferença crucial dos protocolos.",
+    category: "Pós-Operatório",
+    keywords: ["drenagem linfática", "pos operatorio brasilia", "massagem pos cirurgica df", "diferença drenagem", "fibrose lipo"],
+    readingMinutes: 6,
+    published_at: new Date().toISOString(),
+    cadence_interval_days: 0,
+    status: "published",
+    content: [
+      {
+        heading: "A confusão entre Massagem, Drenagem Comum e Pós-Operatório",
+        paragraphs: [
+          "É muito comum a paciente sair do cirurgião plástico com a recomendação de 'fazer drenagem linfática' e procurar o pacote mais barato em clínicas não especializadas. Esse é o primeiro passo para o surgimento de fibroses intensas e irregularidades na pele.",
+          "A drenagem linfática clássica é maravilhosa para retenção de líquido do dia a dia, mas o pós-operatório (seja lipo LAD, abdominoplastia ou silicone) exige um protocolo completamente diferente, focado em trauma tecidual."
+        ]
+      },
+      {
+        heading: "O que a drenagem especializada faz de diferente?",
+        paragraphs: [
+          "O corpo operado não tem apenas linfa parada; ele tem sangue pisado (hematomas), líquido inflamatório e canais linfáticos rompidos pela cânula cirúrgica. Ao invés de uma massagem de corpo inteiro, o especialista foca na Drenagem Reversa e em desvios do fluxo linfático.",
+          "Além das mãos, o especialista em Brasília utilizará tecnologias médicas (como ultrassom de alta potência, radiofrequência e laser) para amolecer cicatrizes internas precocemente, além do uso estratégico do taping compressivo."
+        ]
+      },
+      {
+        heading: "Os riscos da escolha errada",
+        paragraphs: [
+          "Se um profissional aplicar muita força, pode romper pontos internos, piorar a inflamação e gerar flacidez traumática. O pós-operatório é uma etapa clínica que requer formação superior (como biologia estética ou fisioterapia) e não apenas cursos livres de estética."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "laser-ilib-imunidade-recuperacao-pos-parto-df",
+    title: "Como o Laser ILIB atua na Imunidade e Recuperação Pós-Parto (Conexão Materna)",
+    meta_title: "Laser ILIB na Recuperação Pós-Parto em Brasília | Conexão Materna",
+    meta_description: "Descubra os benefícios sistêmicos da Laserterapia ILIB para puérperas: aumento da imunidade, qualidade do sono e cicatrização acelerada no DF.",
+    hero_image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1200&q=80",
+    excerpt: "Cansaço extremo, cicatrização lenta e imunidade baixa? Conheça a técnica indolor do ILIB e como ela revoluciona o puerpério no nosso programa Conexão Materna.",
+    category: "Pós-Parto & Saúde",
+    keywords: ["laser ilib brasilia", "recuperacao pos parto df", "conexão materna", "imunidade pos parto", "laserterapia cicatriz cesarea"],
+    readingMinutes: 7,
+    published_at: new Date().toISOString(),
+    cadence_interval_days: 0,
+    status: "published",
+    content: [
+      {
+        heading: "O que é a Laserterapia ILIB?",
+        paragraphs: [
+          "O ILIB (Intravascular Laser Irradiation of Blood) é uma técnica não invasiva e totalmente indolor onde aplicamos um laser terapêutico vermelho contínuo na artéria radial, no punho. A luz do laser atinge a corrente sanguínea, modificando propriedades das células e irradiando saúde para todo o corpo.",
+          "Na biologia, esse laser combate diretamente os radicais livres, promovendo uma 'varredura' antioxidante espetacular."
+        ]
+      },
+      {
+        heading: "Por que ele é essencial no pós-parto?",
+        paragraphs: [
+          "O corpo da mulher após o parto normal ou cesárea está inflamado, dolorido e extremamente exausto. O sono fragmentado pela amamentação derruba a imunidade. O ILIB atua nas mitocôndrias, aumentando a energia celular, reduzindo o estresse sistêmico e liberando endorfinas.",
+          "Mães que realizam o protocolo ILIB domiciliar relatam uma melhora drástica na qualidade do sono nas poucas horas de descanso que têm, além de uma recuperação muito mais rápida da cicatriz cirúrgica."
+        ]
+      },
+      {
+        heading: "O programa Conexão Materna em Brasília",
+        paragraphs: [
+          "Em nosso protocolo Conexão Materna, vamos até a sua casa em qualquer região do DF. Associamos o ILIB no punho enquanto aplicamos a luz do laser diretamente na cicatriz da cesárea (ou no períneo). Enquanto você relaxa, também realizamos drenagem linfática suave e acolhedora.",
+          "Essa tríade biológica (Laser + Drenagem + Taping) garante um pós-parto sem dores incapacitantes e com muita segurança emocional."
+        ]
+      }
+    ]
   }
 ];
