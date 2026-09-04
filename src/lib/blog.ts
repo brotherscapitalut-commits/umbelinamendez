@@ -9,18 +9,37 @@ export type BlogPost = {
   id?: string;
   slug: string;
   title: string;
-  meta_title: string;
-  meta_description: string;
-  hero_image: string;
-  excerpt: string;
+  subtitle?: string;
+  meta_title?: string;
+  meta_description?: string;
+  hero_image?: string;
+  excerpt?: string;
   category: string;
-  keywords: string[];
-  readingMinutes: number;
-  content: BlogContentBlock[];
-  published_at: string;
-  cadence_interval_days: number;
-  status: "draft" | "published" | "archived";
+  keywords?: string[];
+  readingMinutes?: number;
+  readingTime?: number;
+  content: BlogContentBlock[] | string;
+  published_at?: string;
+  publishedAt?: string;
+  cadence_interval_days?: number;
+  status: "draft" | "published" | "archived" | "scheduled";
   created_at?: string;
+  featured?: boolean;
+  seo?: {
+    title: string;
+    description: string;
+    keywords: string[];
+    ogImage: string;
+  };
+  faqs?: {
+    question: string;
+    answer: string;
+  }[];
+  author?: {
+    name: string;
+    title: string;
+    clinic: string;
+  };
 };
 
 export const BLOG_AUTHOR = {

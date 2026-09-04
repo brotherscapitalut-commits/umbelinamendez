@@ -252,24 +252,37 @@ export function serviceJsonLd(service: Service) {
  */
 export function blogPostingJsonLd(post: BlogPost) {
     const url = absoluteUrl(`/blog/${post.slug}`);
+    const articleBody = typeof post.content === 'string' 
+      ? post.content 
+      : post.content.map((c) => `${c.heading ? `${c.heading}: ` : ""}${c.paragraphs.join(" ")}`).join("\n\n");
     return {
           "@context": "https://schema.org",
           "@type": "Article",
           "@id": `${url}#article`,
-          headline: post.title,
-          description: post.meta_description || post.excerpt,
-          articleBody: post.content.map((c) => `${c.heading ? `${c.heading}: ` : ""}${c.paragraphs.join(" ")}`).join("\n\n"),
-          author: {
+          headline: post.seo?.title || post.meta_title || post.title,
+          description: post.seo?.description || post.meta_description || post.excerpt,
+          articleBody,
+          author: post.author ? {
+                  "@type": "Person",
+                  name: post.author.name,
+                  jobTitle: post.author.title,
+                  worksFor: {
+                    "@type": "MedicalBusiness",
+                    name: "Umbelina Mendez — Bióloga Esteta",
+                    address: post.author.clinic
+                  }
+          } : {
                   "@id": `${BASE}/#person`,
           },
           publisher: {
                   "@id": `${BASE}/#negocio`,
           },
-          datePublished: post.published_at,
-          dateModified: post.published_at,
+          datePublished: post.publishedAt || post.published_at,
+          dateModified: post.publishedAt || post.published_at,
           inLanguage: "pt-BR",
           mainEntityOfPage: url,
-          keywords: (post.keywords || []).join(", "),
+          image: post.seo?.ogImage || post.hero_image,
+          keywords: (post.seo?.keywords || post.keywords || []).join(", "),
     };
 }
 
@@ -321,6 +334,22 @@ export function pageSchemaScripts(opts: {
         scripts.push({
                 type: "application/ld+json",
                 children: JSON.stringify(faqPageJsonLd(opts.faqs)),
+        });
+  } else if (opts.blogPost && opts.blogPost.faqs && opts.blogPost.faqs.length > 0) {
+        scripts.push({
+                type: "application/ld+json",
+                children: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "FAQPage",
+                      mainEntity: opts.blogPost.faqs.map((f) => ({
+                              "@type": "Question",
+                              name: f.question,
+                              acceptedAnswer: {
+                                        "@type": "Answer",
+                                        text: f.answer,
+                              },
+                      })),
+                }),
         });
   }
 

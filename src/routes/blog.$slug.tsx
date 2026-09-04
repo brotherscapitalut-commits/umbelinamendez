@@ -24,23 +24,23 @@ export const Route = createFileRoute("/blog/$slug")({
     }
     const p = loaderData.post;
     const url = postUrl(p.slug);
-    const title = p.meta_title || `${p.title} — Dra. Umbelina Mendez | Brasília DF`;
-    const description = p.meta_description || p.excerpt;
+    const title = p.seo?.title || p.meta_title || `${p.title} — Dra. Umbelina Mendez | Brasília DF`;
+    const description = p.seo?.description || p.meta_description || p.excerpt;
 
     return {
       meta: [
         { title },
         { name: "description", content: description },
-        { name: "keywords", content: `${(p.keywords || []).join(", ")}, Brasília DF, Dra Umbelina Mendez` },
-        { name: "author", content: "Dra. Umbelina Mendez — Bióloga Esteta" },
+        { name: "keywords", content: `${(p.seo?.keywords || p.keywords || []).join(", ")}, Brasília DF, Dra Umbelina Mendez` },
+        { name: "author", content: p.author?.name || "Dra. Umbelina Mendez — Bióloga Esteta" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
-        { property: "og:image", content: p.hero_image || "" },
-        { property: "article:published_time", content: p.published_at },
+        { property: "og:image", content: p.seo?.ogImage || p.hero_image || "" },
+        { property: "article:published_time", content: p.publishedAt || p.published_at },
         { property: "article:section", content: p.category },
-        { property: "article:author", content: "Dra. Umbelina Mendez" },
+        { property: "article:author", content: p.author?.name || "Dra. Umbelina Mendez" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
@@ -131,9 +131,9 @@ function BlogPostPage() {
             {post.category}
           </span>
           <span>•</span>
-          <time dateTime={post.published_at}>{formatDatePtBr(post.published_at)}</time>
+          <time dateTime={post.publishedAt || post.published_at}>{formatDatePtBr((post.publishedAt || post.published_at)!)}</time>
           <span>•</span>
-          <span>{post.readingMinutes} min de leitura</span>
+          <span>{post.readingTime || post.readingMinutes} min de leitura</span>
         </div>
 
         <h1
@@ -143,21 +143,23 @@ function BlogPostPage() {
           {post.title}
         </h1>
         
-        {post.hero_image && (
+        {(post.seo?.ogImage || post.hero_image) && (
           <img 
-            src={post.hero_image} 
+            src={post.seo?.ogImage || post.hero_image} 
             alt={post.title} 
             className="w-full max-h-[420px] object-cover rounded-2xl shadow-sm mt-8 border border-[#E8D8D0]" 
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
         )}
 
-        <p
-          data-speakable
-          className="mt-8 text-base md:text-lg text-[#6E5A56] font-medium leading-relaxed border-l-2 border-[#8C4E43] pl-4"
-        >
-          {post.excerpt}
-        </p>
+        {(post.subtitle || post.excerpt) && (
+          <p
+            data-speakable
+            className="mt-8 text-base md:text-lg text-[#6E5A56] font-medium leading-relaxed border-l-2 border-[#8C4E43] pl-4"
+          >
+            {post.subtitle || post.excerpt}
+          </p>
+        )}
 
         {/* Autor e Credenciais */}
         <div className="mt-8 p-4 rounded-2xl bg-white border border-[#E8D8D0] flex items-center gap-3.5 shadow-xs">
@@ -172,20 +174,50 @@ function BlogPostPage() {
 
         {/* Corpo do Artigo */}
         <div data-speakable className="mt-10 space-y-8 text-sm md:text-base text-[#2D2322]/90 leading-relaxed font-normal">
-          {(post.content || []).map((sec, i) => (
-            <section key={i} className="space-y-4">
-              {sec.heading && (
-                <h2 className="font-serif text-2xl md:text-3xl text-[#2D2322] font-semibold pt-4">
-                  {sec.heading}
-                </h2>
-              )}
-              {sec.paragraphs.map((par, j) => (
-                <p key={j} className="text-[#6E5A56] leading-relaxed">
-                  {par}
-                </p>
-              ))}
-            </section>
-          ))}
+          {typeof post.content === 'string' ? (
+            <div 
+              className="prose prose-[#8C4E43] max-w-none text-[#6E5A56] leading-relaxed [&>h2]:font-serif [&>h2]:text-2xl [&>h2]:md:text-3xl [&>h2]:text-[#2D2322] [&>h2]:font-semibold [&>h2]:pt-4 [&>h2]:mt-8 [&>h3]:font-serif [&>h3]:text-xl [&>h3]:text-[#2D2322] [&>h3]:font-semibold [&>h3]:mt-6 [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:list-decimal [&>ol]:pl-6 [&>table]:w-full [&>table]:text-left [&>table]:border-collapse [&>table>thead]:bg-[#F4EAE4] [&>table>thead>tr>th]:p-3 [&>table>tbody>tr>td]:p-3 [&>table>tbody>tr>td]:border-b [&>table>tbody>tr>td]:border-[#E8D8D0]"
+              dangerouslySetInnerHTML={{ 
+                __html: post.content
+                  .replace(/---/g, '<hr class="my-8 border-[#E8D8D0]"/>')
+                  .replace(/## (.*)/g, '<h2>$1</h2>')
+                  .replace(/### (.*)/g, '<h3>$1</h3>')
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                  .replace(/\|(.+)\|/g, (match) => {
+                    const rows = match.trim().split('\n');
+                    let table = '<table class="my-6">\n';
+                    let isHead = true;
+                    for (const row of rows) {
+                      if (row.includes('---')) {
+                        isHead = false;
+                        continue;
+                      }
+                      const cells = row.split('|').filter(c => c.trim() !== '');
+                      table += '<tr>' + cells.map(c => isHead ? `<th>${c.trim()}</th>` : `<td>${c.trim()}</td>`).join('') + '</tr>\n';
+                    }
+                    table += '</table>';
+                    return table;
+                  })
+                  .replace(/^(?!<h|<t|<hr)(.+)$/gm, '<p>$1</p>')
+                  .replace(/<p><\/p>/g, '')
+              }} 
+            />
+          ) : (
+            (post.content || []).map((sec, i) => (
+              <section key={i} className="space-y-4">
+                {sec.heading && (
+                  <h2 className="font-serif text-2xl md:text-3xl text-[#2D2322] font-semibold pt-4">
+                    {sec.heading}
+                  </h2>
+                )}
+                {sec.paragraphs.map((par, j) => (
+                  <p key={j} className="text-[#6E5A56] leading-relaxed">
+                    {par}
+                  </p>
+                ))}
+              </section>
+            ))
+          )}
         </div>
 
         {/* Box de Ação no Final do Artigo */}
