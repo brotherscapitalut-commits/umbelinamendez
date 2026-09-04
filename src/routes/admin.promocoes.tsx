@@ -47,6 +47,7 @@ import { Logo } from "@/components/logo";
 import { AdminBlog } from "@/components/admin-blog";
 import { AdminLeads } from "@/components/admin-leads";
 import { AdminServices } from "@/components/admin-services";
+import { AdminDiscounts } from "@/components/admin-discounts";
 
 export const Route = createFileRoute("/admin/promocoes")({
   head: () => ({
@@ -158,7 +159,7 @@ function AdminPromocoes() {
 }
 
 function AdminEditor({ onLogout }: { onLogout: () => void }) {
-  const [activeTab, setActiveTab] = useState<"agenda" | "leads" | "promos" | "pix" | "seo" | "blog" | "services">("agenda");
+  const [activeTab, setActiveTab] = useState<"agenda" | "leads" | "promos" | "discounts" | "pix" | "seo" | "blog" | "services">("agenda");
 
   const [promos, setPromos] = useState<Promo[]>(() => loadPromos());
   const [pix, setPix] = useState<PixConfig>(() => loadPix());
@@ -326,6 +327,18 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
 
             <button
               type="button"
+              onClick={() => setActiveTab("discounts")}
+              className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition ${
+                activeTab === "discounts"
+                  ? "bg-[#8C4E43] text-white shadow-sm"
+                  : "text-[#6E5A56] hover:text-[#2D2322]"
+              }`}
+            >
+              🎁 Descontos Progressivos
+            </button>
+
+            <button
+              type="button"
               onClick={() => setActiveTab("pix")}
               className={`px-4 py-1.5 rounded-xl text-xs font-semibold tracking-wide transition ${
                 activeTab === "pix"
@@ -406,6 +419,12 @@ function AdminEditor({ onLogout }: { onLogout: () => void }) {
         {/* ============================================================ */}
         {/* ABA 1: AGENDA & HORÁRIOS EM TEMPO REAL */}
         {/* ============================================================ */}
+        {activeTab === "discounts" && (
+          <div className="animate-[fadeIn_.2s_ease-out]">
+            <AdminDiscounts />
+          </div>
+        )}
+
         {activeTab === "agenda" && (
           <div className="space-y-8 animate-[fadeIn_.2s_ease-out]">
             {/* Top Bar da Agenda */}

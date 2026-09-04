@@ -9,6 +9,8 @@ import { LeadForm } from "@/components/lead-form";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { Logo } from "@/components/logo";
 import { Depoimentos } from "@/components/depoimentos";
+import { addToCart } from "@/lib/cart-store";
+import { toast } from "sonner";
 
 
 export const Route = createFileRoute("/servicos/$slug")({
@@ -244,12 +246,16 @@ function ServicePage() {
               </p>
 
               <div className="mt-6 space-y-2.5">
-                <Link
-                  to="/agendamento"
-                  className="w-full inline-flex items-center justify-center rounded-full bg-[#8C4E43] text-white py-3 text-xs font-semibold hover:bg-[#8C4E43] shadow-[0_4px_14px_rgba(168,101,88,0.25)] transition"
+                <button
+                  onClick={() => {
+                    const price = service.plans?.[0]?.price ?? 250;
+                    addToCart(service, price);
+                    toast.success("Serviço adicionado ao carrinho!");
+                  }}
+                  className="w-full inline-flex items-center justify-center rounded-full bg-[#127F70] text-white py-3 text-xs font-semibold hover:bg-[#0E665A] shadow-md transition"
                 >
-                  Agendar com Bloqueio de Horário →
-                </Link>
+                  + Adicionar ao Carrinho
+                </button>
                 <a
                   href={wa}
                   target="_blank"

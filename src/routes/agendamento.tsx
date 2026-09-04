@@ -13,6 +13,7 @@ import {
   type CalculatedSlot,
 } from "@/lib/agenda-store";
 import { saveLead } from "@/lib/leads-store";
+import { useCart, clearCart } from "@/lib/cart-store";
 
 export const Route = createFileRoute("/agendamento")({
   head: () => ({
@@ -66,7 +67,6 @@ function AgendamentoPage() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [service, setService] = useState<string>(services[0]?.slug || "");
   const [date, setDate] = useState<string>(todayOrNextValidISO());
   const [selectedSlot, setSelectedSlot] = useState<CalculatedSlot | null>(null);
   const [modality, setModality] = useState<"clinica" | "domiciliar">("clinica");
@@ -74,10 +74,11 @@ function AgendamentoPage() {
   const [notes, setNotes] = useState("");
   const [bookingError, setBookingError] = useState("");
 
-  const currentServiceObj = useMemo(
-    () => services.find((s) => s.slug === service) ?? services[0],
-    [service, services]
-  );
+  const { items, totalWithDiscount, clearCart: emptyCart } = useCart();
+  
+  // Nomes e Slugs combinados
+  const combinedTitles = items.map(i => i.serviceTitle).join(" + ");
+  const combinedSlugs = items.map(i => i.serviceSlug).join(",");
 
   const valid =
     name.trim().length > 1 &&
@@ -101,8 +102,8 @@ function AgendamentoPage() {
       clientName: name,
       clientPhone: phone,
       clientEmail: email,
-      service: currentServiceObj.title,
-      serviceSlug: currentServiceObj.slug,
+      service: combinedTitles,
+      serviceSlug: combinedSlugs,
       date,
       startTime: selectedSlot.startTime,
       endTime: selectedSlot.endTime,
@@ -122,30 +123,31 @@ function AgendamentoPage() {
       name: name.trim(),
       phone: phone.trim(),
       email: email.trim() || undefined,
-      serviceName: currentServiceObj.title,
-      serviceSlug: currentServiceObj.slug,
-      price: currentServiceObj.plans?.[0]?.price || 280,
+      serviceName: combinedTitles,
+      serviceSlug: combinedSlugs,
+      price: totalWithDiscount,
       status: "confirmado" as any,
       preferredDate: date,
       preferredShift: selectedSlot.period === "manha" ? "Manhã" : "Tarde",
       notes: `Horário: ${selectedSlot.startTime} às ${selectedSlot.endTime}`,
     });
 
-    trackEvent("lead", { source: "form_agendamento", service, value: 1, currency: "BRL" });
+    trackEvent("lead", { source: "form_agendamento", service: combinedSlugs, value: 1, currency: "BRL" });
 
     // 3. Monta mensagem estruturada
     const waMsg = formatAppointmentWhatsAppMessage({
       clientName: name,
       clientPhone: phone,
-      service: `${currentServiceObj.title} (${modality === "clinica" ? "Clínica Asa Norte" : "Domiciliar"})`,
+      service: `${combinedTitles} (${modality === "clinica" ? "Clínica Asa Norte" : "Domiciliar"})`,
       date,
       startTime: selectedSlot.startTime,
       endTime: selectedSlot.endTime,
       paymentMethod: "A combinar / Na clínica",
-      price: currentServiceObj.plans?.[0]?.price,
+      price: totalWithDiscount,
     });
 
-    window.location.href = waLink(waMsg, "form_agendamento", service);
+    emptyCart(); // Clear cart after booking
+    window.location.href = waLink(waMsg, "form_agendamento", "carrinho");
   }
 
   return (
@@ -177,6 +179,15 @@ function AgendamentoPage() {
       </section>
 
       <section className="mx-auto max-w-4xl px-6 pb-24 -mt-4">
+        {items.length === 0 ? (
+          <div className="bg-white border border-[#E8D8D0] rounded-3xl p-10 text-center shadow-sm">
+            <h2 className="font-serif text-2xl font-bold text-[#2D2322] mb-4">Seu carrinho está vazio</h2>
+            <p className="text-sm text-[#6E5A56] mb-8">Adicione tratamentos antes de prosseguir com o agendamento.</p>
+            <Link to="/tratamentos" className="rounded-full bg-[#127F70] hover:bg-[#0E665A] text-white px-6 py-3 font-semibold shadow-md transition-colors">
+              Ver Tratamentos
+            </Link>
+          </div>
+        ) : (
         <form
           onSubmit={handleSubmit}
           className="bg-white border border-[#E8D8D0] rounded-3xl p-6 md:p-10 space-y-8 shadow-sm"
@@ -234,18 +245,19 @@ function AgendamentoPage() {
             </h2>
 
             <div className="mt-4 space-y-4">
-              <Field label="Selecione o Tratamento ou Protocolo *">
-                <select
-                  value={service}
-                  onChange={(e) => setService(e.target.value)}
-                  className={inputCls}
-                >
-                  {services.map((s) => (
-                    <option key={s.slug} value={s.slug}>
-                      {s.title}
-                    </option>
+              <Field label="Serviços Selecionados no Carrinho">
+                <div className="rounded-lg border border-[#E8D8D0] bg-[#FDFBF9] p-4 text-sm text-[#2D2322] flex flex-col gap-2">
+                  {items.map(item => (
+                    <div key={item.id} className="flex justify-between items-center border-b border-[#E8D8D0] pb-2 last:border-0 last:pb-0">
+                      <span className="font-semibold">{item.serviceTitle}</span>
+                      <span className="text-[#8C4E43]">R$ {item.price.toFixed(2)}</span>
+                    </div>
                   ))}
-                </select>
+                  <div className="pt-2 border-t border-[#E8D8D0] flex justify-between items-center font-bold">
+                    <span>Total com Desconto:</span>
+                    <span className="text-[#127F70]">R$ {totalWithDiscount.toFixed(2)}</span>
+                  </div>
+                </div>
               </Field>
 
               <Field label="Modalidade de Atendimento *">
@@ -339,7 +351,7 @@ function AgendamentoPage() {
                     Resumo do Agendamento
                   </div>
                   <div className="font-serif text-base md:text-lg font-bold text-[#2D2322] mt-0.5">
-                    {currentServiceObj.title} • {date.split("-").reverse().join("/")} das {selectedSlot.startTime} às {selectedSlot.endTime}
+                    {combinedTitles} • {date.split("-").reverse().join("/")} das {selectedSlot.startTime} às {selectedSlot.endTime}
                   </div>
                 </div>
                 <span className="inline-block text-xs font-semibold text-emerald-800 bg-emerald-100 border border-emerald-300 px-3 py-1 rounded-full shrink-0">
@@ -365,6 +377,7 @@ function AgendamentoPage() {
             </div>
           </div>
         </form>
+        )}
       </section>
 
       <WhatsAppFab />

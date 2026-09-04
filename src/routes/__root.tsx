@@ -8,10 +8,10 @@ import {
 } from "@tanstack/react-router";
 import { useEffect } from "react";
 
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { trackingScripts } from "../lib/tracking";
 import { useSeo } from "../hooks/useSeo";
 import { syncFromCloud } from "../lib/promo-store";
+import { CartFloatingBar } from "../components/cart-floating-bar";
 
 function NotFoundComponent() {
   return (
@@ -104,6 +104,7 @@ function RootComponent() {
     <>
       <ScrollRestoration />
       <Outlet />
+      <CartFloatingBar />
     </>
   );
 }

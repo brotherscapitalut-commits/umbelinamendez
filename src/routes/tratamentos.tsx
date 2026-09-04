@@ -4,6 +4,8 @@ import { useMedia } from "@/lib/media-store";
 import { pageSchemaScripts } from "@/lib/schema";
 import { WhatsAppFab } from "@/components/whatsapp-fab";
 import { Logo } from "@/components/logo";
+import { addToCart } from "@/lib/cart-store";
+import { toast } from "sonner";
 
 
 export const Route = createFileRoute("/tratamentos")({
@@ -116,8 +118,19 @@ function TreatmentsPage() {
                 </p>
                 <div className="mt-auto pt-6 flex items-center justify-between border-t border-[#E8D8D0]/50">
                   <span className="text-xs font-semibold text-[#8C4E43] group-hover:underline underline-offset-4">
-                    Detalhes do Protocolo →
+                    Detalhes →
                   </span>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const price = s.plans?.[0]?.price ?? 250;
+                      addToCart(s, price);
+                      toast.success("Adicionado ao carrinho!");
+                    }}
+                    className="rounded-full bg-[#127F70] hover:bg-[#0E665A] text-white px-3 py-1.5 text-xs font-bold transition-colors shadow-sm"
+                  >
+                    + Carrinho
+                  </button>
                 </div>
               </div>
             </Link>
