@@ -3,7 +3,7 @@ import type { BlogPost } from "@/lib/blog";
 export const BLOG_SEEDS: BlogPost[] = [
   {
     slug: "quantas-sessoes-drenagem-linfatica-apos-lipoaspiracao",
-    publishedAt: "2026-10-07T12:00:00Z",
+    publishedAt: "2026-09-01T12:00:00Z",
     status: "published",
     category: "Pós-Operatório",
     readingTime: 9,
@@ -141,7 +141,7 @@ Se você está planejando uma cirurgia ou acabou de realizá-la em Brasília, en
   },
   {
     slug: "recuperacao-pos-parto-completa-drenagem-laserterapia",
-    publishedAt: "2026-11-04T12:00:00Z",
+    publishedAt: "2026-08-01T12:00:00Z",
     status: "published",
     category: "Pós-Parto",
     readingTime: 10,
@@ -287,7 +287,7 @@ Sim. O Conexão Materna inclui a opção de atendimento domiciliar em todo o DF,
   },
   {
     slug: "lipedema-tem-cura-tratamento-drenagem-brasilia",
-    publishedAt: "2026-12-02T12:00:00Z",
+    publishedAt: "2026-07-01T12:00:00Z",
     status: "published",
     category: "Estética Avançada",
     readingTime: 11,
@@ -486,7 +486,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Operatório",
     keywords: ["drenagem linfática pós operatório brasília", "drenagem pos operatorio asa norte df", "clínica estética pós operatório df"],
     readingMinutes: 8,
-    published_at: new Date().toISOString(),
+    published_at: "2026-06-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -525,7 +525,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Operatório",
     keywords: ["drenagem linfática abdominoplastia brasília", "seroma abdominoplastia tratamento df", "recuperação abdominoplastia brasília"],
     readingMinutes: 9,
-    published_at: new Date(Date.now() - 86400000).toISOString(),
+    published_at: "2026-05-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -562,7 +562,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Operatório",
     keywords: ["pós operatório cirurgia plástica brasília", "cuidados pos operatorio lipo hd brasilia", "fisioterapia pos operatorio plano piloto"],
     readingMinutes: 10,
-    published_at: new Date(Date.now() - 86400000 * 2).toISOString(),
+    published_at: "2026-04-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -599,7 +599,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Operatório",
     keywords: ["como evitar fibrose no pós-operatório", "tratamento para fibrose tardia pos lipoaspiração", "placa cirúrgica e seroma o que fazer"],
     readingMinutes: 12,
-    published_at: new Date(Date.now() - 86400000 * 3).toISOString(),
+    published_at: "2026-03-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -635,7 +635,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Parto",
     keywords: ["taping pós operatório brasília", "bandagem elástica pós cirurgia plástica df", "quando tirar o taping pós-parto"],
     readingMinutes: 7,
-    published_at: new Date(Date.now() - 86400000 * 4).toISOString(),
+    published_at: "2026-02-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -671,7 +671,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Cuidados & Saúde",
     keywords: ["lipedema brasília", "tratamento lipedema asa norte df", "drenagem para lipedema", "sintomas de lipedema"],
     readingMinutes: 8,
-    published_at: new Date("2026-09-02T12:00:00Z").toISOString(),
+    published_at: "2026-01-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -717,7 +717,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Operatório",
     keywords: ["drenagem linfática", "pos operatorio brasilia", "massagem pos cirurgica df", "diferença drenagem", "fibrose lipo"],
     readingMinutes: 6,
-    published_at: new Date().toISOString(),
+    published_at: "2025-12-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
@@ -753,7 +753,7 @@ O tratamento do lipedema é contínuo — não há um número fixo de sessões c
     category: "Pós-Parto & Saúde",
     keywords: ["laser ilib brasilia", "recuperacao pos parto df", "conexão materna", "imunidade pos parto", "laserterapia cicatriz cesarea"],
     readingMinutes: 7,
-    published_at: new Date().toISOString(),
+    published_at: "2025-11-01T12:00:00Z",
     cadence_interval_days: 0,
     status: "published",
     content: [
